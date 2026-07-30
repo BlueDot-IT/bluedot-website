@@ -1,1 +1,12 @@
-# Default code owners\n* @jason-allen-oneal\n
+# Default code owner
+* @jason-allen-oneal
+
+# Security-sensitive paths
+/.github/workflows/ @jason-allen-oneal
+/package.json @jason-allen-oneal
+/package-lock.json @jason-allen-oneal
+/prisma/ @jason-allen-oneal
+/src/app/api/ @jason-allen-oneal
+/src/lib/auth.ts @jason-allen-oneal
+/src/lib/adminAuth.ts @jason-allen-oneal
+/src/middleware.ts @jason-allen-oneal

@@ -7,6 +7,7 @@ import ShareButtons from "@/components/ShareButtons"
 import { Card, CardHeader, CardContent } from "@/components/ui/Card"
 import { Separator } from "@/components/ui/Separator"
 import { Metadata } from "next"
+import { approvedCommentsWhere } from "@/lib/comments"
 
 export const dynamic = "force-dynamic"
 
@@ -103,7 +104,7 @@ export default async function PostPage({
 
   const mdxSource = await serialize(post.content)
   const comments = await prisma.comment.findMany({
-    where: { postId: post.id },
+    where: approvedCommentsWhere(post.id),
     orderBy: { createdAt: "desc" },
     select: { id: true, content: true, author: true, createdAt: true },
   })

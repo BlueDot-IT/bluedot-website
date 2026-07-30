@@ -5,7 +5,7 @@ import { commentRateLimit } from '@/lib/rateLimit';
 
 export async function POST(req: NextRequest) {
     // 1. Apply Rate Limiting
-    const limitReached = commentRateLimit(req);
+    const limitReached = await commentRateLimit(req);
     if (limitReached) return limitReached;
 
     try {

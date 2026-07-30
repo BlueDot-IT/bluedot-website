@@ -1,19 +1,21 @@
 import { prisma } from "@/lib/prisma";
 import * as bcrypt from "bcrypt";
+import { requiredSeedAdminConfig } from "@/lib/securityConfig";
 
 async function main() {
-  console.log("🗑️  Clearing all tables...");
-  await prisma.post.deleteMany({});
-  await prisma.user.deleteMany({});
-  console.log("✅ All tables cleared");
+  const { email: adminEmail, username: adminUser, password: adminPassword } =
+    requiredSeedAdminConfig();
 
-  const hashedPassword = await bcrypt.hash(process.env.ADMIN_PASS || "admin123", 10);
+  const hashedPassword = await bcrypt.hash(adminPassword, 12);
   await prisma.user.upsert({
-    where: { email: process.env.ADMIN_EMAIL || "admin@bluedot.com" },
-    update: {},
+    where: { email: adminEmail },
+    update: {
+      username: adminUser,
+      password: hashedPassword,
+    },
     create: {
-      username: process.env.ADMIN_USER || "admin",
-      email: process.env.ADMIN_EMAIL || "admin@bluedot.com",
+      username: adminUser,
+      email: adminEmail,
       password: hashedPassword,
     },
   });

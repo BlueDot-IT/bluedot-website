@@ -65,7 +65,7 @@ See it live:
 
 Requirements
 
-- Node.js 18+
+- Node.js 20.9+
 - MySQL (local or remote)
 - npm, yarn, or pnpm
 
@@ -119,12 +119,22 @@ DATABASE_URL="mysql://user:password@localhost:3306/bluedot"
 NEXTAUTH_URL="http://localhost:3000"
 NEXTAUTH_SECRET="your-nextauth-secret"
 ADMIN_EMAIL="admin@example.com"
+ADMIN_EMAILS="admin@example.com,security@example.com"
 ADMIN_USER="admin"
 ADMIN_PASS="secure-password"
+ALLOW_PUBLIC_REGISTRATION="false"
+RATE_LIMIT_IP_HEADER="x-forwarded-for"
 # Add any NEXT_PUBLIC_ keys or third-party API keys as required
 ```
 
-If `.env.example` is missing, add one with sanitized keys to help contributors.
+Copy `.env.example` and replace every placeholder. Admin authorization fails
+closed unless the signed-in email appears in `ADMIN_EMAIL` or
+`ADMIN_EMAILS`. Public registration remains disabled unless
+`ALLOW_PUBLIC_REGISTRATION=true`; allowlisted administrator addresses can never
+self-register. Production requests fail closed unless `RATE_LIMIT_IP_HEADER`
+identifies a header controlled by a trusted reverse proxy. Rate-limit counters
+are stored atomically in MySQL, so `npx prisma migrate deploy` must run before
+the hardened application is started.
 
 
 ## Database & Prisma
@@ -134,13 +144,15 @@ If `.env.example` is missing, add one with sanitized keys to help contributors.
   - `npx prisma generate`
   - `npx prisma migrate dev` (local migrations)
   - `npx prisma db seed` (if seed script exists)
-- Confirm models for posts, projects, users, and comments are present and documented.
+- Confirm models for posts, projects, users, comments, and shared rate-limit
+  buckets are present and documented.
 
 
 ## Admin panel
 
 - Admin UI available at `/admin`
-- Admin/author accounts managed via NextAuth or environment-backed default admin credentials (ADMIN_USER / ADMIN_PASS)
+- Admin accounts authenticate through NextAuth and must also match the
+  `ADMIN_EMAIL`/`ADMIN_EMAILS` allowlist. There are no default credentials.
 - Admin features: create/edit blog posts and projects, moderate comments, manage metadata
 
 ## Available scripts
@@ -149,6 +161,11 @@ If `.env.example` is missing, add one with sanitized keys to help contributors.
 - `npm run build` — build for production
 - `npm run start` — start production server
 - `npm run lint` — run ESLint
+- `npm run typecheck` — run the TypeScript compiler without emitting files
+- `npm test` — run security regression tests
+- `npm run audit:prod` — fail on high/critical production dependency advisories
+  except the documented, unreachable Nodemailer `raw`-message advisory until
+  NextAuth accepts a patched Nodemailer major
 - Prisma helpers:
   - `npx prisma studio`
   - `npx prisma migrate`

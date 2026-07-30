@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 import { prisma } from "@/lib/prisma";
-import { apiRateLimit } from "@/lib/rateLimit";
+import { newsletterRateLimit } from "@/lib/rateLimit";
 import { sendMail } from "@/lib/mail";
 
 const SubscribeSchema = z.object({
@@ -19,7 +19,7 @@ function hasSmtpConfigured() {
 }
 
 export async function POST(req: NextRequest) {
-  const limitReached = apiRateLimit(req);
+  const limitReached = await newsletterRateLimit(req);
   if (limitReached) return limitReached;
 
   try {

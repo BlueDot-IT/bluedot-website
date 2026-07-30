@@ -20,10 +20,16 @@ export default function LoginPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (session) router.push("/admin");
+    if (session?.user?.isAdmin) {
+      router.push("/admin");
+    }
   }, [session, router]);
 
-  if (session) return null;
+  if (session?.user?.isAdmin) return null;
+
+  const displayedError = session
+    ? "This account is not authorized for the admin dashboard."
+    : error;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -111,9 +117,9 @@ export default function LoginPage() {
               />
             </div>
 
-            {error && (
+            {displayedError && (
               <Alert variant="error">
-                <span>{error}</span>
+                <span>{displayedError}</span>
               </Alert>
             )}
 

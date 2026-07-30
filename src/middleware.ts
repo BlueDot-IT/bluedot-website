@@ -14,7 +14,7 @@ export default withAuth(
     }
 
     // If user is authenticated and trying to access login page
-    if (isAuth && isAuthPage) {
+    if (isAuth && token?.isAdmin === true && isAuthPage) {
       return NextResponse.redirect(new URL("/admin", req.url));
     }
 
@@ -24,6 +24,7 @@ export default withAuth(
     callbacks: {
       authorized: ({ token, req }) => {
         const isAuth = !!token;
+        const isAdmin = token?.isAdmin === true;
         const isAuthPage = req.nextUrl.pathname.startsWith("/login");
         const isAdminPage = req.nextUrl.pathname.startsWith("/admin");
 
@@ -34,7 +35,7 @@ export default withAuth(
 
         // Require authentication for admin pages
         if (isAdminPage) {
-          return isAuth;
+          return isAuth && isAdmin;
         }
 
         // Allow all other pages

@@ -4,6 +4,8 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import bcrypt from "bcrypt";
 import { prisma } from "@/lib/prisma";
+import { isAdminEmail, trustedClientIdentity } from "@/lib/securityConfig";
+import { clearLoginFailures, isLoginBlocked, recordLoginFailure } from "@/lib/rateLimit";
 
 export const authOptions = {
   adapter: PrismaAdapter(prisma),
@@ -15,16 +17,35 @@ export const authOptions = {
         username: { label: "Username", type: "text" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials) {
+      async authorize(credentials, request) {
         const username = credentials?.username?.trim();
         const password = credentials?.password || "";
         if (!username || !password) return null;
 
+        const account = username.toLowerCase();
+        const clientIdentity = trustedClientIdentity(request.headers ?? {});
+        if (!clientIdentity) return null;
+
+        try {
+          if (await isLoginBlocked(clientIdentity, account)) return null;
+        } catch (error) {
+          console.error("Login protection unavailable:", error);
+          return null;
+        }
+
         const user = await prisma.user.findFirst({ where: { username } });
-        if (!user || !user.password) return null;
+        if (!user || !user.password) {
+          await recordLoginFailure(clientIdentity, account);
+          return null;
+        }
 
         const ok = await bcrypt.compare(password, user.password);
-        if (!ok) return null;
+        if (!ok) {
+          await recordLoginFailure(clientIdentity, account);
+          return null;
+        }
+
+        await clearLoginFailures(clientIdentity, account);
 
         return {
           id: String(user.id),
@@ -39,11 +60,13 @@ export const authOptions = {
       if (user) {
         token.id = user.id;
       }
+      token.isAdmin = isAdminEmail(token.email);
       return token;
     },
     async session({ session, token }: any) {
       if (token) {
         session.user.id = token.id as string;
+        session.user.isAdmin = token.isAdmin === true;
       }
       return session;
     },

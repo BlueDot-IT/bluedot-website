@@ -17,14 +17,18 @@ case "$slug" in
 esac
 
 root_dir="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
-demo_dir="$root_dir/demos/$slug"
+final_demo_dir="$root_dir/demos/$slug"
 
-if [ -e "$demo_dir" ]; then
-  echo "demo already exists: $demo_dir" >&2
+if [ -e "$final_demo_dir" ]; then
+  echo "demo already exists: $final_demo_dir" >&2
   exit 1
 fi
 
-mkdir -p "$demo_dir"
+demo_dir="$(mktemp -d "$root_dir/demos/.${slug}.XXXXXX")"
+cleanup() {
+  rm -rf "$demo_dir"
+}
+trap cleanup EXIT HUP INT TERM
 
 cat > "$demo_dir/package.json" <<EOF
 {
@@ -78,6 +82,12 @@ EXPOSE 3000
 
 CMD ["node", "server.js"]
 EOF
+
+(cd "$demo_dir" && npm install --package-lock-only --ignore-scripts --no-audit --no-fund)
+
+mv "$demo_dir" "$final_demo_dir"
+demo_dir="$final_demo_dir"
+trap - EXIT HUP INT TERM
 
 echo "created demo template at: $demo_dir"
 echo "next:" 

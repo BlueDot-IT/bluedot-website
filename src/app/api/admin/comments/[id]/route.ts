@@ -1,19 +1,18 @@
 export const dynamic = "force-dynamic";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/lib/auth";
+import { requireAdminSession } from "@/lib/adminAuth";
 import { apiRateLimit } from "@/lib/rateLimit";
 
 export async function PATCH(request: NextRequest, context: { params: Promise<{ id: string }> }) {
   try {
     // Apply rate limiting
-    const rateLimitResult = apiRateLimit(request);
+    const rateLimitResult = await apiRateLimit(request);
     if (rateLimitResult) {
       return rateLimitResult;
     }
 
-    const session = await getServerSession(authOptions);
+    const session = await requireAdminSession();
     if (!session) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -40,12 +39,12 @@ export async function PATCH(request: NextRequest, context: { params: Promise<{ i
 export async function DELETE(request: NextRequest, context: { params: Promise<{ id: string }> }) {
   try {
     // Apply rate limiting
-    const rateLimitResult = apiRateLimit(request);
+    const rateLimitResult = await apiRateLimit(request);
     if (rateLimitResult) {
       return rateLimitResult;
     }
 
-    const session = await getServerSession(authOptions);
+    const session = await requireAdminSession();
     if (!session) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

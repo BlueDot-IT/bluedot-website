@@ -1,8 +1,20 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcrypt";
+import { registrationRateLimit } from "@/lib/rateLimit";
+import {
+    canSelfRegisterEmail,
+    isPublicRegistrationEnabled,
+} from "@/lib/securityConfig";
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
+    const limitReached = await registrationRateLimit(request);
+    if (limitReached) return limitReached;
+
+    if (!isPublicRegistrationEnabled()) {
+        return NextResponse.json({ error: "Registration is disabled" }, { status: 403 });
+    }
+
     try {
         const body = await request.json();
         const { username: rawUsername, email: rawEmail, password: rawPassword, passwordConfirm } = body || {};
@@ -12,6 +24,10 @@ export async function POST(request: Request) {
 
         if (!username || !email || !password) {
             return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+        }
+
+        if (!canSelfRegisterEmail(email)) {
+            return NextResponse.json({ error: "Registration is not permitted for this address" }, { status: 403 });
         }
 
         if (username.length < 3 || password.length < 6) {
@@ -41,5 +57,3 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: "Server error" }, { status: 500 });
     }
 }
-
-

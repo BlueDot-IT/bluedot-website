@@ -1,38 +1,37 @@
 // app/api/contact/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { sendMail } from "@/lib/mail";
+import { contactRateLimit } from "@/lib/rateLimit";
 
-type Bucket = { hits: number[] };
-const RATE: Record<string, Bucket> = {};
-const WINDOW_MS = 60_000; // 60s
-const MAX_HITS = 5;       // 5 requests per minute per IP
-
-function clientIp(req: NextRequest) {
-  const xf = req.headers.get("x-forwarded-for");
-  const xr = req.headers.get("x-real-ip");
-  return String(xf?.split(",")[0] || xr || "0.0.0.0").trim();
+function escapeHtml(value: string) {
+  return value.replace(/[&<>'"]/g, (character) => {
+    const entities: Record<string, string> = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      "'": "&#39;",
+      '"': "&quot;",
+    };
+    return entities[character];
+  });
 }
 
-function rateLimit(ip: string) {
-  const now = Date.now();
-  const bucket = (RATE[ip] ||= { hits: [] });
-  bucket.hits = bucket.hits.filter((t) => now - t < WINDOW_MS);
-  if (bucket.hits.length >= MAX_HITS) return false;
-  bucket.hits.push(now);
-  return true;
+function singleLine(value: string) {
+  return value.replace(/[\r\n]+/g, " ").trim();
 }
 
 export async function POST(req: NextRequest) {
-  try {
-    const ip = clientIp(req);
-    if (!rateLimit(ip)) {
-      return NextResponse.json(
-        { ok: false, error: "Too many requests" },
-        { status: 429 }
-      );
-    }
+  const limitReached = await contactRateLimit(req);
+  if (limitReached) return limitReached;
 
-    const { name, email, subject, message, startedAt, hp } = await req.json();
+  try {
+    const body = await req.json();
+    const name = typeof body?.name === "string" ? body.name.trim() : "";
+    const email = typeof body?.email === "string" ? body.email.trim() : "";
+    const subject = typeof body?.subject === "string" ? body.subject.trim() : "";
+    const message = typeof body?.message === "string" ? body.message.trim() : "";
+    const startedAt = Number(body?.startedAt);
+    const hp = body?.hp == null ? "" : String(body.hp);
 
     // 1) Honeypot
     if (hp && String(hp).trim().length > 0) {
@@ -40,7 +39,7 @@ export async function POST(req: NextRequest) {
     }
 
     // 2) Submit speed gate
-    const elapsed = Date.now() - Number(startedAt || 0);
+    const elapsed = Date.now() - startedAt;
     if (!Number.isFinite(elapsed) || elapsed < 1500 || elapsed > 24 * 60 * 60 * 1000) {
       return NextResponse.json(
         { ok: false, error: "Suspicious timing" },
@@ -53,6 +52,9 @@ export async function POST(req: NextRequest) {
     if (!emailOk) return NextResponse.json({ ok: false, error: "Bad email" }, { status: 400 });
     if (!name || !subject || !message) {
       return NextResponse.json({ ok: false, error: "Missing fields" }, { status: 400 });
+    }
+    if (name.length > 120 || subject.length > 200 || message.length > 10_000) {
+      return NextResponse.json({ ok: false, error: "Input too long" }, { status: 400 });
     }
 
     // 4) Content scoring
@@ -85,15 +87,13 @@ export async function POST(req: NextRequest) {
 
     const result = await sendMail({
       to: "jason@bluedot.it.com",
-      subject: `Bluedot contact: ${name}`,
-      text: `From: ${name} <${email}>\n\n${message}`,
-      html: `<p><b>From:</b> ${name} &lt;${email}&gt;</p><pre>${message}</pre>`,
-      replyTo: email,
+      subject: `BlueDot contact: ${singleLine(subject)}`,
+      text: `From: ${singleLine(name)} <${singleLine(email)}>\nSubject: ${singleLine(subject)}\n\n${message}`,
+      html: `<p><b>From:</b> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p><pre>${escapeHtml(message)}</pre>`,
+      replyTo: singleLine(email),
     });
 
     return NextResponse.json({ ok: true, id: result.messageId });
-
-    return NextResponse.json({ ok: true, id: crypto.randomUUID() }, { status: 200 });
   } catch (err) {
     return NextResponse.json({ ok: false, error: "Server error" }, { status: 500 });
   }
