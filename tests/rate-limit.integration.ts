@@ -11,8 +11,10 @@ import {
 } from "../src/lib/rateLimit";
 
 test("rate limits are atomic, shared, and avoid immediate account lockout", async () => {
-  const originalHeader = process.env.RATE_LIMIT_IP_HEADER;
-  process.env.RATE_LIMIT_IP_HEADER = "x-forwarded-for";
+  const environment = process.env as Record<string, string | undefined>;
+  const originalHeader = environment.RATE_LIMIT_IP_HEADER;
+  const originalNodeEnv = environment.NODE_ENV;
+  environment.RATE_LIMIT_IP_HEADER = "x-forwarded-for";
 
   try {
     await prisma.rateLimitBucket.deleteMany();
@@ -40,14 +42,17 @@ test("rate limits are atomic, shared, and avoid immediate account lockout", asyn
     await clearLoginFailures("203.0.113.25", "admin");
     assert.equal(await isLoginBlocked("203.0.113.25", "admin"), false);
 
-    delete process.env.RATE_LIMIT_IP_HEADER;
+    delete environment.RATE_LIMIT_IP_HEADER;
+    environment.NODE_ENV = "production";
     const unavailable = await commentRateLimit(
       new NextRequest("http://localhost/api/comments"),
     );
     assert.equal(unavailable?.status, 503);
   } finally {
-    if (originalHeader === undefined) delete process.env.RATE_LIMIT_IP_HEADER;
-    else process.env.RATE_LIMIT_IP_HEADER = originalHeader;
+    if (originalHeader === undefined) delete environment.RATE_LIMIT_IP_HEADER;
+    else environment.RATE_LIMIT_IP_HEADER = originalHeader;
+    if (originalNodeEnv === undefined) delete environment.NODE_ENV;
+    else environment.NODE_ENV = originalNodeEnv;
     await prisma.rateLimitBucket.deleteMany();
     await prisma.$disconnect();
   }
