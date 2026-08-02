@@ -29,6 +29,8 @@ export async function sendMail(opts: {
     text: opts.text,
     html: opts.html,
     replyTo: opts.replyTo,
+    disableFileAccess: true,
+    disableUrlAccess: true,
     headers: {
       "X-Client": "Next.js",
     },

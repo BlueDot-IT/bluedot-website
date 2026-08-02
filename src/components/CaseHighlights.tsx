@@ -3,16 +3,16 @@ import Reveal from '@/components/Reveal'
 
 const methodology = [
   {
-    label: 'Isolation',
-    description: 'We treat every environment as hostile, implementing tiered isolation as a default.'
+    label: 'Current-state map',
+    description: 'The existing process, bottlenecks, owners, inputs, and exceptions.'
   },
   {
-    label: 'Automation',
-    description: 'If it can be codified, it must be. Our CI/CD pipelines are inherently security-aware.'
+    label: 'Bounded implementation',
+    description: 'One bounded operational workflow using the sources agreed in writing.'
   },
   {
-    label: 'Resilience',
-    description: 'Systems are designed for failure. We prioritize mean-time-to-recovery (MTTR) as a primary KPI.'
+    label: 'Validation and handoff',
+    description: 'Checks, failure visibility, acceptance evidence, documentation, and a maintainable handoff.'
   }
 ]
 
@@ -22,13 +22,14 @@ export default function CaseHighlights() {
       <div className="grid gap-24 lg:grid-cols-2">
         <div className="space-y-10">
           <div className="w-12 h-1 bg-white" />
-          <h2 className="text-4xl font-bold tracking-tight text-white leading-tight">Operating <br />Methodology</h2>
+          <span className="pill">What a sprint includes</span>
+          <h2 className="text-4xl font-bold tracking-tight text-white leading-tight">Useful automation that leaves evidence behind.</h2>
           <p className="text-lg text-base-content/60 leading-relaxed font-medium">
-            BlueDot IT approaches software engineering as a discipline of hardening and risk reduction. We focus on verifiable evidence and high-assurance outcomes, not just delivery speed.
+            BlueDot builds around agreed inputs, outputs, failure modes, and handoff points. You get a working system and enough documentation to understand what happens when the happy path wanders into the woods.
           </p>
           <div className="border-l border-white/10 bg-white/5 p-8 font-medium text-base-content/80">
-            &quot;Our engineering philosophy is built on the belief that a system is only as strong as its weakest dependency.&quot;
-            <span className="mt-6 block text-xs font-bold uppercase tracking-widest text-primary">— BlueDot IT Engineering Core</span>
+            Good first candidates include weekly reporting assembled from several portals, information copied between forms and sheets, recurring status work with no clear owner, and small dashboards that need reliable source data.
+            <a href="/contact?service=operations-sprint" className="mt-6 block text-xs font-bold uppercase tracking-widest text-primary">Tell me what is wasting time →</a>
           </div>
         </div>
         <div className="grid gap-12 self-center">

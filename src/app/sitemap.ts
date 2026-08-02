@@ -2,9 +2,10 @@ import { MetadataRoute } from 'next'
 import { prisma } from '@/lib/prisma'
 
 const baseUrl = 'https://bluedot.it.com'
-const lastContentUpdate = new Date('2026-04-15')
-const lastLegalUpdate = new Date('2026-04-13')
+const lastContentUpdate = new Date('2026-07-28')
+const lastLegalUpdate = new Date('2026-07-28')
 const servicePageSlugs = [
+  'operations-automation-reporting',
   'security-reviews',
   'server-hardening',
   'nextjs-security-hardening',

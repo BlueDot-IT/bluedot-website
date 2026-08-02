@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'nodejs'
-export const alt = 'BlueDot IT | Jason O\'Neal'
+export const alt = 'BlueDot IT | Business Automation in Lenoir, NC'
 export const size = {
   width: 1200,
   height: 630,
@@ -86,7 +86,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            Cybersecurity • AI-Powered Tooling • Full-Stack Development
+            Automation • Reporting • Secure Software
           </div>
         </div>
         
@@ -98,7 +98,7 @@ export default async function Image() {
             color: '#64748B',
           }}
         >
-          bluedot.it. com
+          bluedot.it.com
         </div>
       </div>
     ),

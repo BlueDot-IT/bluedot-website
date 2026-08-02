@@ -5,28 +5,35 @@ import Reveal from '@/components/Reveal'
 
 const personas = [
   {
-    title: 'Consulting',
-    description: 'System-level architecture reviews, performance optimization, and legacy modernization for growing organizations.',
-    cta: 'Strategic Audit',
-    href: '/services#startups'
+    title: 'See what needs attention',
+    description: 'Turn scattered spreadsheets, inboxes, portal exports, and status checks into one useful report or lightweight dashboard.',
+    cta: 'Explore reporting work',
+    href: '/services/operations-automation-reporting'
   },
   {
-    title: 'Hardening',
-    description: 'Deep-stack security audits, zero-trust implementation, and automated threat-reduction gating for the enterprise.',
-    cta: 'Audit Resilience',
-    href: '/services#enterprise'
+    title: 'Remove repetitive handoffs',
+    description: 'Connect stable tools and data sources so routine copying, reminders, notifications, and report preparation happen consistently.',
+    cta: 'Explore workflow automation',
+    href: '/services/workflow-automation'
   },
   {
-    title: 'Intelligence',
-    description: 'Integration of LLMs and autonomous agents into internal workflows with strict data privacy and isolation.',
-    cta: 'Augment Intelligence',
-    href: '/services#developers'
+    title: 'Keep a human in control',
+    description: 'Use validation, logs, exception alerts, and explicit decision points instead of creating an unattended machine nobody trusts.',
+    cta: 'See how BlueDot works',
+    href: '/services#how-it-works'
   }
 ]
 
 export default function PersonaGrid() {
   return (
-    <section className="page-shell py-24 bg-white/[0.01] border-b border-white/5">
+    <section className="page-shell py-24 bg-white/[0.01] border-b border-white/5 space-y-12">
+      <div className="max-w-3xl space-y-4">
+        <span className="pill">The practical outcome</span>
+        <h2 className="text-4xl font-bold tracking-tight text-white">One bounded workflow. Better operational visibility.</h2>
+        <p className="text-base-content/65 leading-relaxed">
+          The Operations Automation and Reporting Sprint starts with a real process, not an AI sales pitch. BlueDot maps the work, defines the source boundaries in writing, and delivers one maintainable reporting or automation flow.
+        </p>
+      </div>
       <div className="grid gap-12 md:grid-cols-3">
         {personas.map((p) => (
           <Reveal key={p.title}>

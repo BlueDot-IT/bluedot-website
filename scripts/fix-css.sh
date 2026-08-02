@@ -1,7 +1,10 @@
 #!/bin/bash
-CSS_DIR=".next/static/css"
+set -euo pipefail
+
+CSS_DIR="${NEXT_DIST_DIR:-.next}/static/css"
 if [ -d "$CSS_DIR" ]; then
-  for f in $CSS_DIR/*.css; do
+  for f in "$CSS_DIR"/*.css; do
+    [ -e "$f" ] || continue
     echo "Sanitizing @property in $f"
     # Ensure initial-value: 0 becomes 0% only for properties with <percentage> syntax.
     # We use a non-zero value 0.001% to prevent minifiers from stripping the unit again.

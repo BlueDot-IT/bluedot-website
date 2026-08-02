@@ -11,8 +11,15 @@ export default function JsonLd() {
         founder: {
           '@id': 'https://bluedot.it.com/#person',
         },
-        areaServed: 'United States',
+        areaServed: [
+          {
+            '@type': 'AdministrativeArea',
+            name: 'Caldwell County, North Carolina',
+          },
+          'United States',
+        ],
         serviceType: [
+          'Operations automation and reporting',
           'Cybersecurity consulting',
           'Secure web development',
           'Infrastructure hardening',

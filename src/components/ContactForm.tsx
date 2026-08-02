@@ -21,11 +21,15 @@ interface ContactFormData {
   message: string;
 }
 
-export default function ContactForm() {
+interface ContactFormProps {
+  initialSubject?: string;
+}
+
+export default function ContactForm({ initialSubject = "" }: ContactFormProps) {
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
-    subject: "",
+    subject: initialSubject,
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -83,9 +87,7 @@ export default function ContactForm() {
 
       setFormData({ name: "", email: "", subject:  "", message: "" });
       setSubmitStatus("success");
-      setServerMessage(
-        payload?.id ? `Message ID: ${payload.id}` : "Message sent."
-      );
+      setServerMessage("Message sent.");
     } catch (err:  any) {
       setSubmitStatus("error");
       setServerMessage(err?. message || "Unexpected error.");
@@ -106,14 +108,14 @@ export default function ContactForm() {
       icon: Phone,
       label: "Phone",
       value:  "+1 (828) 215-6403",
-      href: "tel: +18282156403",
+      href: "tel:+18282156403",
       color: "text-secondary",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Remote / Available Worldwide",
-      href: "#",
+      value: "Lenoir, NC / Remote",
+      href: undefined,
       color: "text-accent",
     },
   ];
@@ -131,10 +133,9 @@ export default function ContactForm() {
     <div className="page-shell space-y-10">
       <div className="text-center space-y-2">
         <span className="kicker">Bluedot • contact</span>
-        <h2 className="text-3xl font-bold heading-accent">Get In Touch</h2>
+        <h1 className="text-3xl md:text-4xl font-bold heading-accent">Tell me what is slowing the business down.</h1>
         <p className="text-base-content/80 max-w-xl mx-auto">
-          I&apos;m always open to new opportunities, collaborations, and
-          discussions. Let&apos;s connect and build something meaningful. 
+          Describe the current process, the tools involved, and what a useful result would look like. I&apos;ll reply with the clearest next step, even when that step is not a large project.
         </p>
       </div>
 
@@ -154,12 +155,13 @@ export default function ContactForm() {
                   <p className="text-sm text-base-content/70">
                     {method.label}
                   </p>
-                  <a
-                    href={method.href}
-                    className="text-sm font-medium hover:underline text-base-content"
-                  >
-                    {method.value}
-                  </a>
+                  {method.href ? (
+                    <a href={method.href} className="text-sm font-medium hover:underline text-base-content">
+                      {method.value}
+                    </a>
+                  ) : (
+                    <span className="text-sm font-medium text-base-content">{method.value}</span>
+                  )}
                 </div>
               </div>
             ))}
@@ -175,6 +177,8 @@ export default function ContactForm() {
                     href={social. href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={social.label}
+                    title={social.label}
                     className="rounded-md border border-white/10 p-2 hover:bg-white/5 transition"
                   >
                     <social.icon className="w-5 h-5" />
@@ -220,14 +224,14 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <Label htmlFor="subject">Subject *</Label>
+                <Label htmlFor="subject">Business or project *</Label>
                 <Input
                   id="subject"
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  placeholder="What's this about?"
+                  placeholder="Weekly reporting, manual intake, website rebuild..."
                   className="bg-white/5 border-white/15 text-base-content"
                 />
               </div>
@@ -241,7 +245,7 @@ export default function ContactForm() {
                   onChange={handleInputChange}
                   required
                   rows={4}
-                  placeholder="Tell me about your project, idea, or just say hello!"
+                  placeholder="What happens today? Which tools or data sources are involved? What should be easier or clearer afterward?"
                   className="bg-white/5 border-white/15 text-base-content"
                 />
               </div>
@@ -292,10 +296,7 @@ export default function ContactForm() {
         </CardHeader>
         <CardContent>
           <p className="text-base-content/80 text-sm leading-relaxed">
-            I typically respond to messages within 24 hours.  For urgent
-            inquiries, reach out via the social channels above.  I&apos;m always
-            eager to discuss new projects, cybersecurity ideas, or anything tech
-            related. 
+            Messages are reviewed during normal business hours. Please do not submit passwords, credentials, regulated data, customer records, or other sensitive information through this form.
           </p>
         </CardContent>
       </Card>

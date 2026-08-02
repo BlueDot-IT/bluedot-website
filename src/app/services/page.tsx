@@ -4,6 +4,7 @@ import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
 
 const dedicatedServices = [
+  { title: "Operations automation and reporting", href: "/services/operations-automation-reporting" },
   { title: "Security reviews", href: "/services/security-reviews" },
   { title: "Server hardening", href: "/services/server-hardening" },
   { title: "Next.js security hardening", href: "/services/nextjs-security-hardening" },
@@ -35,16 +36,16 @@ const groups = [
   },
   {
     id: "enterprise",
-    title: "Enterprise Resilience",
-    description: "Scalable systems and proactive security for complex environments.",
+    title: "Operational Reliability",
+    description: "Maintainable systems and practical risk reduction for growing environments.",
     services: [
       {
         name: "Infrastructure Hardening",
-        details: "Deep-dive security audits and automated remediation of network/OS layers."
+        details: "Authorized configuration review and prioritized hardening of agreed infrastructure."
       },
       {
         name: "Scalability Audits",
-        details: "Bottleneck identification and performance tuning for high-traffic APIs."
+        details: "Bottleneck identification and measured performance work for web applications and APIs."
       },
       {
         name: "DevSecOps Integration",
@@ -55,11 +56,11 @@ const groups = [
   {
     id: "developers",
     title: "Developer Partnerships",
-    description: "Expert support and collaboration for independent builds.",
+    description: "Focused engineering support and collaboration for independent builds.",
     services: [
       {
         name: "Application Support",
-        details: "Specialist debugging and logic reviews for mission-critical apps."
+        details: "Targeted debugging and logic reviews for important applications."
       },
       {
         name: "Project Development",
@@ -76,11 +77,32 @@ export default function ServicesPage() {
         <section className="text-center space-y-4 max-w-3xl mx-auto">
           <span className="pill">BlueDot Expertise</span>
           <h1 className="text-5xl font-extrabold tracking-tight md:text-6xl">
-            Outcomes, <span className="heading-accent">not noise.</span>
+            Practical systems for <span className="heading-accent">real operational work.</span>
           </h1>
           <p className="text-xl text-base-content/80">
-            Hardened systems and secure delivery workflows tailored to your scale.
+            Start with one reporting bottleneck or repetitive process. Define the boundary, build the smallest useful system, verify it, and leave a maintainable handoff.
           </p>
+        </section>
+      </Reveal>
+
+      <Reveal>
+        <section className="rounded-3xl border border-primary/30 bg-primary/5 p-8 md:p-12 grid gap-8 lg:grid-cols-[1.4fr_0.6fr] lg:items-center">
+          <div className="space-y-4">
+            <span className="pill">Primary offer</span>
+            <h2 className="text-4xl font-bold">Operations Automation and Reporting Sprint</h2>
+            <p className="text-lg text-base-content/75 max-w-3xl">
+              Replace one bounded recurring manual process with a report, dashboard, or automation built around agreed data sources and a written scope.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/services/operations-automation-reporting"><Button size="lg">See how the sprint works</Button></Link>
+              <Link href="/contact?service=operations-sprint" className="rounded-xl border border-white/15 px-5 py-3 text-sm font-semibold hover:bg-white/5">Describe the bottleneck</Link>
+            </div>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-black/20 p-6 space-y-3">
+            <p className="text-xs uppercase tracking-[0.2em] text-base-content/55">Commercial model</p>
+            <p className="text-3xl font-bold">Scoped in writing</p>
+            <p className="text-sm text-base-content/65">Clear deliverables, exclusions, decision points, and acceptance criteria before work begins.</p>
+          </div>
         </section>
       </Reveal>
 
@@ -126,7 +148,7 @@ export default function ServicesPage() {
       ))}
 
       <Reveal>
-        <section className="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12 text-center space-y-6">
+        <section id="how-it-works" className="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12 text-center space-y-6">
           <h2 className="text-3xl font-bold">How we work</h2>
           <div className="grid gap-8 md:grid-cols-3">
             <div className="space-y-2">

@@ -5,16 +5,16 @@ import Footer from '@/components/Footer'
 import { Metadata } from 'next'
 import Providers from '@/components/Providers'
 import JsonLd from '@/components/seo/JsonLd'
-import { GoogleAnalytics } from '@next/third-parties/google'
+import AnalyticsConsent from '@/components/AnalyticsConsent'
 
 export const metadata:  Metadata = {
     title: {
-        default: 'BlueDot IT | Jason O\'Neal - Cybersecurity & Development',
+        default: 'BlueDot IT | Business Automation in Lenoir, NC',
         template: '%s | BlueDot IT'
     },
-    description: 'Expert in cybersecurity,  and full-stack development. Building secure, innovative solutions with TypeScript, Python, and modern web technologies.',
+    description: 'Practical workflow automation, operational reporting, secure websites, and custom software for small businesses in Lenoir, Caldwell County, and remote teams.',
     metadataBase: new URL('https://bluedot.it.com'),
-    keywords: ['cybersecurity', 'web development', 'AI', 'TypeScript', 'Python', 'security tools'],
+    keywords: ['business automation Lenoir NC', 'operational reporting', 'workflow automation', 'custom software', 'web development', 'security reviews', 'server hardening'],
     authors: [{ name: 'Jason O\'Neal' }],
     creator: 'Jason O\'Neal',
     openGraph: {
@@ -22,8 +22,8 @@ export const metadata:  Metadata = {
         locale: 'en_US',
         url: 'https://bluedot.it.com',
         siteName: 'BlueDot IT',
-        title: 'BlueDot IT | Jason O\'Neal',
-        description: 'Expert in cybersecurity, AI-powered tooling, and full-stack development',
+        title: 'BlueDot IT | Business Automation in Lenoir, NC',
+        description: 'Workflow automation, operational reporting, secure websites, and custom software built around real business needs.',
         images: [{
             url: '/bluedot-logo.png',
             width: 1200,
@@ -33,8 +33,8 @@ export const metadata:  Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'BlueDot IT | Jason O\'Neal',
-        description: 'Expert in cybersecurity, AI-powered tooling, and full-stack development',
+        title: 'BlueDot IT | Business Automation in Lenoir, NC',
+        description: 'Workflow automation, operational reporting, secure websites, and custom software built around real business needs.',
         images: ['/bluedot-logo.png'],
         // creator: '@yourhandle', // Add your Twitter handle
     }
@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <Header />
                     <main className="flex-1">{children}</main>
                     <Footer />
-                    <GoogleAnalytics gaId="G-41SSBBDE6V" />
+                    <AnalyticsConsent />
                 </Providers>
                 </body>
             </html>

@@ -1,139 +1,70 @@
+import type { Metadata } from 'next'
 
-export default async function Privacy() {
-    return (
-        <div className="page-shell">
-            <div className="max-w-4xl mx-auto">
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold mb-4 heading-accent">Privacy Policy</h1>
-          <p className="text-base-content/70">
-            Last updated: {new Date().toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
-            })}
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'How BlueDot IT handles information submitted through its public website.',
+  alternates: {
+    canonical: 'https://bluedot.it.com/legal/privacy',
+  },
+}
+
+const sections = [
+  {
+    title: 'Information you provide',
+    body: 'BlueDot IT may receive your name, email address, message, project details, newsletter preference, account information, and other information you choose to submit. Do not send passwords, credentials, regulated data, customer records, or other sensitive information through the public contact form.',
+  },
+  {
+    title: 'Technical information',
+    body: 'The hosting, security, and application layers may process IP address, browser and device information, request metadata, timestamps, error information, and security events needed to operate, protect, and troubleshoot the website.',
+  },
+  {
+    title: 'Optional analytics',
+    body: 'Google Analytics remains disabled unless you select Accept in the analytics notice. If accepted, Google may process page visits, device and browser information, approximate location derived from IP address, and related analytics data under its own terms. You may decline and continue using the public site. The Analytics settings control remains available after your choice so you can withdraw or reconsider it.',
+  },
+  {
+    title: 'How information is used',
+    body: 'Information may be used to respond to inquiries, evaluate requested work, deliver website features, manage subscriptions or accounts, maintain security, prevent abuse, troubleshoot failures, improve public content, and comply with legal obligations.',
+  },
+  {
+    title: 'Service providers and disclosure',
+    body: 'BlueDot IT may use hosting, email, database, authentication, security, and analytics providers that process limited information to deliver those functions. Information is not sold. It may be disclosed when required by law, to protect rights and systems, or as part of a legitimate business transfer.',
+  },
+  {
+    title: 'Retention and security',
+    body: 'Information is retained only as long as reasonably needed for the purpose collected, operational records, legal obligations, dispute handling, and security. Reasonable safeguards are used, but no internet service can promise absolute security.',
+  },
+  {
+    title: 'Your choices',
+    body: 'You may decline analytics, unsubscribe from optional email, or request access, correction, or deletion of personal information where applicable. Some records may need to be retained for security, legal, contractual, or accounting reasons.',
+  },
+  {
+    title: 'Contact',
+    body: 'Privacy questions or requests may be sent to jason@bluedot.it.com. BlueDot IT may update this policy as the website, providers, or business operations change.',
+  },
+]
+
+export default function Privacy() {
+  return (
+    <div className="page-shell">
+      <div className="max-w-4xl mx-auto space-y-8">
+        <header className="space-y-3">
+          <span className="pill">BlueDot IT</span>
+          <h1 className="text-4xl font-bold heading-accent">Privacy Policy</h1>
+          <p className="text-base-content/70">Last updated: July 28, 2026</p>
+          <p className="text-base-content/80 leading-relaxed">
+            This policy explains how information is handled through the public BlueDot IT website. A client agreement may contain additional project-specific privacy and confidentiality terms.
           </p>
         </header>
 
         <div className="space-y-8">
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Introduction</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              BlueDot (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website bluedot.it.com (the &ldquo;Service&rdquo;).
-            </p>
-            <p className="text-base-content/80 leading-relaxed">
-              By using our Service, you agree to the collection and use of information in accordance with this policy.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Information We Collect</h2>
-            
-            <h3 className="text-xl font-medium mb-3 text-primary">Personal Information</h3>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              When you interact with our Service, we may collect personal information that you voluntarily provide, including:
-            </p>
-            <ul className="list-disc pl-6 mb-6 space-y-2 text-base-content/80">
-              <li>Name and email address (when leaving comments)</li>
-              <li>Authentication information (when accessing admin features)</li>
-              <li>Communication preferences</li>
-              <li>Any other information you choose to provide</li>
-            </ul>
-
-            <h3 className="text-xl font-medium mb-3 text-primary">Automatically Collected Information</h3>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              We automatically collect certain information when you visit our Service:
-            </p>
-            <ul className="list-disc pl-6 mb-6 space-y-2 text-base-content/80">
-              <li>IP address and device information</li>
-              <li>Browser type and version</li>
-              <li>Operating system</li>
-              <li>Pages visited and time spent on pages</li>
-              <li>Referring website</li>
-              <li>Usage patterns and preferences</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">How We Use Your Information</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">We use the collected information for various purposes:</p>
-            <ul className="list-disc pl-6 mb-6 space-y-2 text-base-content/80">
-              <li>To provide and maintain our Service</li>
-              <li>To notify you about changes to our Service</li>
-              <li>To allow you to participate in interactive features</li>
-              <li>To provide customer support</li>
-              <li>To gather analysis or valuable information to improve our Service</li>
-              <li>To monitor the usage of our Service</li>
-              <li>To detect, prevent and address technical issues</li>
-              <li>To fulfill any other purpose for which you provide it</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Information Sharing and Disclosure</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except in the following circumstances:
-            </p>
-            <ul className="list-disc pl-6 mb-6 space-y-2 text-base-content/80">
-              <li><strong>Service Providers:</strong> We may share information with trusted third-party service providers who assist us in operating our website and providing services</li>
-              <li><strong>Legal Requirements:</strong> We may disclose information if required by law or in response to valid legal requests</li>
-              <li><strong>Protection of Rights:</strong> We may disclose information to protect our rights, property, or safety, or that of our users</li>
-              <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your information may be transferred</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Data Security</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet or electronic storage is 100% secure.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Cookies and Tracking Technologies</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              We use cookies and similar tracking technologies to track activity on our Service and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Your Rights</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">Depending on your location, you may have certain rights regarding your personal information:</p>
-            <ul className="list-disc pl-6 mb-6 space-y-2 text-base-content/80">
-              <li>The right to access and receive a copy of your personal information</li>
-              <li>The right to rectify or update your personal information</li>
-              <li>The right to delete your personal information</li>
-              <li>The right to restrict processing of your personal information</li>
-              <li>The right to data portability</li>
-              <li>The right to object to processing of your personal information</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Children&rsquo;s Privacy</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              Our Service does not address anyone under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Changes to This Privacy Policy</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &ldquo;Last updated&rdquo; date.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Contact Us</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              If you have any questions about this Privacy Policy, please contact us:
-            </p>
-            <ul className="list-none space-y-2 text-base-content/80">
-              <li>Email: <a href="mailto:admin@bluedot.it.com" className="text-primary hover:underline">admin@bluedot.it.com</a></li>
-              <li>Website: <a href="https://bluedot.it.com" className="text-primary hover:underline">bluedot.it.com</a></li>
-            </ul>
-          </section>
+          {sections.map((section) => (
+            <section key={section.title} className="space-y-3">
+              <h2 className="text-2xl font-semibold text-secondary">{section.title}</h2>
+              <p className="text-base-content/80 leading-relaxed">{section.body}</p>
+            </section>
+          ))}
         </div>
       </div>
-        </div>
-    );
+    </div>
+  )
 }

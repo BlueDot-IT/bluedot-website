@@ -8,10 +8,13 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Jason O\'Neal - Engineer, security enthusiast, and creative problem-solver. Expert in AI-powered cybersecurity tooling, full-stack development, and creative projects.',
+  description: 'Jason O\'Neal is a software developer and systems builder with more than two decades of development experience who is currently studying cybersecurity.',
+  alternates: {
+    canonical: 'https://bluedot.it.com/about',
+  },
   openGraph: {
     title: 'About Jason O\'Neal | BlueDot IT',
-    description: 'Engineer, security enthusiast, and creative problem-solver',
+    description: 'Software developer, systems builder, and cybersecurity student based in Lenoir, North Carolina.',
     type: 'profile',
   }
 }
@@ -22,9 +25,9 @@ export default function About() {
       <Reveal>
         <div className="text-center space-y-4">
           <span className="kicker">Behind Bluedot</span>
-          <h1 className="heading-accent text-4xl md:text-5xl font-bold">Engineer, security enthusiast, and creative problem-solver</h1>
+          <h1 className="heading-accent text-4xl md:text-5xl font-bold">Software developer, systems builder, and cybersecurity student.</h1>
           <p className="text-base-content/80 max-w-3xl mx-auto">
-            A career that blends security research, product delivery, and a maker mentality.
+            More than two decades of development experience, now applied to practical automation, reporting, secure software, and technical operations from Lenoir, North Carolina.
           </p>
         </div>
       </Reveal>
@@ -38,11 +41,11 @@ export default function About() {
               </CardHeader>
               <CardContent className="space-y-4 text-base-content/85">
                 <p className="leading-relaxed mb-3">
-                  I build{" "}
+                  I have been building software since 2002. Today I design and implement{" "}
                   <span className="heading-accent font-semibold">
-                    AI-powered cybersecurity tooling
+                    workflow automations, reporting systems, websites, and custom operational tools
                   </span>
-                  , engineer infrastructure for rapid iteration, and tune performance so products feel frictionless. Strong in{" "}
+                  . I also build security-conscious infrastructure and AI-assisted tooling while continuing formal cybersecurity study. Strong in{" "}
                   <span className="heading-accent font-medium">TypeScript</span>,{" "}
                   <span className="heading-accent font-medium">Python</span>,{" "}
                   <span className="heading-accent font-medium">PHP</span>, Linux systems,
