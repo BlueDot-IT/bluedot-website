@@ -36,6 +36,7 @@ export async function GET() {
 ## Selected public projects
 
 - Odinn-Forge: local-first runtime for governed AI-assisted operations
+- DemonClaw: security-first purple-team agent runtime with WASM sandboxing and tamper-evident evidence logging
 - SignalGate: semantic routing and fallback layer for AI systems
 - GhostMCP: audit-first MCP security tooling for authorized operations
 - security-middleware: development-time security checks for Node.js and Next.js

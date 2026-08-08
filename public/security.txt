@@ -1,0 +1,5 @@
+Contact: mailto:jason@bluedot.it.com
+Expires: 2027-04-24T00:56:32Z
+Preferred-Languages: en
+Canonical: https://bluedot.it.com/.well-known/security.txt
+Canonical: https://bluedot.it.com/security.txt
