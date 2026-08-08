@@ -18,8 +18,8 @@ const defaultUrls = [
   `${origin}/services/nextjs-security-hardening`,
   `${origin}/services/workflow-automation`,
   `${origin}/services/mcp-security-consulting`,
-  `${origin}/services/small-business-websites`,
   `${origin}/services/ai-security-tooling`,
+  `${origin}/services/full-stack-development`,
 ]
 
 const urlList = process.argv.slice(2)

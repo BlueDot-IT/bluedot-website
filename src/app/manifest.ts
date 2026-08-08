@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next'
  
 export default function manifest(): MetadataRoute.Manifest {
   return {
-  "name": "bluedot.it.com - Jason O'Neal",
-  "short_name": "bluedot.it",
-  "description": "Business automation, reporting, secure websites, and custom software from Lenoir, North Carolina",
+  "name": "BlueDot IT",
+  "short_name": "BlueDot IT",
+  "description": "Security engineering, AI automation, and full-stack development for startups and technical teams",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

@@ -36,6 +36,9 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.excerpt || post.title,
+    alternates: {
+      canonical: `https://bluedot.it.com/blog/${slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt || post.title,
@@ -101,6 +104,10 @@ export default async function PostPage({
       '@id': `https://bluedot.it.com/blog/${slug}`,
     },
   }
+  const serializedJsonLd = JSON.stringify(jsonLd)
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e')
+    .replace(/&/g, '\\u0026')
 
   const mdxSource = await serialize(post.content)
   const comments = await prisma.comment.findMany({
@@ -113,7 +120,7 @@ export default async function PostPage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html:  JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializedJsonLd }}
       />
       <div className="page-shell">
         <div className="mx-auto max-w-3xl space-y-12 py-12">

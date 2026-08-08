@@ -114,7 +114,7 @@ export default function ContactForm({ initialSubject = "" }: ContactFormProps) {
     {
       icon: MapPin,
       label: "Location",
-      value: "Lenoir, NC / Remote",
+      value: "North Carolina / Remote",
       href: undefined,
       color: "text-accent",
     },
@@ -132,17 +132,17 @@ export default function ContactForm({ initialSubject = "" }: ContactFormProps) {
   return (
     <div className="page-shell space-y-10">
       <div className="text-center space-y-2">
-        <span className="kicker">Bluedot • contact</span>
-        <h1 className="text-3xl md:text-4xl font-bold heading-accent">Tell me what is slowing the business down.</h1>
+        <span className="kicker">BlueDot IT • contact</span>
+        <h1 className="text-3xl md:text-4xl font-bold heading-accent">Tell me what you are building, automating, or securing.</h1>
         <p className="text-base-content/80 max-w-xl mx-auto">
-          Describe the current process, the tools involved, and what a useful result would look like. I&apos;ll reply with the clearest next step, even when that step is not a large project.
+          Share the current state, the tools or code involved, the boundary that matters, and what a useful handoff would include. This form supports security reviews, AI automation, full-stack development, and existing-system remediation.
         </p>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-2">
         <Card className="bg-white/5 border-white/10">
           <CardHeader>
-            <p className="text-base-content font-semibold">Contact Information</p>
+            <p className="text-base-content font-semibold">Project contact</p>
           </CardHeader>
           <CardContent className="space-y-6">
             {contactMethods.map((method, i) => (
@@ -169,7 +169,7 @@ export default function ContactForm({ initialSubject = "" }: ContactFormProps) {
             <Separator />
 
             <div>
-              <h4 className="text-lg font-semibold mb-3 text-base-content">Follow Me</h4>
+              <h4 className="text-lg font-semibold mb-3 text-base-content">Public work</h4>
               <div className="flex space-x-3">
                 {socialLinks.map((social, i) => (
                   <a
@@ -191,7 +191,7 @@ export default function ContactForm({ initialSubject = "" }: ContactFormProps) {
 
         <Card className="bg-white/5 border-white/10">
           <CardHeader>
-            <p className="text-base-content font-semibold">Send a Message</p>
+            <p className="text-base-content font-semibold">Describe the system</p>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -224,14 +224,14 @@ export default function ContactForm({ initialSubject = "" }: ContactFormProps) {
               </div>
 
               <div>
-                <Label htmlFor="subject">Business or project *</Label>
+                <Label htmlFor="subject">Project or system *</Label>
                 <Input
                   id="subject"
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  placeholder="Weekly reporting, manual intake, website rebuild..."
+                  placeholder="Security review, agent prototype, API build, production hardening..."
                   className="bg-white/5 border-white/15 text-base-content"
                 />
               </div>
@@ -245,7 +245,7 @@ export default function ContactForm({ initialSubject = "" }: ContactFormProps) {
                   onChange={handleInputChange}
                   required
                   rows={4}
-                  placeholder="What happens today? Which tools or data sources are involved? What should be easier or clearer afterward?"
+                  placeholder="What are you building, automating, or securing? Which code, tools, data, or deployment boundaries are involved?"
                   className="bg-white/5 border-white/15 text-base-content"
                 />
               </div>
@@ -292,11 +292,11 @@ export default function ContactForm({ initialSubject = "" }: ContactFormProps) {
 
       <Card className="bg-white/5 border-white/10">
         <CardHeader>
-          <p className="text-base-content font-semibold">Quick Response Times</p>
+          <p className="text-base-content font-semibold">Before you send</p>
         </CardHeader>
         <CardContent>
           <p className="text-base-content/80 text-sm leading-relaxed">
-            Messages are reviewed during normal business hours. Please do not submit passwords, credentials, regulated data, customer records, or other sensitive information through this form.
+            Please do not submit passwords, credentials, regulated data, customer records, or other sensitive information through this form. Describe the boundary and the problem without including secrets or live customer data.
           </p>
         </CardContent>
       </Card>

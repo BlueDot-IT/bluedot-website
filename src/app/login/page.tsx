@@ -66,13 +66,13 @@ export default function LoginPage() {
       <div className="absolute top-8 left-1/2 -translate-x-1/2 flex flex-col items-center">
         <Image
           src="/bluedot-logo.png"
-          alt="Bluedot Logo"
+          alt="BlueDot IT"
           width={80}
           height={80}
           className="opacity-90"
           priority
         />
-        <h1 className="text-2xl font-bold heading-accent mt-2">Bluedot Admin</h1>
+        <h1 className="text-2xl font-bold heading-accent mt-2">BlueDot IT Admin</h1>
       </div>
 
       {/* Login Card */}
@@ -142,7 +142,7 @@ export default function LoginPage() {
 
       {/* Subtle Footer */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center text-xs text-base-content/70">
-        &copy; {new Date().getFullYear()} Bluedot Systems. All rights reserved.
+        {new Date().getFullYear()} BlueDot IT. All rights reserved.
       </div>
     </div>
   );

@@ -9,12 +9,12 @@ import AnalyticsConsent from '@/components/AnalyticsConsent'
 
 export const metadata:  Metadata = {
     title: {
-        default: 'BlueDot IT | Business Automation in Lenoir, NC',
+        default: 'BlueDot IT | Security, AI Automation, and Full-Stack Development',
         template: '%s | BlueDot IT'
     },
-    description: 'Practical workflow automation, operational reporting, secure websites, and custom software for small businesses in Lenoir, Caldwell County, and remote teams.',
+    description: 'BlueDot IT provides application security, AI agent and workflow automation, and full-stack software development for startups, technical teams, and growing businesses.',
     metadataBase: new URL('https://bluedot.it.com'),
-    keywords: ['business automation Lenoir NC', 'operational reporting', 'workflow automation', 'custom software', 'web development', 'security reviews', 'server hardening'],
+    keywords: ['application security consulting', 'AI automation development', 'AI agent development', 'full-stack development', 'Next.js security', 'MCP security', 'workflow automation', 'TypeScript development', 'Python automation', 'secure software development', 'application hardening', 'AI agent security'],
     authors: [{ name: 'Jason O\'Neal' }],
     creator: 'Jason O\'Neal',
     openGraph: {
@@ -22,8 +22,8 @@ export const metadata:  Metadata = {
         locale: 'en_US',
         url: 'https://bluedot.it.com',
         siteName: 'BlueDot IT',
-        title: 'BlueDot IT | Business Automation in Lenoir, NC',
-        description: 'Workflow automation, operational reporting, secure websites, and custom software built around real business needs.',
+        title: 'BlueDot IT | Security, AI Automation, and Full-Stack Development',
+        description: 'BlueDot IT provides application security, AI agent and workflow automation, and full-stack software development for startups, technical teams, and growing businesses.',
         images: [{
             url: '/bluedot-logo.png',
             width: 1200,
@@ -33,8 +33,8 @@ export const metadata:  Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'BlueDot IT | Business Automation in Lenoir, NC',
-        description: 'Workflow automation, operational reporting, secure websites, and custom software built around real business needs.',
+        title: 'BlueDot IT | Security, AI Automation, and Full-Stack Development',
+        description: 'BlueDot IT provides application security, AI agent and workflow automation, and full-stack software development for startups, technical teams, and growing businesses.',
         images: ['/bluedot-logo.png'],
         // creator: '@yourhandle', // Add your Twitter handle
     }

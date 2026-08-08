@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
 
 interface MenuItem {
@@ -20,28 +21,28 @@ interface FooterProps {
 }
 
 export default function Footer({
-  tagline = "Practical systems for work that should be easier.",
+  tagline = "Security engineering, AI automation, and full-stack development.",
   menuItems = [
     {
       title: "Services",
       links: [
-        { text: "Automation & reporting", url: "/services/operations-automation-reporting" },
-        { text: "Workflow automation", url: "/services/workflow-automation" },
+        { text: "Security engineering", url: "/services#security-engineering" },
+        { text: "AI automation", url: "/services#ai-automation" },
+        { text: "Full-stack development", url: "/services/full-stack-development" },
         { text: "Security reviews", url: "/services/security-reviews" },
-        { text: "Websites", url: "/services/small-business-websites" },
       ],
     },
     {
       title: "Company",
       links: [
-        { text: "Projects", url: "/projects" },
+        { text: "Work", url: "/projects" },
         { text: "About", url: "/about" },
-        { text: "Blog", url: "/blog" },
+        { text: "Insights", url: "/blog" },
         { text: "Contact", url: "/contact" },
       ],
     },
   ],
-  copyright = ` ᴥ BlueDot IT ᴥ Jason O'Neal. All rights reserved.`,
+  copyright = "BlueDot IT. All rights reserved.",
   bottomLinks = [
     { text: "Privacy", url: "/legal/privacy" },
     { text: "Terms & Conditions", url: "/legal/terms"}
@@ -54,23 +55,23 @@ export default function Footer({
         <footer className="space-y-10">
           <div className="grid gap-6 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_18px_50px_rgba(5,12,26,0.28)] md:grid-cols-[1.4fr_1fr]">
             <div className="space-y-4">
-              <Image
+                <Image
                   src="/bluedot-logo.png"
-                  alt="Logo"
+                  alt="BlueDot IT"
                   width={128}
                   height={128}
                   className="rounded-2xl border border-white/10 bg-white/5 p-2"
                 />
-              <p className="pill w-fit">Bluedot IT</p>
+              <p className="pill w-fit">BlueDot IT</p>
               <h2 className="heading-accent text-3xl font-bold leading-tight">
                 {tagline}
               </h2>
               <p className="max-w-2xl text-base-content/80">
-                Practical automation, reporting, development, and security-minded systems for businesses in Lenoir, Caldwell County, and beyond.
+                Security engineering, AI automation, and full-stack development for startups, technical teams, and growing businesses.
               </p>
               <div className="flex flex-wrap gap-3">
-                <a href="/contact?service=operations-sprint" className="btn btn-primary btn-lg rounded-full px-6 shadow-[0_16px_38px_rgba(15,159,225,0.26)]">Describe the bottleneck</a>
-                <a href="/services" className="btn btn-outline btn-lg rounded-full px-6 border-white/20 hover:bg-white/10">View services</a>
+                <Link href="/contact" className="btn btn-primary btn-lg rounded-full px-6 shadow-[0_16px_38px_rgba(15,159,225,0.26)]">Discuss your project</Link>
+                <Link href="/services" className="btn btn-outline btn-lg rounded-full px-6 border-white/20 hover:bg-white/10">Explore services</Link>
               </div>
             </div>
             <div className="space-y-6">
@@ -84,7 +85,7 @@ export default function Footer({
                           key={linkIdx}
                           className="hover:text-primary transition"
                         >
-                          <a href={link.url}>{link.text}</a>
+                          <Link href={link.url}>{link.text}</Link>
                         </li>
                       ))}
                     </ul>
@@ -97,11 +98,11 @@ export default function Footer({
           </div>
 
           <div className="border-t border-white/10 pt-6 text-sm text-base-content/70 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <p>© {new Date().getFullYear()} {copyright}</p>
+            <p>{new Date().getFullYear()} {copyright}</p>
             <ul className="flex gap-4">
               {bottomLinks.map((link, linkIdx) => (
                 <li key={linkIdx} className="hover:text-primary transition">
-                  <a href={link.url}>{link.text}</a>
+                  <Link href={link.url}>{link.text}</Link>
                 </li>
               ))}
             </ul>

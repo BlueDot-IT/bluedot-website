@@ -3,9 +3,12 @@ export type Project = {
   name: string
   url: string
   description: string | null
-  stars: number
   language: string | null
   source: "github" | "huggingface"
   subtype?: "repo" | "model" | "space"
   updatedAt: string | null
+  category: string
+  demonstrates: string
+  technologies: string[]
+  concerns: string
 }

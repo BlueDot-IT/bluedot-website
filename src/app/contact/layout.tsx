@@ -2,17 +2,17 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Contact BlueDot IT',
-  description: 'Tell BlueDot IT about a reporting bottleneck, repetitive workflow, website, infrastructure problem, or custom software project.',
+  description: 'Tell BlueDot IT what you are building, automating, or securing, including application security, AI automation, full-stack development, APIs, integrations, and production hardening.',
   openGraph: {
     title: 'Contact | BlueDot IT',
-    description: 'Describe the business process or technical problem you need to improve.',
+    description: 'Describe the system, workflow, application, or security boundary you need to improve.',
     type: 'website',
     url: 'https://bluedot.it.com/contact',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact | BlueDot IT',
-    description: 'Describe the business process or technical problem you need to improve.',
+    description: 'Describe the system, workflow, application, or security boundary you need to improve.',
   },
   alternates: {
     canonical: 'https://bluedot.it.com/contact',
