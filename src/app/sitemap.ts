@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next'
 import { prisma } from '@/lib/prisma'
 
 const baseUrl = 'https://bluedot.it.com'
+export const dynamic = 'force-dynamic'
+
 // Keep these dates tied to the content change being deployed. A fixed date is
 // preferable to claiming that every request changed the page, but it must be
 // advanced whenever the corresponding static content changes.
