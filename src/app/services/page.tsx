@@ -1,176 +1,203 @@
-import Link from "next/link";
-import { Card } from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
-import Reveal from "@/components/Reveal";
+import Link from 'next/link'
+import { Card } from '@/components/ui/Card'
+import Reveal from '@/components/Reveal'
+import type { Metadata } from 'next'
 
-const dedicatedServices = [
-  { title: "Operations automation and reporting", href: "/services/operations-automation-reporting" },
-  { title: "Security reviews", href: "/services/security-reviews" },
-  { title: "Server hardening", href: "/services/server-hardening" },
-  { title: "Next.js security hardening", href: "/services/nextjs-security-hardening" },
-  { title: "Workflow automation", href: "/services/workflow-automation" },
-  { title: "MCP security consulting", href: "/services/mcp-security-consulting" },
-  { title: "Small business websites", href: "/services/small-business-websites" },
-  { title: "AI security tooling", href: "/services/ai-security-tooling" },
-];
+export const metadata: Metadata = {
+  title: 'Services',
+  description: 'Security engineering, AI automation, and full-stack development for teams building real systems.',
+  alternates: {
+    canonical: 'https://bluedot.it.com/services',
+  },
+  openGraph: {
+    title: 'Services | BlueDot IT',
+    description: 'Security engineering, AI automation, and full-stack development for teams building real systems.',
+    type: 'website',
+    url: 'https://bluedot.it.com/services',
+  },
+}
 
-const groups = [
+const categories = [
   {
-    id: "startups",
-    title: "Startup Foundations",
-    description: "Build fast and lean without compromising on security or architecture.",
+    id: 'security-engineering',
+    title: 'Security Engineering',
+    description: 'Review, harden, and improve the application and infrastructure boundaries that matter to production.',
+    cta: 'Start with a security review',
+    href: '/services/security-reviews',
     services: [
-      {
-        name: "Custom IT Solutions",
-        details: "Infrastructure as Code, CI/CD setup, and automated environment provisioning."
-      },
-      {
-        name: "Product Enhancement",
-        details: "Accelerate your feature roadmap with specialist engineering support."
-      },
-      {
-        name: "Operational Streamlining",
-        details: "Reduce technical toil through intelligent automation and RAG-based runbooks."
-      }
-    ]
+      { name: 'Application and API security', href: '/services/security-reviews' },
+      { name: 'Authentication and authorization reviews', href: '/services/nextjs-security-hardening' },
+      { name: 'Next.js security hardening', href: '/services/nextjs-security-hardening' },
+      { name: 'Linux, Docker, NGINX, and VPS hardening', href: '/services/server-hardening' },
+      { name: 'CI/CD and dependency security', href: '/services/security-reviews' },
+      { name: 'MCP and AI-agent security', href: '/services/mcp-security-consulting' },
+      { name: 'Remediation implementation', href: '/services/security-reviews' },
+    ],
   },
   {
-    id: "enterprise",
-    title: "Operational Reliability",
-    description: "Maintainable systems and practical risk reduction for growing environments.",
+    id: 'ai-automation',
+    title: 'AI Automation',
+    description: 'Build controlled agents and workflow automations with explicit permissions, logs, approvals, and maintainable failure handling.',
+    cta: 'Explore AI automation',
+    href: '/services/workflow-automation',
     services: [
-      {
-        name: "Infrastructure Hardening",
-        details: "Authorized configuration review and prioritized hardening of agreed infrastructure."
-      },
-      {
-        name: "Scalability Audits",
-        details: "Bottleneck identification and measured performance work for web applications and APIs."
-      },
-      {
-        name: "DevSecOps Integration",
-        details: "Embed security into the heartbeat of your delivery pipeline."
-      }
-    ]
+      { name: 'AI agent development', href: '/services/ai-security-tooling' },
+      { name: 'Workflow automation and API integrations', href: '/services/workflow-automation' },
+      { name: 'LLM integrations', href: '/services/ai-security-tooling' },
+      { name: 'MCP servers and tool integrations', href: '/services/mcp-security-consulting' },
+      { name: 'RAG and knowledge systems', href: '/services/workflow-automation' },
+      { name: 'Human approval workflows and guardrails', href: '/services/ai-security-tooling' },
+      { name: 'Agent observability and operational reporting', href: '/services/operations-automation-reporting' },
+    ],
   },
   {
-    id: "developers",
-    title: "Developer Partnerships",
-    description: "Focused engineering support and collaboration for independent builds.",
+    id: 'full-stack-development',
+    title: 'Full-Stack Development',
+    description: 'Design, build, deploy, and improve applications and services from frontend through production operations.',
+    cta: 'Explore full-stack development',
+    href: '/services/full-stack-development',
     services: [
-      {
-        name: "Application Support",
-        details: "Targeted debugging and logic reviews for important applications."
-      },
-      {
-        name: "Project Development",
-        details: "Collaborative building of tools, modules, and security-first features."
-      }
-    ]
-  }
-];
+      { name: 'Full-stack application development', href: '/services/full-stack-development' },
+      { name: 'React and Next.js applications', href: '/services/full-stack-development' },
+      { name: 'TypeScript and Node.js services', href: '/services/full-stack-development' },
+      { name: 'Python backends and automation services', href: '/services/full-stack-development' },
+      { name: 'APIs, integrations, dashboards, and internal platforms', href: '/services/full-stack-development' },
+      { name: 'Authentication, admin systems, and database design', href: '/services/full-stack-development' },
+      { name: 'Deployment and production hardening', href: '/services/full-stack-development' },
+    ],
+  },
+]
+
+const entryPoints = [
+  {
+    title: 'Security Review',
+    description: 'A bounded review of an application, repository, deployment, AI integration, or supporting host.',
+    deliverables: ['Findings with severity and evidence', 'Technical and business impact', 'Prioritized remediation plan', 'Optional implementation and retest checklist'],
+    href: '/contact?service=security-review',
+  },
+  {
+    title: 'AI Automation Discovery and Prototype',
+    description: 'Map one workflow and build a controlled working prototype with clear boundaries.',
+    deliverables: ['Workflow and tool map', 'Data and permission boundaries', 'Functional prototype', 'Logs, approval points, and production roadmap'],
+    href: '/contact?service=ai-automation-discovery',
+  },
+  {
+    title: 'Full-Stack Build Sprint',
+    description: 'A defined implementation phase for an application capability, internal tool, dashboard, API, integration, or backend service.',
+    deliverables: ['Written scope and architecture', 'Implementation and tests', 'Deployment', 'Documentation and handoff'],
+    href: '/contact?service=full-stack-build-sprint',
+  },
+]
 
 export default function ServicesPage() {
   return (
     <div className="page-shell space-y-20 py-12">
       <Reveal>
-        <section className="text-center space-y-4 max-w-3xl mx-auto">
-          <span className="pill">BlueDot Expertise</span>
+        <section className="max-w-4xl space-y-5">
+          <span className="pill">Security • AI Automation • Full-Stack</span>
           <h1 className="text-5xl font-extrabold tracking-tight md:text-6xl">
-            Practical systems for <span className="heading-accent">real operational work.</span>
+            Build the system. <span className="heading-accent">Respect the boundary.</span>
           </h1>
           <p className="text-xl text-base-content/80">
-            Start with one reporting bottleneck or repetitive process. Define the boundary, build the smallest useful system, verify it, and leave a maintainable handoff.
+            BlueDot combines security engineering, AI automation, and full-stack implementation so the application, workflow, deployment, and control surface can be designed together.
           </p>
         </section>
       </Reveal>
 
-      <Reveal>
-        <section className="rounded-3xl border border-primary/30 bg-primary/5 p-8 md:p-12 grid gap-8 lg:grid-cols-[1.4fr_0.6fr] lg:items-center">
-          <div className="space-y-4">
-            <span className="pill">Primary offer</span>
-            <h2 className="text-4xl font-bold">Operations Automation and Reporting Sprint</h2>
-            <p className="text-lg text-base-content/75 max-w-3xl">
-              Replace one bounded recurring manual process with a report, dashboard, or automation built around agreed data sources and a written scope.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/services/operations-automation-reporting"><Button size="lg">See how the sprint works</Button></Link>
-              <Link href="/contact?service=operations-sprint" className="rounded-xl border border-white/15 px-5 py-3 text-sm font-semibold hover:bg-white/5">Describe the bottleneck</Link>
-            </div>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-black/20 p-6 space-y-3">
-            <p className="text-xs uppercase tracking-[0.2em] text-base-content/55">Commercial model</p>
-            <p className="text-3xl font-bold">Scoped in writing</p>
-            <p className="text-sm text-base-content/65">Clear deliverables, exclusions, decision points, and acceptance criteria before work begins.</p>
-          </div>
-        </section>
-      </Reveal>
+      <section className="space-y-8">
+        {categories.map((category) => (
+          <Reveal key={category.id}>
+            <section id={category.id} className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10">
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                <div className="max-w-2xl space-y-3">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Capability pillar</p>
+                  <h2 className="text-3xl font-bold md:text-4xl">{category.title}</h2>
+                  <p className="text-base-content/75 leading-relaxed">{category.description}</p>
+                </div>
+                <Link href={category.href} className="btn btn-outline w-fit border-white/20 hover:bg-white/10">
+                  {category.cta}
+                </Link>
+              </div>
+              <div className="mt-8 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+                {category.services.map((service) => (
+                  <Link key={service.name} href={service.href} className="rounded-2xl border border-white/10 bg-black/10 p-4 text-sm font-semibold text-base-content/85 hover:bg-white/10 hover:text-primary transition-colors">
+                    {service.name}
+                  </Link>
+                ))}
+              </div>
+            </section>
+          </Reveal>
+        ))}
+      </section>
 
       <Reveal>
         <section className="space-y-6">
-          <div className="space-y-2 text-center">
-            <h2 className="text-3xl font-bold">Dedicated service pages</h2>
-            <p className="text-base-content/70">Specific pages for the work people and answer engines ask about most often.</p>
+          <div className="max-w-3xl space-y-3">
+            <span className="pill">Existing offering</span>
+            <h2 className="text-3xl font-bold">Operations automation and reporting, inside AI Automation.</h2>
+            <p className="text-base-content/70 leading-relaxed">
+              The Operations Automation and Reporting Sprint remains available for one bounded workflow, report, dashboard, or integration. It is an entry point—not the definition of the company.
+            </p>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {dedicatedServices.map((service) => (
-              <Link
-                key={service.href}
-                href={service.href}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5 font-semibold hover:bg-white/10 transition-colors"
-              >
-                {service.title}
-              </Link>
-            ))}
-          </div>
+          <Card className="border-primary/30 bg-primary/5 p-8">
+            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+              <div className="space-y-2">
+                <h3 className="text-2xl font-bold">Start with one reliable handoff.</h3>
+                <p className="max-w-2xl text-base-content/70">Scope the inputs, outputs, failure modes, approvals, validation, and documentation before the workflow grows teeth.</p>
+              </div>
+              <Link href="/services/operations-automation-reporting" className="btn btn-primary w-fit">View the sprint</Link>
+            </div>
+          </Card>
         </section>
       </Reveal>
 
-      {groups.map((g) => (
-        <section key={g.id} id={g.id} className="space-y-8">
-          <Reveal>
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold">{g.title}</h2>
-              <p className="text-base-content/70 max-w-2xl">{g.description}</p>
-            </div>
-          </Reveal>
-          <div className="grid gap-6 md:grid-cols-3">
-            {g.services.map((s) => (
-              <Reveal key={s.name}>
-                <Card className="h-full bg-white/5 border-white/10 p-8 space-y-3 hover:bg-white/10 transition-colors">
-                  <h3 className="font-bold text-lg">{s.name}</h3>
-                  <p className="text-sm text-base-content/70 leading-relaxed">{s.details}</p>
-                </Card>
-              </Reveal>
-            ))}
+      <section className="space-y-8">
+        <Reveal>
+          <div className="max-w-3xl space-y-3">
+            <span className="pill">Productized entry points</span>
+            <h2 className="text-3xl font-bold">Three clear ways to begin.</h2>
+            <p className="text-base-content/70 leading-relaxed">No fixed prices or invented timelines. The target, boundary, deliverables, and acceptance criteria are defined in writing.</p>
           </div>
-        </section>
-      ))}
+        </Reveal>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {entryPoints.map((entryPoint) => (
+            <Reveal key={entryPoint.title}>
+              <Card className="h-full flex flex-col space-y-5 bg-white/5 border-white/10 p-8">
+                <h3 className="text-2xl font-bold">{entryPoint.title}</h3>
+                <p className="text-base-content/70 leading-relaxed">{entryPoint.description}</p>
+                <ul className="flex-1 list-disc space-y-2 pl-5 text-sm text-base-content/75">
+                  {entryPoint.deliverables.map((deliverable) => <li key={deliverable}>{deliverable}</li>)}
+                </ul>
+                <Link href={entryPoint.href} className="btn btn-outline border-white/20 hover:bg-white/10 w-full">Discuss this entry point</Link>
+              </Card>
+            </Reveal>
+          ))}
+        </div>
+      </section>
 
       <Reveal>
-        <section id="how-it-works" className="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12 text-center space-y-6">
-          <h2 className="text-3xl font-bold">How we work</h2>
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="space-y-2">
-              <div className="text-primary font-bold text-xl">01. Scope</div>
-              <p className="text-sm text-base-content/70">Clear boundaries and success criteria up front.</p>
-            </div>
-            <div className="space-y-2">
-              <div className="text-primary font-bold text-xl">02. Build</div>
-              <p className="text-sm text-base-content/70">Evidence-backed engineering with secure defaults.</p>
-            </div>
-            <div className="space-y-2">
-              <div className="text-primary font-bold text-xl">03. Support</div>
-              <p className="text-sm text-base-content/70">PRs, docs, and implementation guidance included.</p>
-            </div>
+        <section id="how-it-works" className="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12 space-y-8">
+          <div className="max-w-3xl space-y-3">
+            <span className="pill">How BlueDot works</span>
+            <h2 className="text-3xl font-bold">Scope, build, validate, hand off.</h2>
+            <p className="text-base-content/70 leading-relaxed">The process stays legible: written boundaries first, implementation against those boundaries, evidence that the result works, and documentation for what comes next.</p>
           </div>
-          <div className="pt-6">
-             <Link href="/contact">
-                <Button size="lg" special="wide">Start a build</Button>
-             </Link>
+          <div className="grid gap-8 md:grid-cols-4">
+            {[
+              ['01. Scope', 'Agree the target, inputs, risks, exclusions, and acceptance criteria.'],
+              ['02. Design', 'Choose the architecture, permissions, integrations, and failure paths.'],
+              ['03. Build', 'Implement the application, automation, controls, and supporting infrastructure.'],
+              ['04. Handoff', 'Validate behavior, document the system, and leave the next operator a clear path.'],
+            ].map(([label, description]) => (
+              <div key={label} className="space-y-2">
+                <div className="text-primary font-bold text-xl">{label}</div>
+                <p className="text-sm text-base-content/70">{description}</p>
+              </div>
+            ))}
           </div>
+          <Link href="/contact" className="btn btn-primary btn-lg w-fit">Discuss your project</Link>
         </section>
       </Reveal>
     </div>
-  );
+  )
 }

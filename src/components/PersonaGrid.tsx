@@ -1,26 +1,25 @@
 'use client'
 import Link from 'next/link'
-import { Card } from '@/components/ui/Card'
 import Reveal from '@/components/Reveal'
 
-const personas = [
+const pillars = [
   {
-    title: 'See what needs attention',
-    description: 'Turn scattered spreadsheets, inboxes, portal exports, and status checks into one useful report or lightweight dashboard.',
-    cta: 'Explore reporting work',
-    href: '/services/operations-automation-reporting'
+    title: 'Security Engineering',
+    description: 'Review and strengthen applications, APIs, authentication, deployments, AI tool boundaries, and supporting infrastructure. Findings are prioritized, evidence-backed, and can include remediation implementation.',
+    cta: 'Explore security engineering',
+    href: '/services#security-engineering'
   },
   {
-    title: 'Remove repetitive handoffs',
-    description: 'Connect stable tools and data sources so routine copying, reminders, notifications, and report preparation happen consistently.',
-    cta: 'Explore workflow automation',
-    href: '/services/workflow-automation'
+    title: 'AI Automation',
+    description: 'Build controlled AI agents, tool integrations, and workflow automations with explicit permissions, useful logs, human approval points, and maintainable failure handling.',
+    cta: 'Explore AI automation',
+    href: '/services#ai-automation'
   },
   {
-    title: 'Keep a human in control',
-    description: 'Use validation, logs, exception alerts, and explicit decision points instead of creating an unattended machine nobody trusts.',
-    cta: 'See how BlueDot works',
-    href: '/services#how-it-works'
+    title: 'Full-Stack Development',
+    description: 'Design, build, deploy, and improve full-stack applications, APIs, dashboards, internal platforms, integrations, and production services using TypeScript, React, Next.js, Node.js, Python, and modern infrastructure.',
+    cta: 'Explore full-stack development',
+    href: '/services/full-stack-development'
   }
 ]
 
@@ -28,14 +27,14 @@ export default function PersonaGrid() {
   return (
     <section className="page-shell py-24 bg-white/[0.01] border-b border-white/5 space-y-12">
       <div className="max-w-3xl space-y-4">
-        <span className="pill">The practical outcome</span>
-        <h2 className="text-4xl font-bold tracking-tight text-white">One bounded workflow. Better operational visibility.</h2>
+        <span className="pill">Three connected capabilities</span>
+        <h2 className="text-4xl font-bold tracking-tight text-white">Engineering depth across the system.</h2>
         <p className="text-base-content/65 leading-relaxed">
-          The Operations Automation and Reporting Sprint starts with a real process, not an AI sales pitch. BlueDot maps the work, defines the source boundaries in writing, and delivers one maintainable reporting or automation flow.
+          BlueDot can work at the application layer, the workflow layer, and the security boundary around both. The engagement stays grounded in written scope, observable behavior, and a handoff another technical person can operate.
         </p>
       </div>
       <div className="grid gap-12 md:grid-cols-3">
-        {personas.map((p) => (
+        {pillars.map((p) => (
           <Reveal key={p.title}>
             <div className="h-full space-y-6">
               <div className="w-12 h-0.5 bg-primary/40" />

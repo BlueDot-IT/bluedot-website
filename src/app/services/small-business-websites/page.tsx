@@ -1,7 +1,5 @@
-import { metadataForServicePage, renderServicePage } from '@/components/services/ServiceLandingPage'
+import { permanentRedirect } from 'next/navigation'
 
-export const metadata = metadataForServicePage('small-business-websites')
-
-export default function ServicePage() {
-  return renderServicePage('small-business-websites')
+export default function SmallBusinessWebsitesRedirect() {
+  permanentRedirect('/services/full-stack-development')
 }

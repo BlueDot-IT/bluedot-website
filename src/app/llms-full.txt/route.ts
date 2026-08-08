@@ -3,48 +3,94 @@ export const dynamic = 'force-static'
 export async function GET() {
   const body = `# BlueDot IT - Full Documentation
 
-> BlueDot IT is a software and technical-services business operated by Jason O'Neal in Lenoir, North Carolina. Its primary offer is a fixed-scope Operations Automation and Reporting Sprint. The site also covers secure web development, infrastructure hardening, custom software, workflow automation, AI tooling, and MCP systems.
+> BlueDot IT is a remote technical consultancy and development studio operated by Jason O'Neal. It provides security engineering, AI automation and agent systems, and full-stack application development for startups, software companies, technical teams, agencies, and growing businesses.
 
-## Core pages
+## Positioning
+
+Build the application. Automate the workflow. Secure the system.
+
+BlueDot works across frontend applications, backend services, APIs, data, authentication, deployment, Linux infrastructure, AI tool boundaries, and security controls. The work is scoped in writing and delivered with validation, documentation, and handoff.
+
+## Public pages
 
 - Home: https://bluedot.it.com/
 - Services: https://bluedot.it.com/services
+- Work: https://bluedot.it.com/projects
 - About: https://bluedot.it.com/about
-- Projects: https://bluedot.it.com/projects
-- Blog: https://bluedot.it.com/blog
+- Insights: https://bluedot.it.com/blog
 - Contact: https://bluedot.it.com/contact
 - Privacy: https://bluedot.it.com/legal/privacy
 - Terms: https://bluedot.it.com/legal/terms
 - Security policy: https://bluedot.it.com/.well-known/security.txt
 
-## Services
+## Security Engineering
 
-- Operations automation and reporting
-- Security reviews
-- Server hardening
-- Next.js security hardening
-- Workflow automation
-- MCP security consulting
-- Small business websites
-- AI security tooling
+Application and API security, authentication and authorization reviews, Next.js security hardening, Linux/Docker/NGINX/VPS hardening, CI/CD and dependency security, MCP and AI-agent security, and remediation implementation.
+
+Related pages:
+
+- https://bluedot.it.com/services/security-reviews
+- https://bluedot.it.com/services/server-hardening
+- https://bluedot.it.com/services/nextjs-security-hardening
+- https://bluedot.it.com/services/mcp-security-consulting
+
+## AI Automation
+
+Controlled AI agents, workflow automation, LLM integrations, MCP servers and tools, RAG and knowledge systems, human approval workflows, permissions, logs, guardrails, agent observability, and operational reporting.
+
+Related pages:
+
+- https://bluedot.it.com/services/workflow-automation
+- https://bluedot.it.com/services/ai-security-tooling
+- https://bluedot.it.com/services/operations-automation-reporting
+- https://bluedot.it.com/services/mcp-security-consulting
+
+## Full-Stack Development
+
+React and Next.js applications, TypeScript and Node.js services, Python backends and automation services, APIs, integrations, dashboards, internal platforms, authentication, admin systems, database design, deployment, and production hardening.
+
+Primary page: https://bluedot.it.com/services/full-stack-development
+
+## Engagement entry points
+
+### Security Review
+
+A bounded review of an application, repository, deployment, AI integration, or supporting host. Potential deliverables include findings with severity and evidence, technical and business impact, a prioritized remediation plan, optional implementation, and a retest checklist.
+
+### AI Automation Discovery and Prototype
+
+A bounded engagement to map one workflow and build a controlled working prototype. Potential deliverables include a workflow and tool map, data and permission boundaries, a functional prototype, logs, approval points, and a production roadmap.
+
+### Full-Stack Build Sprint
+
+A defined implementation phase for an application capability, internal tool, dashboard, API, integration, or backend service. Potential deliverables include written scope, architecture, implementation, tests, deployment, documentation, and handoff.
+
+### Operations Automation and Reporting Sprint
+
+A bounded AI Automation offering for replacing one repetitive operational process with a maintainable automation, report, or lightweight dashboard built around agreed tools and data sources.
 
 ## Selected public projects
 
-- Odinn-Forge: local-first runtime for governed AI-assisted operations
-- DemonClaw: security-first purple-team agent runtime with WASM sandboxing, approvals, scheduling, memory, and tamper-evident evidence logging
-- SignalGate: semantic routing and fallback layer for AI systems
-- GhostMCP: audit-first MCP security tooling for authorized operations
-- security-middleware: development-time security checks for Node.js and Next.js
-- agent-benchmarks: reproducible benchmarks for command-line AI agents
+- Odinn-Forge: local-first, single-user AI assistant with inspectable memory, approved tools, web research, and local activity history.
+- DemonClaw: Rust-native runtime for controlled purple-team and defensive operations with policy gates, constrained WASM execution, memory, and tamper-evident evidence.
+- GhostMCP: beta security-focused MCP server for authorized assessments with policy-guarded tools, curated workflows, dashboards, scheduling, and audit logging.
+- SignalGate: OpenAI-compatible loopback routing layer for OpenClaw using embeddings, KNN, capability gates, and bounded failover.
+- security-middleware: Node.js and Next.js development middleware for security headers, CORS, and npm dependency findings.
+- Ares: operator-supervised security assessment runtime with deterministic scope, risk, approvals, evidence, and reporting controls.
+- ExploitRank: engine for ingesting, normalizing, and scoring vulnerability records and exploit-candidate evidence.
+- agent-benchmarks: reproducible benchmark harness using isolated workspaces, deterministic assertions, and outcome-verified reports.
 
-## Blog
+These are public engineering examples, not named clients, testimonials, or private case studies. BlueDot does not claim customer adoption, production scale, certifications, or security guarantees from these repositories.
 
-The blog covers cybersecurity, web development, AI tooling, infrastructure, automation, and practical technology problem-solving.
+## Insights
 
-## Contact
+The /blog route is presented publicly as Insights. Existing technical writing can be read through three topic tracks: Security, AI Automation, and Full-Stack Engineering.
+
+## Contact and data boundaries
 
 - Website: https://bluedot.it.com/contact
 - Email: jason@bluedot.it.com
+- Do not submit passwords, credentials, regulated data, customer records, or other sensitive information through the public contact form.
 `
 
   return new Response(body, {

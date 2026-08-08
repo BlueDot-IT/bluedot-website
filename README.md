@@ -1,6 +1,6 @@
 # BlueDot IT Website
 
-The public BlueDot IT business website. It presents practical automation, reporting, secure software, websites, and technical services while retaining the blog, selected public work, account features, and admin tooling.
+The public BlueDot IT website. It presents security engineering, AI automation, and full-stack application development while retaining technical insights, selected public work, account features, and admin tooling.
 
 Table of contents
 
@@ -21,7 +21,7 @@ Table of contents
 
 ## About
 
-Bluedot is a professional portfolio and personal site that highlights technical work, security knowledge, and creative projects. It provides a blog platform for technical writing, a projects portfolio, a downloadable resume, and an admin panel for content management.
+BlueDot IT is a remote technical consultancy and development studio operated by Jason O'Neal. The site communicates three connected capabilities: security engineering, AI automation and agent systems, and full-stack application development. It also provides a technical insights platform, selected public work, a downloadable resume, and an admin panel for content management.
 
 
 ## Features
@@ -29,8 +29,8 @@ Bluedot is a professional portfolio and personal site that highlights technical 
 Features include:
 
 - Clean, responsive website layout optimized for desktop and mobile
-- Projects portfolio with project pages and rich media support
-- Blog with Markdown/MDX support and SEO-friendly routes (/blog/[slug])
+- Selected public work across AI systems, security engineering, and technical evaluation
+- Insights with Markdown/MDX support and SEO-friendly routes (/blog/[slug])
 - Resume download and structured experience section
 - Admin panel for creating and managing blog posts and projects
 - SEO-first setup: comprehensive metadata, sitemap, robots, and JSON-LD

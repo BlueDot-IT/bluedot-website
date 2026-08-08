@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic'
 // Keep these dates tied to the content change being deployed. A fixed date is
 // preferable to claiming that every request changed the page, but it must be
 // advanced whenever the corresponding static content changes.
-const lastContentUpdate = new Date('2026-08-02')
+const lastContentUpdate = new Date('2026-08-08')
 const lastLegalUpdate = new Date('2026-08-02')
 const servicePageSlugs = [
   'operations-automation-reporting',
@@ -16,8 +16,8 @@ const servicePageSlugs = [
   'nextjs-security-hardening',
   'workflow-automation',
   'mcp-security-consulting',
-  'small-business-websites',
   'ai-security-tooling',
+  'full-stack-development',
 ]
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

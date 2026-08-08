@@ -1,122 +1,129 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { Card } from '@/components/ui/Card'
-import Button from '@/components/ui/Button'
 
 export type ServiceSlug = keyof typeof servicePages
 
 export const servicePages = {
   'operations-automation-reporting': {
+    category: 'AI Automation',
     title: 'Operations Automation and Reporting Sprint',
-    description: 'Replace one repetitive operational process with a maintainable automation, report, or lightweight dashboard built around your existing tools.',
-    who: 'Small businesses and operational teams that lose time copying data, assembling recurring reports, checking multiple portals, or chasing unclear handoffs.',
-    problems: ['Weekly or monthly reporting assembled manually', 'Information copied between forms, inboxes, spreadsheets, and portals', 'Recurring status work with no reliable owner, exception list, or source of truth'],
+    description: 'Replace one repetitive operational process with a maintainable automation, report, or lightweight dashboard built around agreed tools and data sources.',
+    who: 'Startups, internal teams, and growing businesses that lose time copying data, assembling recurring reports, checking multiple portals, or chasing unclear handoffs.',
+    problems: ['Recurring reporting assembled manually', 'Information copied between forms, inboxes, spreadsheets, and portals', 'Status work with no reliable owner, exception list, or source of truth'],
     deliverables: ['Current-state workflow and data-source map', 'One bounded implementation using the agreed data sources', 'Validation, failure visibility, logs, and human decision points', 'Documentation, acceptance evidence, and handoff'],
     tools: ['Python', 'TypeScript', 'REST APIs', 'webhooks', 'Google Workspace', 'scheduled jobs', 'lightweight dashboards'],
-    examples: ['Combine portal exports into a weekly executive report', 'Route approved form data into a tracker and exception queue', 'Create a small operational dashboard from stable source data'],
-    pricing: 'Final price, timeline, integrations, correction period, and exclusions are confirmed in a written scope before work begins.',
+    examples: ['Combine portal exports into a recurring report', 'Route approved form data into a tracker and exception queue', 'Create a small operational dashboard from stable source data'],
+    scope: 'The final scope, integrations, correction period, exclusions, and acceptance criteria are confirmed in writing before work begins.',
     faq: [
       ['Is this an AI product?', 'Not necessarily. The goal is a reliable business outcome. AI is used only when it materially improves the approved workflow.'],
-      ['What is outside the starter sprint?', 'Complex browser portals, unstable authentication, major data cleanup, ongoing operations, and materially expanded integrations are scoped separately.'],
+      ['What is outside the starter scope?', 'Complex browser portals, unstable authentication, major data cleanup, ongoing operations, and materially expanded integrations are scoped separately.'],
       ['Will I be able to understand the result?', 'Yes. The handoff includes documentation, validation evidence, and clear failure and human-review points.'],
     ],
   },
   'security-reviews': {
-    title: 'Security Reviews for Small Businesses and Web Teams',
-    description: 'A practical review of your website, server, application, and workflow risks with prioritized fixes you can act on.',
-    who: 'Small businesses, solo founders, agencies, and technical teams that need a clear security baseline without an enterprise audit process.',
-    problems: ['Unknown exposure on public websites and VPS hosts', 'Weak authentication, headers, secrets, or deployment habits', 'Unclear remediation priorities after a scan or incident concern'],
-    deliverables: ['Findings summary with severity and business impact', 'Prioritized remediation checklist', 'Evidence-backed notes, commands, screenshots, or code references where useful'],
+    category: 'Security Engineering',
+    title: 'Application and Infrastructure Security Reviews',
+    description: 'Review a website, API, application, deployment, AI integration, or supporting host and turn the evidence into prioritized fixes you can act on.',
+    who: 'Startups, software teams, founders, agencies, and technical organizations that need a clear security baseline and a practical remediation path.',
+    problems: ['Unknown exposure on public applications and VPS hosts', 'Weak authentication, headers, secrets, or deployment habits', 'Unclear remediation priorities after a scan or incident concern'],
+    deliverables: ['Findings with severity and technical/business impact', 'Evidence-backed notes, commands, screenshots, or code references where useful', 'Prioritized remediation plan', 'Optional implementation support and retest checklist'],
     tools: ['Linux', 'NGINX', 'Docker', 'Next.js', 'Node.js', 'Python', 'OWASP guidance'],
-    examples: ['Pre-launch security review', 'Post-redesign hardening pass', 'VPS and web app exposure review'],
-    pricing: 'Fixed-scope reviews start with a short discovery call and a written checklist of targets.',
+    examples: ['Pre-launch application review', 'Post-redesign hardening pass', 'VPS and web application exposure review'],
+    scope: 'A bounded review begins with agreed domains, hosts, repositories, access boundaries, and exclusions. destructive testing and third-party systems remain out of scope unless explicitly authorized.',
     faq: [
       ['Is this a penetration test?', 'It is a practical security review unless we explicitly scope a deeper authorized test.'],
       ['Will I get fixes or only findings?', 'You get prioritized findings and can add implementation support if you want the fixes handled.'],
     ],
   },
   'server-hardening': {
-    title: 'Server Hardening for Linux, NGINX, Docker, and Node',
-    description: 'Secure and clean up production VPS hosts so web apps run with safer defaults, clearer logs, and fewer exposed edges.',
-    who: 'Businesses running websites, APIs, dashboards, or automation on Linux VPS infrastructure.',
-    problems: ['Open services and stale packages', 'Weak firewall, SSH, reverse proxy, or TLS configuration', 'Containers and app processes deployed without operational guardrails'],
-    deliverables: ['Hardening plan', 'Firewall and SSH review', 'NGINX/TLS cleanup', 'Docker and process manager recommendations', 'Rollback-aware change notes'],
+    category: 'Security Engineering',
+    title: 'Linux, NGINX, Docker, and VPS Hardening',
+    description: 'Review and strengthen production hosts so applications run with safer defaults, clearer logs, and fewer exposed edges.',
+    who: 'Teams running websites, APIs, dashboards, or automation on Linux VPS infrastructure.',
+    problems: ['Open services and stale packages', 'Weak firewall, SSH, reverse-proxy, or TLS configuration', 'Containers and application processes deployed without operational guardrails'],
+    deliverables: ['Hardening plan', 'Firewall and SSH review', 'NGINX/TLS cleanup', 'Docker and process-manager recommendations', 'Rollback-aware change notes'],
     tools: ['Debian', 'Ubuntu', 'Kali', 'NGINX', 'Docker', 'systemd', 'PM2', 'Certbot'],
-    examples: ['Secure a Next.js VPS', 'Clean up exposed admin surfaces', 'Prepare a host for production launch'],
-    pricing: 'Hardening work is scoped by host count, app count, and whether implementation access is needed.',
+    examples: ['Secure a Next.js VPS', 'Clean up exposed administrative surfaces', 'Prepare a host for production launch'],
+    scope: 'Hardening is scoped by host count, application count, access level, maintenance window, and the changes that can be validated safely.',
     faq: [
       ['Do you need root access?', 'Implementation usually needs privileged access. Review-only work can use read-only evidence.'],
-      ['Can this be done without downtime?', 'Most changes can be planned to minimize downtime, but risky service changes are scheduled deliberately.'],
+      ['Can this be done without downtime?', 'Changes are planned to minimize downtime, but risky service changes are scheduled deliberately.'],
     ],
   },
   'nextjs-security-hardening': {
+    category: 'Security Engineering',
     title: 'Next.js Security Hardening Before Production',
-    description: 'Review and improve a Next.js application before launch, with attention to auth, headers, routes, server actions, APIs, and deployment behavior.',
-    who: 'Teams launching or maintaining Next.js applications with public forms, auth, dashboards, or API routes.',
-    problems: ['Indexable login/admin pages', 'Weak metadata, headers, or cache behavior', 'Unsafe API routes, secrets handling, or deployment assumptions'],
-    deliverables: ['Route and metadata review', 'Security headers recommendations', 'Auth and admin surface checks', 'Build and deployment notes'],
+    description: 'Review and improve a Next.js application before launch, with attention to authentication, headers, routes, server actions, APIs, and deployment behavior.',
+    who: 'Teams launching or maintaining Next.js applications with public forms, authentication, dashboards, or API routes.',
+    problems: ['Indexable login or administrative pages', 'Weak metadata, headers, or cache behavior', 'Unsafe API routes, secrets handling, or deployment assumptions'],
+    deliverables: ['Route and metadata review', 'Security header recommendations', 'Authentication and administrative-surface checks', 'Build and deployment notes', 'Targeted remediation guidance'],
     tools: ['Next.js', 'React', 'TypeScript', 'Prisma', 'NextAuth.js', 'ESLint'],
-    examples: ['Pre-launch checklist', 'Admin route noindex cleanup', 'API route exposure review'],
-    pricing: 'Starts with a repository review and a short list of high-impact production fixes.',
+    examples: ['Pre-launch checklist', 'Administrative route access and indexing review', 'API route exposure review'],
+    scope: 'Work starts with a repository review and a bounded list of high-impact production concerns. A rebuild is separate from targeted hardening.',
     faq: [
       ['Can you work from a private repo?', 'Yes, with scoped access and clear boundaries.'],
       ['Do you rewrite the app?', 'No. The goal is targeted hardening unless a rebuild is explicitly scoped.'],
     ],
   },
   'workflow-automation': {
+    category: 'AI Automation',
     title: 'Workflow Automation and API Integrations',
-    description: 'Turn repetitive business workflows into reliable automations with clear handoffs, logs, and human review where it matters.',
-    who: 'Small teams that rely on forms, spreadsheets, inboxes, CRMs, content queues, booking flows, or internal dashboards.',
+    description: 'Turn repetitive workflows into reliable automations with clear handoffs, logs, permissions, and human review where it matters.',
+    who: 'Technical teams and growing organizations that rely on forms, spreadsheets, inboxes, CRMs, content queues, booking flows, or internal dashboards.',
     problems: ['Manual copy/paste work', 'Unclear handoffs between tools', 'Automations that fail silently or are hard to maintain'],
-    deliverables: ['Workflow map', 'API integration plan', 'Automation scripts or services', 'Logging and failure-handling notes'],
-    tools: ['Python', 'TypeScript', 'Google Workspace', 'REST APIs', 'webhooks', 'cron jobs'],
-    examples: ['Lead intake routing', 'Content workflow support', 'Internal reporting automation'],
-    pricing: 'Automation work starts with one narrow workflow and expands after the first reliable handoff works.',
+    deliverables: ['Workflow and tool map', 'API integration plan', 'Automation scripts or services', 'Logging and failure-handling notes', 'Approval and exception points where appropriate'],
+    tools: ['Python', 'TypeScript', 'REST APIs', 'webhooks', 'Google Workspace', 'scheduled jobs'],
+    examples: ['Lead-intake routing', 'Content workflow support', 'Internal reporting automation'],
+    scope: 'Automation work starts with one narrow workflow and expands only after the first reliable handoff is understood and validated.',
     faq: [
       ['Can humans stay in the loop?', 'Yes. Approval steps and review queues are preferred for sensitive workflows.'],
-      ['Can you connect tools without official APIs?', 'Sometimes, but official APIs and exports are more stable.'],
+      ['Can you connect tools without official APIs?', 'Sometimes, but official APIs and exports are more stable and maintainable.'],
     ],
   },
   'mcp-security-consulting': {
+    category: 'Security Engineering + AI Automation',
     title: 'MCP Security Consulting for AI Tooling',
-    description: 'Design and review Model Context Protocol tool exposure so AI agents can use useful capabilities without unnecessary risk.',
+    description: 'Design and review Model Context Protocol tool exposure so AI agents can use useful capabilities without unnecessary authority or hidden side effects.',
     who: 'Builders exposing local tools, internal APIs, security utilities, or business workflows to AI agents.',
-    problems: ['Overbroad tool permissions', 'No approval layer for sensitive actions', 'Weak audit trail for agent-triggered operations'],
-    deliverables: ['Tool exposure review', 'Approval and audit recommendations', 'Safer tool boundary design', 'Implementation support for MCP-related systems'],
+    problems: ['Overbroad tool permissions', 'No approval layer for sensitive actions', 'Weak audit trails for agent-triggered operations'],
+    deliverables: ['Tool exposure review', 'Approval and audit recommendations', 'Safer tool-boundary design', 'Implementation support for MCP-related systems'],
     tools: ['MCP', 'TypeScript', 'Python', 'policy gates', 'audit logs', 'local-first agent runtimes'],
-    examples: ['Review an MCP server before production use', 'Add approval gates for sensitive tools', 'Segment safe read-only tools from write actions'],
-    pricing: 'MCP consulting is scoped by tool count, action risk, and whether implementation support is included.',
+    examples: ['Review an MCP server before wider use', 'Add approval gates for sensitive tools', 'Separate safe read-only tools from write actions'],
+    scope: 'MCP consulting is scoped by tool count, action risk, credential boundaries, transport, and whether implementation support is included.',
     faq: [
-      ['Is MCP safe by default?', 'MCP is a protocol. Safety depends on the tools exposed, permissions, approvals, and logs.'],
-      ['Can you review an existing MCP server?', 'Yes. The review focuses on boundaries, prompts, credentials, and side effects.'],
-    ],
-  },
-  'small-business-websites': {
-    title: 'Small Business Website Builds with Secure Defaults',
-    description: 'Build or refresh a small business website with practical SEO, fast pages, clean contact flows, and security-conscious deployment.',
-    who: 'Local and remote small businesses that need a credible website without a bloated agency process.',
-    problems: ['Outdated or slow websites', 'Unclear contact paths', 'Weak hosting, forms, analytics, or maintenance practices'],
-    deliverables: ['Modern responsive website', 'Basic technical SEO', 'Contact form or lead flow', 'Deployment and maintenance notes'],
-    tools: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel or VPS deployments', 'Google Search Console'],
-    examples: ['New service business website', 'Portfolio or consultant site', 'Replacement for a fragile legacy site'],
-    pricing: 'Website builds start with a fixed scope for core pages, then add integrations or custom features as needed.',
-    faq: [
-      ['Can you write the copy?', 'Yes, but the best pages come from a short discovery process and real service details.'],
-      ['Do you handle hosting?', 'Yes, hosting and deployment can be included in the scope.'],
+      ['Is MCP safe by default?', 'MCP is a protocol. Safety depends on the tools exposed, permissions, approvals, credentials, and logs.'],
+      ['Can you review an existing MCP server?', 'Yes. The review focuses on boundaries, credentials, prompts, authorization, and side effects.'],
     ],
   },
   'ai-security-tooling': {
+    category: 'AI Automation + Security Engineering',
     title: 'AI Security Tooling and Agent Guardrails',
-    description: 'Prototype and harden AI-assisted security workflows with safer tool access, clearer logs, and practical human oversight.',
-    who: 'Security-minded builders, operators, and small teams experimenting with AI-assisted analysis or automation.',
-    problems: ['Agents with too much authority', 'No evidence trail for AI-assisted actions', 'Prototype tools that are useful but not safe enough for real workflows'],
-    deliverables: ['Prototype review', 'Tool and permission model', 'Guardrail recommendations', 'Audit-friendly logging plan'],
+    description: 'Prototype and strengthen AI-assisted security workflows with safer tool access, clearer logs, and practical human oversight.',
+    who: 'Security-minded builders, operators, and technical teams experimenting with AI-assisted analysis or automation.',
+    problems: ['Agents with too much authority', 'No evidence trail for AI-assisted actions', 'Useful prototypes that are not yet bounded for real workflows'],
+    deliverables: ['Prototype or repository review', 'Tool and permission model', 'Guardrail recommendations', 'Audit-friendly logging plan', 'Human approval design'],
     tools: ['Python', 'TypeScript', 'LLM APIs', 'MCP', 'structured logs', 'approval gates'],
-    examples: ['Agent tool permission review', 'Security workflow prototype', 'Audit log design for AI actions'],
-    pricing: 'AI security tooling starts as a small prototype or review before expanding into production workflows.',
+    examples: ['Agent tool-permission review', 'Security workflow prototype', 'Audit-log design for AI actions'],
+    scope: 'AI security tooling starts with a bounded prototype or review before any wider production workflow is considered.',
     faq: [
       ['Do you remove human oversight?', 'No. Sensitive actions should keep a human approval step.'],
-      ['Can you work with local models?', 'Yes, if the workflow and hardware constraints are clear.'],
+      ['Can you work with local models?', 'Yes, if the workflow, model boundary, and hardware constraints are clear.'],
+    ],
+  },
+  'full-stack-development': {
+    category: 'Full-Stack Development',
+    title: 'Full-Stack Application Development',
+    description: 'Design, build, deploy, and improve full-stack applications, APIs, dashboards, internal platforms, integrations, and production services.',
+    who: 'Startups, software companies, founders moving from prototype to production, technical teams, and agencies needing specialist implementation support.',
+    problems: ['A prototype that needs a maintainable production path', 'Frontend and backend work split across disconnected handoffs', 'APIs, dashboards, authentication, or integrations that need clearer boundaries'],
+    deliverables: ['Written scope and architecture', 'Frontend and backend implementation', 'APIs, data, authentication, and integrations', 'Tests and validation', 'Deployment, documentation, and handoff'],
+    tools: ['TypeScript', 'React', 'Next.js', 'Node.js', 'Python', 'SQL', 'Docker', 'Linux infrastructure'],
+    examples: ['Internal platform or dashboard', 'API and integration layer', 'Production service or application capability'],
+    scope: 'A build sprint is defined by the application capability, constraints, dependencies, production boundary, and acceptance criteria agreed in writing.',
+    faq: [
+      ['Can you work inside an existing codebase?', 'Yes. The first step is to understand the current architecture, boundaries, and highest-value implementation path.'],
+      ['Do you handle deployment?', 'Deployment and production hardening can be included when they are part of the written scope.'],
     ],
   },
 } as const
@@ -144,12 +151,12 @@ export function renderServicePage(slug: ServiceSlug) {
   return (
     <div className="page-shell space-y-12 py-12">
       <section className="max-w-4xl space-y-5">
-        <span className="pill">BlueDot IT service</span>
+        <span className="pill">{page.category}</span>
         <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">{page.title}</h1>
         <p className="text-xl text-base-content/80">{page.description}</p>
         <div className="flex flex-wrap gap-3 pt-2">
-          <Link href={`/contact?service=${slug}`}><Button>Describe the problem</Button></Link>
-          <Link href="/projects" className="rounded-xl border border-white/10 px-5 py-3 text-sm font-semibold hover:bg-white/5">View projects</Link>
+          <Link href={`/contact?service=${slug}`} className="btn btn-primary">Discuss this service</Link>
+          <Link href="/projects" className="btn btn-outline border-white/20 hover:bg-white/10">View selected work</Link>
         </div>
       </section>
 
@@ -159,14 +166,14 @@ export function renderServicePage(slug: ServiceSlug) {
           <p className="text-base-content/75 leading-relaxed">{page.who}</p>
         </Card>
         <Card className="space-y-3 bg-white/5 border-white/10 p-8">
-          <h2 className="text-2xl font-bold">Pricing starting point</h2>
-          <p className="text-base-content/75 leading-relaxed">{page.pricing}</p>
+          <h2 className="text-2xl font-bold">Scope and handoff</h2>
+          <p className="text-base-content/75 leading-relaxed">{page.scope}</p>
         </Card>
       </div>
 
       <section className="grid gap-6 lg:grid-cols-3">
         <Card className="space-y-4 bg-white/5 border-white/10 p-8">
-          <h2 className="text-2xl font-bold">Problems this solves</h2>
+          <h2 className="text-2xl font-bold">Problems this addresses</h2>
           <ul className="list-disc space-y-2 pl-5 text-base-content/75">
             {page.problems.map((item) => <li key={item}>{item}</li>)}
           </ul>
@@ -178,7 +185,7 @@ export function renderServicePage(slug: ServiceSlug) {
           </ul>
         </Card>
         <Card className="space-y-4 bg-white/5 border-white/10 p-8">
-          <h2 className="text-2xl font-bold">Tools and stack</h2>
+          <h2 className="text-2xl font-bold">Relevant stack</h2>
           <ul className="list-disc space-y-2 pl-5 text-base-content/75">
             {page.tools.map((item) => <li key={item}>{item}</li>)}
           </ul>
@@ -186,7 +193,7 @@ export function renderServicePage(slug: ServiceSlug) {
       </section>
 
       <Card className="space-y-4 bg-white/5 border-white/10 p-8">
-        <h2 className="text-2xl font-bold">Example use cases</h2>
+        <h2 className="text-2xl font-bold">Example scope</h2>
         <ul className="grid gap-3 md:grid-cols-3">
           {page.examples.map((item) => <li key={item} className="rounded-xl border border-white/10 p-4 text-base-content/75">{item}</li>)}
         </ul>
@@ -199,17 +206,14 @@ export function renderServicePage(slug: ServiceSlug) {
             <ol className="list-decimal space-y-2 pl-5 text-base-content/75">
               <li>Confirm the agreed domains, hosts, repositories, and access boundaries.</li>
               <li>Review public exposure, authentication, dependencies, headers, deployment, and secrets handling.</li>
-              <li>Validate material findings with safe, authorized evidence and explain the business impact.</li>
+              <li>Validate material findings with safe, authorized evidence and explain the technical and business impact.</li>
               <li>Prioritize remediation by likelihood, impact, effort, and available rollback path.</li>
             </ol>
           </Card>
           <Card className="space-y-4 bg-white/5 border-white/10 p-8">
-            <h2 className="text-2xl font-bold">Scope, timeline, and handoff</h2>
+            <h2 className="text-2xl font-bold">Remediation path</h2>
             <p className="text-base-content/75 leading-relaxed">
-              A typical review covers one website or application and its directly supporting VPS or deployment configuration. It excludes destructive testing, social engineering, third-party systems, and anything not explicitly authorized. Most fixed-scope reviews take three to five business days after access and scope are confirmed.
-            </p>
-            <p className="text-base-content/75 leading-relaxed">
-              The handoff includes a findings summary, evidence, remediation order, and a short retest checklist. A representative finding might be an administrative route exposed without an access control or noindex boundary; the report states the affected asset, impact, evidence, and exact corrective action rather than dropping a scan dump on your desk.
+              The handoff includes findings, evidence, remediation order, and a retest checklist. Implementation support can address agreed fixes instead of leaving the team with a scanner dump.
             </p>
             <div className="flex flex-wrap gap-4 pt-2 text-sm font-semibold">
               <Link href="/services/server-hardening" className="text-primary hover:underline">Related: server hardening</Link>
@@ -220,7 +224,7 @@ export function renderServicePage(slug: ServiceSlug) {
       )}
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold">FAQ</h2>
+        <h2 className="text-2xl font-bold">Questions</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {page.faq.map(([question, answer]) => (
             <Card key={question} className="space-y-2 bg-white/5 border-white/10 p-6">
@@ -232,9 +236,9 @@ export function renderServicePage(slug: ServiceSlug) {
       </section>
 
       <section className="rounded-3xl border border-white/10 bg-white/5 p-8 text-center space-y-4">
-        <h2 className="text-2xl font-bold">Need this scoped for your site or system?</h2>
+        <h2 className="text-2xl font-bold">Need this scoped for your system?</h2>
         <p className="text-base-content/75">Send the target, the concern, and what outcome would make the work useful.</p>
-        <Link href={`/contact?service=${slug}`}><Button size="lg" special="wide">Contact BlueDot IT</Button></Link>
+        <Link href={`/contact?service=${slug}`} className="btn btn-primary btn-lg">Contact BlueDot IT</Link>
       </section>
     </div>
   )

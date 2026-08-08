@@ -22,6 +22,10 @@ const llms = existsSync(join(root, 'src/app/llms.txt/route.ts'))
 assert.match(llms, /BlueDot IT/, 'llms.txt must name BlueDot IT')
 assert.match(llms, /https:\/\/bluedot\.it\.com\/services/, 'llms.txt must link services')
 assert.match(llms, /jason@bluedot\.it\.com/, 'llms.txt must expose the clean contact email')
+assert.match(llms, /Security Engineering/, 'llms.txt must describe security engineering')
+assert.match(llms, /AI Automation/, 'llms.txt must describe AI automation')
+assert.match(llms, /Full-Stack Development/, 'llms.txt must describe full-stack development')
+assert.doesNotMatch(llms, /Lenoir|Caldwell County/, 'llms.txt primary positioning must not be locally targeted')
 
 const loginCandidates = ['src/app/login/layout.tsx', 'src/app/login/page.tsx']
 const loginNoindex = loginCandidates.filter((path) => existsSync(join(root, path))).some((path) => /robots:\s*{[\s\S]*index:\s*false[\s\S]*follow:\s*false/.test(read(path)))
@@ -59,8 +63,8 @@ for (const path of [
   'src/app/services/nextjs-security-hardening/page.tsx',
   'src/app/services/workflow-automation/page.tsx',
   'src/app/services/mcp-security-consulting/page.tsx',
-  'src/app/services/small-business-websites/page.tsx',
   'src/app/services/ai-security-tooling/page.tsx',
+  'src/app/services/full-stack-development/page.tsx',
 ]) {
   assert.ok(existsSync(join(root, path)), `${path} must exist`)
   const page = read(path)
@@ -69,12 +73,19 @@ for (const path of [
   assert.match(sitemap, new RegExp(slug), `sitemap must include ${slug}`)
   assert.match(serviceLanding, new RegExp(`['"]${slug}['"]`), `service data must include ${slug}`)
 }
+const legacyService = read('src/app/services/small-business-websites/page.tsx')
+assert.match(legacyService, /permanentRedirect/, 'replaced website route must permanently redirect')
+assert.doesNotMatch(sitemap, /small-business-websites/, 'replaced website route must not remain in the sitemap')
 assert.match(serviceLanding, /<h1[\s\S]*?>[\s\S]*?<\/h1>/, 'service landing template must render one clear H1')
-assert.match(serviceLanding, /FAQ|Frequently asked/i, 'service landing template must include an FAQ section')
+assert.match(serviceLanding, /Questions|FAQ/i, 'service landing template must include an FAQ section')
 assert.match(serviceLanding, /\/contact/, 'service landing template must link to contact')
 assert.match(serviceLanding, /Review methodology/, 'security reviews must explain the review methodology')
-assert.match(serviceLanding, /three to five business days/, 'security reviews must state a representative timeline')
+assert.match(serviceLanding, /Scope and handoff/, 'service landing template must explain scope and handoff')
 assert.match(serviceLanding, /destructive testing/, 'security reviews must state meaningful scope exclusions')
+
+const rootMetadata = read('src/app/layout.tsx')
+assert.match(rootMetadata, /Security, AI Automation, and Full-Stack Development/, 'root metadata must use the new positioning')
+assert.doesNotMatch(rootMetadata, /Business Automation in Lenoir|Caldwell County/, 'root metadata must not lead with local positioning')
 
 assert.ok(existsSync(join(root, 'docs/ai-indexing-content-checklist.md')), 'future AI-answerable content checklist must exist')
 

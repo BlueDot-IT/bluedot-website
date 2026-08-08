@@ -26,17 +26,17 @@ Use consistent wording:
 
 - Organization: BlueDot IT
 - Founder/operator: Jason O'Neal
-- Main topics: cybersecurity, secure web development, infrastructure hardening, workflow automation, AI security tooling, MCP systems
+- Main topics: security engineering, AI automation and agent systems, full-stack development, infrastructure hardening, workflow automation, MCP security, and application hardening
 - Canonical site: https://bluedot.it.com
 
 ## Strong starter topics
 
 - What is an MCP security gateway?
 - How to harden a Next.js app before production
-- What small businesses should check before hiring a web developer
+- What technical teams should check before taking a Next.js application to production
 - How to secure a VPS running NGINX, Docker, and Node
-- How AI automation can help hospitality operations without removing human oversight
-- What a practical small business security review includes
+- How AI automation can support a real workflow without removing human oversight
+- What a practical application and infrastructure security review includes
 - How to safely expose tools to AI agents
 
 ## Pre-publish verification
