@@ -25,6 +25,7 @@ export const metadata:  Metadata = {
 
 const featuredNames = [
   "Odinn-Forge",
+  "DemonClaw",
   "SignalGate",
   "GhostMCP",
   "security-middleware",
