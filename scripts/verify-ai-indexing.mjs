@@ -11,6 +11,7 @@ assert.match(sitemap, /url:\s*`?\$?\{?baseUrl\}?\/services`?/, 'sitemap must inc
 assert.match(sitemap, /url:\s*`?\$?\{?baseUrl\}?\/legal\/privacy`?/, 'sitemap must include /legal/privacy')
 assert.match(sitemap, /url:\s*`?\$?\{?baseUrl\}?\/legal\/terms`?/, 'sitemap must include /legal/terms')
 assert.doesNotMatch(sitemap, /lastModified:\s*new Date\(\)/, 'sitemap static pages must not use new Date() on every request')
+assert.doesNotMatch(sitemap, /2026-07-28/, 'sitemap must not retain the superseded static content date')
 assert.match(sitemap, /prisma\.post\.findMany/, 'sitemap should fetch blog posts directly from Prisma')
 assert.match(sitemap, /orderBy:\s*{\s*updatedAt:\s*['"]desc['"]\s*}/, 'sitemap should order blog posts consistently by updatedAt')
 
@@ -71,6 +72,9 @@ for (const path of [
 assert.match(serviceLanding, /<h1[\s\S]*?>[\s\S]*?<\/h1>/, 'service landing template must render one clear H1')
 assert.match(serviceLanding, /FAQ|Frequently asked/i, 'service landing template must include an FAQ section')
 assert.match(serviceLanding, /\/contact/, 'service landing template must link to contact')
+assert.match(serviceLanding, /Review methodology/, 'security reviews must explain the review methodology')
+assert.match(serviceLanding, /three to five business days/, 'security reviews must state a representative timeline')
+assert.match(serviceLanding, /destructive testing/, 'security reviews must state meaningful scope exclusions')
 
 assert.ok(existsSync(join(root, 'docs/ai-indexing-content-checklist.md')), 'future AI-answerable content checklist must exist')
 

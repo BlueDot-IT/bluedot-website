@@ -192,6 +192,33 @@ export function renderServicePage(slug: ServiceSlug) {
         </ul>
       </Card>
 
+      {slug === 'security-reviews' && (
+        <section className="grid gap-6 lg:grid-cols-2">
+          <Card className="space-y-4 bg-white/5 border-white/10 p-8">
+            <h2 className="text-2xl font-bold">Review methodology</h2>
+            <ol className="list-decimal space-y-2 pl-5 text-base-content/75">
+              <li>Confirm the agreed domains, hosts, repositories, and access boundaries.</li>
+              <li>Review public exposure, authentication, dependencies, headers, deployment, and secrets handling.</li>
+              <li>Validate material findings with safe, authorized evidence and explain the business impact.</li>
+              <li>Prioritize remediation by likelihood, impact, effort, and available rollback path.</li>
+            </ol>
+          </Card>
+          <Card className="space-y-4 bg-white/5 border-white/10 p-8">
+            <h2 className="text-2xl font-bold">Scope, timeline, and handoff</h2>
+            <p className="text-base-content/75 leading-relaxed">
+              A typical review covers one website or application and its directly supporting VPS or deployment configuration. It excludes destructive testing, social engineering, third-party systems, and anything not explicitly authorized. Most fixed-scope reviews take three to five business days after access and scope are confirmed.
+            </p>
+            <p className="text-base-content/75 leading-relaxed">
+              The handoff includes a findings summary, evidence, remediation order, and a short retest checklist. A representative finding might be an administrative route exposed without an access control or noindex boundary; the report states the affected asset, impact, evidence, and exact corrective action rather than dropping a scan dump on your desk.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-2 text-sm font-semibold">
+              <Link href="/services/server-hardening" className="text-primary hover:underline">Related: server hardening</Link>
+              <Link href="/services/nextjs-security-hardening" className="text-primary hover:underline">Related: Next.js hardening</Link>
+            </div>
+          </Card>
+        </section>
+      )}
+
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">FAQ</h2>
         <div className="grid gap-4 md:grid-cols-2">
