@@ -1,172 +1,71 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
 
-export default async function Terms() {
-    return (
-        <div className="page-shell">
-            <div className="max-w-4xl mx-auto">
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold mb-4 heading-accent">Terms of Service</h1>
-          <p className="text-base-content/70">
-            Last updated: {new Date().toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
-            })}
+export const metadata: Metadata = {
+  title: 'Website Terms',
+  description: 'Terms governing use of the BlueDot IT public website.',
+  alternates: {
+    canonical: 'https://bluedot.it.com/legal/terms',
+  },
+}
+
+const sections = [
+  {
+    title: 'Website use',
+    body: 'These terms govern access to and use of the public BlueDot IT website, including its service information, articles, project examples, account features, and contact forms. By using the website, you agree to use it lawfully and without attempting to disrupt, misuse, or gain unauthorized access to any system or account.',
+  },
+  {
+    title: 'Service information is not a client agreement',
+    body: 'Descriptions, starting prices, examples, timelines, and other website content are general information, not a binding quote, warranty, or commitment. Paid work begins only under a separate written agreement or statement of work that defines the parties, deliverables, price, schedule, responsibilities, exclusions, ownership, and acceptance terms.',
+  },
+  {
+    title: 'No legal or security guarantee',
+    body: 'Website content is provided for general informational purposes. It is not legal advice, compliance certification, or a guarantee that any system is completely secure, uninterrupted, or error-free. Authorized security testing and implementation work require an expressly agreed scope.',
+  },
+  {
+    title: 'Accounts and comments',
+    body: 'If account or comment features are available, you are responsible for accurate information, account security, and content you submit. Do not submit unlawful, infringing, abusive, deceptive, malicious, or confidential third-party material. BlueDot IT may moderate or remove content and restrict misuse.',
+  },
+  {
+    title: 'Intellectual property and links',
+    body: 'Unless otherwise identified, website content and branding belong to BlueDot IT or their respective licensors. Public project links may lead to third-party services with their own terms and privacy practices. A link does not imply control of or responsibility for the third-party service.',
+  },
+  {
+    title: 'Availability and liability',
+    body: 'The website is provided as available and may change without notice. To the extent permitted by applicable law, BlueDot IT is not liable for indirect, incidental, special, or consequential losses arising solely from use of or inability to use this public website.',
+  },
+  {
+    title: 'Changes and contact',
+    body: 'These website terms may be updated as the site and business change. Questions may be sent to jason@bluedot.it.com. Client-specific questions should be resolved under the applicable signed agreement.',
+  },
+]
+
+export default function Terms() {
+  return (
+    <div className="page-shell">
+      <div className="max-w-4xl mx-auto space-y-8">
+        <header className="space-y-3">
+          <span className="pill">BlueDot IT</span>
+          <h1 className="text-4xl font-bold heading-accent">Website Terms</h1>
+          <p className="text-base-content/70">Last updated: July 28, 2026</p>
+          <p className="text-base-content/80 leading-relaxed">
+            These terms apply to the public website. They do not replace a signed client services agreement, statement of work, or other written engagement document.
           </p>
         </header>
 
         <div className="space-y-8">
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Agreement to Terms</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              These Terms of Service (&ldquo;Terms&rdquo;) govern your use of the BlueDot website located at bluedot.it.com (the &ldquo;Service&rdquo;) operated by BlueDot (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;).
-            </p>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              By accessing or using the Service, you agree to be bound by these Terms. If you disagree with any part of these terms, then you may not access the Service.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Description of Service</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              BlueDot is a personal portfolio and blog website that provides:
-            </p>
-            <ul className="list-disc pl-6 mb-6 space-y-2 text-base-content/80">
-              <li>Information about Jason O&rsquo;Neal&rsquo;s professional background and expertise</li>
-              <li>Blog posts and articles about technology, security, and development</li>
-              <li>Showcase of projects and work examples</li>
-              <li>Contact information and professional networking opportunities</li>
-              <li>Comment system for blog posts (for registered users)</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">User Accounts</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              When you create an account with us, you must provide information that is accurate, complete, and current at all times. You are responsible for safeguarding the password and for all activities that occur under your account.
-            </p>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              You agree not to disclose your password to any third party and to take sole responsibility for any activities or actions under your account, whether or not you have authorized such activities or actions.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Acceptable Use</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">You agree not to use the Service to:</p>
-            <ul className="list-disc pl-6 mb-6 space-y-2 text-base-content/80">
-              <li>Violate any applicable laws or regulations</li>
-              <li>Infringe upon the rights of others</li>
-              <li>Post content that is defamatory, obscene, or offensive</li>
-              <li>Attempt to gain unauthorized access to any part of the Service</li>
-              <li>Interfere with or disrupt the Service or servers</li>
-              <li>Use the Service for any commercial purpose without our express written consent</li>
-              <li>Impersonate any person or entity</li>
-              <li>Collect or store personal data about other users without their consent</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Content and Comments</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              Users may have the opportunity to post comments on blog posts. By posting content, you grant us a non-exclusive, worldwide, royalty-free license to use, reproduce, modify, and distribute your content on the Service.
-            </p>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              You are solely responsible for the content you post and represent that you have all necessary rights to grant us the license described above. We reserve the right to remove any content that violates these Terms or is otherwise objectionable.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Intellectual Property</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              The Service and its original content, features, and functionality are and will remain the exclusive property of BlueDot and its licensors. The Service is protected by copyright, trademark, and other laws.
-            </p>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              Our trademarks and trade dress may not be used in connection with any product or service without our prior written consent.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Privacy</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              Your privacy is important to us. Please review our Privacy Policy, which also governs your use of the Service, to understand our practices.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Links to Other Websites</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              Our Service may contain links to third-party websites or services that are not owned or controlled by BlueDot. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services.
-            </p>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              You acknowledge and agree that BlueDot shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods, or services available on or through any such websites or services.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Termination</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.
-            </p>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              If you wish to terminate your account, you may simply discontinue using the Service.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Limitation of Liability</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              In no event shall BlueDot, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:
-            </p>
-            <ul className="list-disc pl-6 mb-6 space-y-2 text-base-content/80">
-              <li>Your use or inability to use the Service</li>
-              <li>Any unauthorized access to or use of our servers and/or any personal information stored therein</li>
-              <li>Any interruption or cessation of transmission to or from the Service</li>
-              <li>Any bugs, viruses, trojan horses, or the like that may be transmitted to or through the Service</li>
-              <li>Any errors or omissions in any content or for any loss or damage incurred as a result of the use of any content posted, transmitted, or otherwise made available via the Service</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Disclaimer</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              The information on this Service is provided on an &ldquo;as is&rdquo; basis. To the fullest extent permitted by law, this Company:
-            </p>
-            <ul className="list-disc pl-6 mb-6 space-y-2 text-base-content/80">
-              <li>Excludes all representations, warranties, conditions and terms whether express or implied</li>
-              <li>Does not warrant that the Service will be uninterrupted or error-free</li>
-              <li>Does not warrant that defects will be corrected</li>
-              <li>Does not warrant that the Service or the server that makes it available are free of viruses or other harmful components</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Governing Law</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              These Terms shall be interpreted and governed by the laws of the United States, without regard to its conflict of law provisions. Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Changes to Terms</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 30 days notice prior to any new terms taking effect.
-            </p>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 text-secondary">Contact Information</h2>
-            <p className="mb-4 text-base-content/80 leading-relaxed">
-              If you have any questions about these Terms of Service, please contact us:
-            </p>
-            <ul className="list-none space-y-2 text-base-content/80">
-              <li>Email: <a href="mailto:admin@bluedot.it.com" className="text-primary hover:underline">admin@bluedot.it.com</a></li>
-              <li>Website: <a href="https://bluedot.it.com" className="text-primary hover:underline">bluedot.it.com</a></li>
-            </ul>
-          </section>
+          {sections.map((section) => (
+            <section key={section.title} className="space-y-3">
+              <h2 className="text-2xl font-semibold text-secondary">{section.title}</h2>
+              <p className="text-base-content/80 leading-relaxed">{section.body}</p>
+            </section>
+          ))}
         </div>
+
+        <p className="border-t border-white/10 pt-8 text-sm text-base-content/65">
+          See the <Link href="/legal/privacy" className="text-primary hover:underline">Privacy Policy</Link> for information about data handled through this website.
+        </p>
       </div>
-        </div>
-    );
+    </div>
+  )
 }

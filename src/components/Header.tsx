@@ -15,7 +15,7 @@ export default async function Header() {
             <Image alt="logo" src="/bluedot-logo.png" fill className="object-contain" sizes="40px" />
           </div>
           <div className="leading-tight">
-            <span className="block text-sm uppercase tracking-[0.2em] text-base-content/70"></span>
+            <span className="block text-[0.6rem] uppercase tracking-[0.2em] text-base-content/60">Automation • Systems</span>
             <span className="block text-lg heading-accent">BlueDot IT</span>
           </div>
         </Link>
@@ -26,12 +26,27 @@ export default async function Header() {
             { href: "/projects", label: "Projects" },
             { href: "/services", label: "Services" },
             { href: "/blog", label: "Blog" },
-            { href: "/resume", label: "Resume" },
           ].map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className="rounded-full px-3 py-2 text-base-content/80 hover:text-primary hover:bg-white/5 transition"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+        <div className="md:hidden absolute left-0 right-0 top-full flex gap-1 overflow-x-auto border-b border-white/10 bg-black/90 px-4 py-2 text-xs font-semibold backdrop-blur-xl">
+          {[
+            { href: "/services", label: "Services" },
+            { href: "/projects", label: "Projects" },
+            { href: "/about", label: "About" },
+            { href: "/contact", label: "Contact" },
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="whitespace-nowrap rounded-full px-3 py-2 text-base-content/80 hover:bg-white/5 hover:text-primary"
             >
               {item.label}
             </Link>
@@ -43,7 +58,7 @@ export default async function Header() {
             href="/contact"
             className="hidden sm:inline-flex items-center gap-2 rounded-full border border-white/15 bg-primary text-primary-content px-4 py-2 text-sm font-semibold shadow-[0_12px_30px_rgba(15,159,225,0.28)] hover:-translate-y-0.5 transition"
           >
-            Let&apos;s build
+            Describe the problem
           </Link>
 
           {session ? (

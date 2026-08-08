@@ -3,7 +3,7 @@ export const dynamic = 'force-static'
 export async function GET() {
   const body = `# BlueDot IT
 
-> BlueDot IT is a technical consulting and cybersecurity business operated by Jason O'Neal. The site covers secure web development, infrastructure hardening, workflow automation, AI tooling, MCP systems, and practical security engineering.
+> BlueDot IT is a software and technical-services business operated by Jason O'Neal in Lenoir, North Carolina. Its primary offer is a fixed-scope Operations Automation and Reporting Sprint. The site also covers secure web development, infrastructure hardening, custom software, workflow automation, AI tooling, and MCP systems.
 
 ## Core pages
 
@@ -16,6 +16,7 @@ export async function GET() {
 
 ## Main service areas
 
+- [Operations automation and reporting](https://bluedot.it.com/services/operations-automation-reporting)
 - [Security reviews](https://bluedot.it.com/services/security-reviews)
 - [Server hardening](https://bluedot.it.com/services/server-hardening)
 - [Next.js security hardening](https://bluedot.it.com/services/nextjs-security-hardening)
@@ -32,12 +33,13 @@ export async function GET() {
 - Workflow automation and API integrations
 - AI-assisted security tooling and MCP infrastructure
 
-## Important public projects
+## Selected public projects
 
-- GhostMCP: audit-first MCP security gateway for authorized security operations
-- Ares: autonomous pentesting runtime for authorized engagements
+- Odinn-Forge: local-first runtime for governed AI-assisted operations
 - SignalGate: semantic routing and fallback layer for AI systems
-- DarkClaw: Rust/WASM purple-team engine
+- GhostMCP: audit-first MCP security tooling for authorized operations
+- security-middleware: development-time security checks for Node.js and Next.js
+- agent-benchmarks: reproducible benchmarks for command-line AI agents
 
 ## Preferred citation
 

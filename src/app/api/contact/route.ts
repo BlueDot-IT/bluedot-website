@@ -3,6 +3,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { sendMail } from "@/lib/mail";
 import { contactRateLimit } from "@/lib/rateLimit";
 
+const MAX_NAME_LENGTH = 100;
+const MAX_SUBJECT_LENGTH = 160;
+const MAX_MESSAGE_LENGTH = 10_000;
+
+function normalizeText(value: unknown, maxLength: number) {
+  return typeof value === "string" ? value.trim().slice(0, maxLength + 1) : "";
+}
+
 function escapeHtml(value: string) {
   return value.replace(/[&<>'"]/g, (character) => {
     const entities: Record<string, string> = {
@@ -26,10 +34,10 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const name = typeof body?.name === "string" ? body.name.trim() : "";
-    const email = typeof body?.email === "string" ? body.email.trim() : "";
-    const subject = typeof body?.subject === "string" ? body.subject.trim() : "";
-    const message = typeof body?.message === "string" ? body.message.trim() : "";
+    const name = normalizeText(body?.name, MAX_NAME_LENGTH);
+    const email = normalizeText(body?.email, 320);
+    const subject = normalizeText(body?.subject, MAX_SUBJECT_LENGTH);
+    const message = normalizeText(body?.message, MAX_MESSAGE_LENGTH);
     const startedAt = Number(body?.startedAt);
     const hp = body?.hp == null ? "" : String(body.hp);
 
@@ -53,8 +61,12 @@ export async function POST(req: NextRequest) {
     if (!name || !subject || !message) {
       return NextResponse.json({ ok: false, error: "Missing fields" }, { status: 400 });
     }
-    if (name.length > 120 || subject.length > 200 || message.length > 10_000) {
-      return NextResponse.json({ ok: false, error: "Input too long" }, { status: 400 });
+    if (
+      name.length > MAX_NAME_LENGTH ||
+      subject.length > MAX_SUBJECT_LENGTH ||
+      message.length > MAX_MESSAGE_LENGTH
+    ) {
+      return NextResponse.json({ ok: false, error: "A field is too long" }, { status: 400 });
     }
 
     // 4) Content scoring
@@ -87,12 +99,15 @@ export async function POST(req: NextRequest) {
 
     const result = await sendMail({
       to: "jason@bluedot.it.com",
-      subject: `BlueDot contact: ${singleLine(subject)}`,
-      text: `From: ${singleLine(name)} <${singleLine(email)}>\nSubject: ${singleLine(subject)}\n\n${message}`,
-      html: `<p><b>From:</b> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p><pre>${escapeHtml(message)}</pre>`,
+      subject: `[BlueDot contact] ${singleLine(subject)}`,
+      text: `Business or project: ${singleLine(subject)}\nFrom: ${singleLine(name)} <${singleLine(email)}>\n\n${message}`,
+      html: `<p><b>Business or project:</b> ${escapeHtml(subject)}</p><p><b>From:</b> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p><pre>${escapeHtml(message)}</pre>`,
       replyTo: singleLine(email),
     });
 
+    if (!result.messageId) {
+      throw new Error("Mail transport did not return a receipt");
+    }
     return NextResponse.json({ ok: true, id: result.messageId });
   } catch (err) {
     return NextResponse.json({ ok: false, error: "Server error" }, { status: 500 });

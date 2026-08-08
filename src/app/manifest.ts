@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
   "name": "bluedot.it.com - Jason O'Neal",
   "short_name": "bluedot.it",
-  "description": "Expert in cybersecurity, programming, and technology",
+  "description": "Business automation, reporting, secure websites, and custom software from Lenoir, North Carolina",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

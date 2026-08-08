@@ -2,9 +2,13 @@ import { MetadataRoute } from 'next'
 import { prisma } from '@/lib/prisma'
 
 const baseUrl = 'https://bluedot.it.com'
-const lastContentUpdate = new Date('2026-04-15')
-const lastLegalUpdate = new Date('2026-04-13')
+// Keep these dates tied to the content change being deployed. A fixed date is
+// preferable to claiming that every request changed the page, but it must be
+// advanced whenever the corresponding static content changes.
+const lastContentUpdate = new Date('2026-08-02')
+const lastLegalUpdate = new Date('2026-08-02')
 const servicePageSlugs = [
+  'operations-automation-reporting',
   'security-reviews',
   'server-hardening',
   'nextjs-security-hardening',

@@ -6,6 +6,21 @@ import Button from '@/components/ui/Button'
 export type ServiceSlug = keyof typeof servicePages
 
 export const servicePages = {
+  'operations-automation-reporting': {
+    title: 'Operations Automation and Reporting Sprint',
+    description: 'Replace one repetitive operational process with a maintainable automation, report, or lightweight dashboard built around your existing tools.',
+    who: 'Small businesses and operational teams that lose time copying data, assembling recurring reports, checking multiple portals, or chasing unclear handoffs.',
+    problems: ['Weekly or monthly reporting assembled manually', 'Information copied between forms, inboxes, spreadsheets, and portals', 'Recurring status work with no reliable owner, exception list, or source of truth'],
+    deliverables: ['Current-state workflow and data-source map', 'One bounded implementation using the agreed data sources', 'Validation, failure visibility, logs, and human decision points', 'Documentation, acceptance evidence, and handoff'],
+    tools: ['Python', 'TypeScript', 'REST APIs', 'webhooks', 'Google Workspace', 'scheduled jobs', 'lightweight dashboards'],
+    examples: ['Combine portal exports into a weekly executive report', 'Route approved form data into a tracker and exception queue', 'Create a small operational dashboard from stable source data'],
+    pricing: 'Final price, timeline, integrations, correction period, and exclusions are confirmed in a written scope before work begins.',
+    faq: [
+      ['Is this an AI product?', 'Not necessarily. The goal is a reliable business outcome. AI is used only when it materially improves the approved workflow.'],
+      ['What is outside the starter sprint?', 'Complex browser portals, unstable authentication, major data cleanup, ongoing operations, and materially expanded integrations are scoped separately.'],
+      ['Will I be able to understand the result?', 'Yes. The handoff includes documentation, validation evidence, and clear failure and human-review points.'],
+    ],
+  },
   'security-reviews': {
     title: 'Security Reviews for Small Businesses and Web Teams',
     description: 'A practical review of your website, server, application, and workflow risks with prioritized fixes you can act on.',
@@ -133,7 +148,7 @@ export function renderServicePage(slug: ServiceSlug) {
         <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">{page.title}</h1>
         <p className="text-xl text-base-content/80">{page.description}</p>
         <div className="flex flex-wrap gap-3 pt-2">
-          <Link href="/contact"><Button>Start a discovery call</Button></Link>
+          <Link href={`/contact?service=${slug}`}><Button>Describe the problem</Button></Link>
           <Link href="/projects" className="rounded-xl border border-white/10 px-5 py-3 text-sm font-semibold hover:bg-white/5">View projects</Link>
         </div>
       </section>
@@ -177,6 +192,33 @@ export function renderServicePage(slug: ServiceSlug) {
         </ul>
       </Card>
 
+      {slug === 'security-reviews' && (
+        <section className="grid gap-6 lg:grid-cols-2">
+          <Card className="space-y-4 bg-white/5 border-white/10 p-8">
+            <h2 className="text-2xl font-bold">Review methodology</h2>
+            <ol className="list-decimal space-y-2 pl-5 text-base-content/75">
+              <li>Confirm the agreed domains, hosts, repositories, and access boundaries.</li>
+              <li>Review public exposure, authentication, dependencies, headers, deployment, and secrets handling.</li>
+              <li>Validate material findings with safe, authorized evidence and explain the business impact.</li>
+              <li>Prioritize remediation by likelihood, impact, effort, and available rollback path.</li>
+            </ol>
+          </Card>
+          <Card className="space-y-4 bg-white/5 border-white/10 p-8">
+            <h2 className="text-2xl font-bold">Scope, timeline, and handoff</h2>
+            <p className="text-base-content/75 leading-relaxed">
+              A typical review covers one website or application and its directly supporting VPS or deployment configuration. It excludes destructive testing, social engineering, third-party systems, and anything not explicitly authorized. Most fixed-scope reviews take three to five business days after access and scope are confirmed.
+            </p>
+            <p className="text-base-content/75 leading-relaxed">
+              The handoff includes a findings summary, evidence, remediation order, and a short retest checklist. A representative finding might be an administrative route exposed without an access control or noindex boundary; the report states the affected asset, impact, evidence, and exact corrective action rather than dropping a scan dump on your desk.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-2 text-sm font-semibold">
+              <Link href="/services/server-hardening" className="text-primary hover:underline">Related: server hardening</Link>
+              <Link href="/services/nextjs-security-hardening" className="text-primary hover:underline">Related: Next.js hardening</Link>
+            </div>
+          </Card>
+        </section>
+      )}
+
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">FAQ</h2>
         <div className="grid gap-4 md:grid-cols-2">
@@ -192,7 +234,7 @@ export function renderServicePage(slug: ServiceSlug) {
       <section className="rounded-3xl border border-white/10 bg-white/5 p-8 text-center space-y-4">
         <h2 className="text-2xl font-bold">Need this scoped for your site or system?</h2>
         <p className="text-base-content/75">Send the target, the concern, and what outcome would make the work useful.</p>
-        <Link href="/contact"><Button size="lg" special="wide">Contact BlueDot IT</Button></Link>
+        <Link href={`/contact?service=${slug}`}><Button size="lg" special="wide">Contact BlueDot IT</Button></Link>
       </section>
     </div>
   )

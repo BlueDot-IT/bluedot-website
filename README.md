@@ -1,6 +1,6 @@
-# Bluedot — Personal Portfolio Website
+# BlueDot IT Website
 
-A modern personal portfolio website built to showcase cybersecurity expertise, full‑stack development projects, writing, and professional experience. The site focuses on accessibility, SEO, performance, and a clean, responsive presentation of projects and posts.
+The public BlueDot IT business website. It presents practical automation, reporting, secure software, websites, and technical services while retaining the blog, selected public work, account features, and admin tooling.
 
 Table of contents
 
@@ -72,7 +72,7 @@ Requirements
 1. Clone
 
    ```bash
-   git clone https://github.com/jason-allen-oneal/bluedot-website.git
+   git clone https://github.com/BlueDot-IT/bluedot-website.git
    cd bluedot-website
    ```
 

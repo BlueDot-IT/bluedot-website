@@ -20,24 +20,24 @@ interface FooterProps {
 }
 
 export default function Footer({
-  tagline = "App development for all.",
+  tagline = "Practical systems for work that should be easier.",
   menuItems = [
     {
-      title: "Company",
+      title: "Services",
       links: [
-        { text: "About", url: "/about" },
-        { text: "Projects", url: "/projects" },
-        { text: "Blog", url: "/blog" },
-        { text: "Contact", url: "/contact" }
+        { text: "Automation & reporting", url: "/services/operations-automation-reporting" },
+        { text: "Workflow automation", url: "/services/workflow-automation" },
+        { text: "Security reviews", url: "/services/security-reviews" },
+        { text: "Websites", url: "/services/small-business-websites" },
       ],
     },
     {
-      title: "Social",
+      title: "Company",
       links: [
-        { text: "Facebook", url: "https://www.facebook.com/chaoskreator" },
-        { text: "Tiktok", url: "https://www.tiktok.com/@7h3.r3v3n4n7" },
-        { text: "Github", url: "https://github.com/jason-allen-oneal" },
-        { text: "HuggingFace", url: "https://huggingface.co/jason-oneal"}
+        { text: "Projects", url: "/projects" },
+        { text: "About", url: "/about" },
+        { text: "Blog", url: "/blog" },
+        { text: "Contact", url: "/contact" },
       ],
     },
   ],
@@ -66,10 +66,10 @@ export default function Footer({
                 {tagline}
               </h2>
               <p className="max-w-2xl text-base-content/80">
-                Design-forward engineering, bold visuals, and thoughtful security. Inspired, everywhere.
+                Practical automation, reporting, development, and security-minded systems for businesses in Lenoir, Caldwell County, and beyond.
               </p>
               <div className="flex flex-wrap gap-3">
-                <a href="/contact" className="btn btn-primary btn-lg rounded-full px-6 shadow-[0_16px_38px_rgba(15,159,225,0.26)]">Start a project</a>
+                <a href="/contact?service=operations-sprint" className="btn btn-primary btn-lg rounded-full px-6 shadow-[0_16px_38px_rgba(15,159,225,0.26)]">Describe the bottleneck</a>
                 <a href="/services" className="btn btn-outline btn-lg rounded-full px-6 border-white/20 hover:bg-white/10">View services</a>
               </div>
             </div>
