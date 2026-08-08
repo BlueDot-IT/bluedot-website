@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Reveal from '@/components/Reveal'
 
 const selectedWork = [
   {
@@ -24,34 +23,26 @@ const selectedWork = [
 
 export default function SelectedWorkPreview() {
   return (
-    <section className="page-shell space-y-10 py-24 border-t border-white/5">
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div className="max-w-3xl space-y-4">
-          <span className="pill">Selected work</span>
-          <h2 className="text-4xl font-bold tracking-tight text-white">Public systems with inspectable boundaries.</h2>
-          <p className="text-base-content/65 leading-relaxed">
-            These are public engineering examples, not private client case studies. They show work across AI systems, security controls, and application infrastructure.
-          </p>
+    <section className="authority-section authority-logs" id="logs">
+      <div className="authority-wrap">
+        <div className="authority-section-header">
+          <div>
+            <div className="authority-eyebrow">Engineering logs</div>
+            <h2>Public systems with inspectable boundaries.</h2>
+            <p className="authority-section-intro">These are public repositories, not private client case studies. Read the code, decisions, and constraints directly.</p>
+          </div>
+          <a className="authority-section-link" href="https://github.com/BlueDot-IT" target="_blank" rel="noreferrer">Open GitHub <span aria-hidden="true">↗</span></a>
         </div>
-        <Link href="/projects" className="text-sm font-bold uppercase tracking-widest text-primary hover:text-white transition-colors">
-          View all selected work →
-        </Link>
-      </div>
-      <div className="grid gap-6 md:grid-cols-3">
-        {selectedWork.map((project) => (
-          <Reveal key={project.name}>
-            <article className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 space-y-5">
-              <div className="space-y-2">
-                <p className="text-xs font-bold uppercase tracking-widest text-primary">{project.category}</p>
-                <h3 className="text-2xl font-bold text-white">{project.name}</h3>
-              </div>
-              <p className="text-sm text-base-content/65 leading-relaxed">{project.description}</p>
-              <a href={project.href} target="_blank" rel="noreferrer" className="inline-flex text-sm font-semibold text-primary hover:text-white transition-colors">
-                Read the repository →
-              </a>
-            </article>
-          </Reveal>
-        ))}
+        <div className="authority-logs-grid">
+          {selectedWork.map((project, index) => (
+            <a className="authority-log-entry" key={project.name} href={project.href} target="_blank" rel="noreferrer">
+              <span className="authority-log-meta">0{index + 1} / {project.category} · GitHub</span>
+              <h3>{project.name}</h3>
+              <p>{project.description}</p>
+              <span className="authority-log-link">Read the repository <span aria-hidden="true">↗</span></span>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   )

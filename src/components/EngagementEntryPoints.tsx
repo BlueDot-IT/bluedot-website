@@ -1,63 +1,52 @@
 import Link from 'next/link'
-import Reveal from '@/components/Reveal'
-
-const entryPoints = [
-  {
-    title: 'Security Review',
-    description: 'A bounded review of an application, repository, deployment, AI integration, or supporting host.',
-    deliverables: ['Findings with severity and evidence', 'Prioritized remediation plan', 'Optional implementation and retest checklist'],
-    href: '/contact?service=security-review',
-  },
-  {
-    title: 'AI Automation Discovery and Prototype',
-    description: 'A bounded engagement to map one workflow and build a controlled working prototype.',
-    deliverables: ['Workflow and tool map', 'Data and permission boundaries', 'Functional prototype with logs, approvals, and a production roadmap'],
-    href: '/contact?service=ai-automation-discovery',
-  },
-  {
-    title: 'Full-Stack Build Sprint',
-    description: 'A defined implementation phase for an application capability, internal tool, dashboard, API, integration, or backend service.',
-    deliverables: ['Written scope and architecture', 'Implementation, tests, and deployment', 'Documentation and handoff'],
-    href: '/contact?service=full-stack-build-sprint',
-  },
-]
 
 export default function EngagementEntryPoints() {
   return (
     <>
-      <section className="page-shell space-y-10 py-24 border-t border-white/5">
-        <div className="max-w-3xl space-y-4">
-          <span className="pill">Engagement entry points</span>
-          <h2 className="text-4xl font-bold tracking-tight text-white">Start with a bounded problem.</h2>
-          <p className="text-base-content/65 leading-relaxed">
-            Bring one system, workflow, or risk boundary into focus. Scope, deliverables, validation, and handoff are written down before implementation begins.
-          </p>
-        </div>
-        <div className="grid gap-6 lg:grid-cols-3">
-          {entryPoints.map((entryPoint) => (
-            <Reveal key={entryPoint.title}>
-              <article className="h-full flex flex-col rounded-2xl border border-white/10 bg-white/5 p-6 space-y-5">
-                <h3 className="text-2xl font-bold text-white">{entryPoint.title}</h3>
-                <p className="text-sm text-base-content/65 leading-relaxed">{entryPoint.description}</p>
-                <ul className="flex-1 list-disc space-y-2 pl-5 text-sm text-base-content/70">
-                  {entryPoint.deliverables.map((deliverable) => <li key={deliverable}>{deliverable}</li>)}
-                </ul>
-                <Link href={entryPoint.href} className="btn btn-outline border-white/20 hover:bg-white/10 w-full">
-                  Discuss this entry point
-                </Link>
-              </article>
-            </Reveal>
-          ))}
+      <section className="authority-section authority-process" id="process">
+        <div className="authority-wrap">
+          <div className="authority-section-header">
+            <div>
+              <div className="authority-eyebrow">Working together</div>
+              <h2>A straightforward process.</h2>
+            </div>
+            <p className="authority-section-intro">You will know what we are doing, what it should produce, and when you need to make a decision.</p>
+          </div>
+          <div className="authority-process-grid">
+            <div className="authority-process-step"><b>01 / REVIEW</b><h3>Understand the current setup.</h3><p>We look at the workflow, code, constraints, and result you need.</p></div>
+            <div className="authority-process-step"><b>02 / PLAN</b><h3>Set the scope.</h3><p>We agree on the work, priorities, assumptions, and how we will check it.</p></div>
+            <div className="authority-process-step"><b>03 / BUILD</b><h3>Make the change.</h3><p>We implement, test, and keep you informed about decisions and tradeoffs.</p></div>
+            <div className="authority-process-step"><b>04 / HAND OFF</b><h3>Leave it usable.</h3><p>You get the code or workflow, documentation, validation notes, and next steps.</p></div>
+          </div>
         </div>
       </section>
-      <section className="page-shell py-24">
-        <div className="rounded-3xl border border-primary/30 bg-primary/5 p-8 text-center space-y-5 md:p-12">
-          <span className="pill">Next step</span>
-          <h2 className="text-3xl font-bold text-white md:text-4xl">Tell me what you are building, automating, or securing.</h2>
-          <p className="mx-auto max-w-2xl text-base-content/70">
-            Share the current state, the boundary that matters, and what a useful handoff would include.
-          </p>
-          <Link href="/contact" className="btn btn-primary btn-lg">Discuss your project</Link>
+
+      <section className="authority-section authority-featured-service">
+        <div className="authority-wrap authority-feature-grid">
+          <div>
+            <div className="authority-eyebrow">Featured service</div>
+            <h2>Operations Automation &amp; Reporting Sprint</h2>
+            <p>A short, focused engagement for teams spending too much time collecting updates and preparing reports. We review the process, improve the most expensive step, and leave a usable handoff.</p>
+            <Link className="authority-feature-link" href="/services/operations-automation-reporting">View the sprint details <span aria-hidden="true">→</span></Link>
+          </div>
+          <div className="authority-scope-card" aria-label="Operations automation and reporting sprint scope">
+            <div className="authority-scope-head"><span>Sprint scope</span><span>Focused engagement</span></div>
+            <div className="authority-scope-row"><b>01</b><div><strong>Review current reporting</strong><small>Document the process and identify the biggest time cost.</small></div></div>
+            <div className="authority-scope-row"><b>02</b><div><strong>Improve one high-cost step</strong><small>Reduce repetitive collection, cleanup, or status chasing.</small></div></div>
+            <div className="authority-scope-row"><b>03</b><div><strong>Hand off the result</strong><small>Leave working changes, notes, and a clear next step.</small></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="authority-closing" id="contact">
+        <div className="authority-wrap">
+          <div className="authority-closing-box">
+            <div>
+              <div className="authority-eyebrow">Start here</div>
+              <h2>Let’s fix the part that is slowing the team down.</h2>
+            </div>
+            <Link className="authority-button authority-closing-button" href="/contact">Talk to BlueDot</Link>
+          </div>
         </div>
       </section>
     </>

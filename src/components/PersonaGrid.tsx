@@ -1,53 +1,27 @@
-'use client'
-import Link from 'next/link'
-import Reveal from '@/components/Reveal'
-
-const pillars = [
-  {
-    title: 'Security Engineering',
-    description: 'Review and strengthen applications, APIs, authentication, deployments, AI tool boundaries, and supporting infrastructure. Findings are prioritized, evidence-backed, and can include remediation implementation.',
-    cta: 'Explore security engineering',
-    href: '/services#security-engineering'
-  },
-  {
-    title: 'AI Automation',
-    description: 'Build controlled AI agents, tool integrations, and workflow automations with explicit permissions, useful logs, human approval points, and maintainable failure handling.',
-    cta: 'Explore AI automation',
-    href: '/services#ai-automation'
-  },
-  {
-    title: 'Full-Stack Development',
-    description: 'Design, build, deploy, and improve full-stack applications, APIs, dashboards, internal platforms, integrations, and production services using TypeScript, React, Next.js, Node.js, Python, and modern infrastructure.',
-    cta: 'Explore full-stack development',
-    href: '/services/full-stack-development'
-  }
-]
-
 export default function PersonaGrid() {
   return (
-    <section className="page-shell py-24 bg-white/[0.01] border-b border-white/5 space-y-12">
-      <div className="max-w-3xl space-y-4">
-        <span className="pill">Three connected capabilities</span>
-        <h2 className="text-4xl font-bold tracking-tight text-white">Engineering depth across the system.</h2>
-        <p className="text-base-content/65 leading-relaxed">
-          BlueDot can work at the application layer, the workflow layer, and the security boundary around both. The engagement stays grounded in written scope, observable behavior, and a handoff another technical person can operate.
-        </p>
-      </div>
-      <div className="grid gap-12 md:grid-cols-3">
-        {pillars.map((p) => (
-          <Reveal key={p.title}>
-            <div className="h-full space-y-6">
-              <div className="w-12 h-0.5 bg-primary/40" />
-              <h3 className="text-2xl font-bold tracking-tight text-white">{p.title}</h3>
-              <p className="text-sm text-base-content/60 leading-relaxed font-medium">
-                {p.description}
-              </p>
-              <Link href={p.href} className="inline-flex items-center text-primary text-xs font-bold tracking-widest uppercase hover:text-white transition-colors">
-                {p.cta} <span className="ml-2">→</span>
-              </Link>
-            </div>
-          </Reveal>
-        ))}
+    <section className="authority-section authority-friction" id="work">
+      <div className="authority-wrap authority-friction-grid">
+        <div>
+          <div className="authority-eyebrow">Where work gets stuck</div>
+          <h2>Good people should not have to hold the whole process together.</h2>
+          <p className="authority-section-intro">
+            If reporting is manual, permissions are unclear, or a small change feels risky, the underlying system needs attention. BlueDot starts by finding the actual bottleneck.
+          </p>
+        </div>
+        <div>
+          <ul className="authority-friction-list">
+            <li><b>01</b><div><strong>Reports are assembled by hand.</strong><span>The same information is collected, cleaned, and rechecked every week.</span></div></li>
+            <li><b>02</b><div><strong>Automations have no clear owner.</strong><span>Credentials, approvals, failures, and exceptions are handled after something breaks.</span></div></li>
+            <li><b>03</b><div><strong>The application is hard to change.</strong><span>Dependencies, deployments, and security issues are poorly documented.</span></div></li>
+          </ul>
+          <aside className="authority-friction-aside">
+            <div className="authority-mini-rule" />
+            <div className="authority-quote-mark" aria-hidden="true">“</div>
+            <strong>Build something people can use and maintain.</strong>
+            <p>We do not stop at a recommendation. We leave you with working changes, clear documentation, and a sensible next step.</p>
+          </aside>
+        </div>
       </div>
     </section>
   )

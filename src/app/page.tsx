@@ -9,15 +9,15 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'BlueDot IT | Security, AI Automation, and Full-Stack Development',
+        absolute: 'BlueDot IT | Security, Automation, and Software Delivery',
     },
-    description: 'BlueDot IT provides application security, AI agent and workflow automation, and full-stack software development for startups, technical teams, and growing businesses.',
+    description: 'BlueDot IT helps growing teams automate repetitive work, improve application security, and build software they can run and maintain.',
     alternates: {
         canonical: 'https://bluedot.it.com',
     },
     openGraph: {
-        title: 'BlueDot IT | Security, AI Automation, and Full-Stack Development',
-        description: 'BlueDot IT provides application security, AI agent and workflow automation, and full-stack software development for startups, technical teams, and growing businesses.',
+        title: 'BlueDot IT | Security, Automation, and Software Delivery',
+        description: 'BlueDot IT helps growing teams automate repetitive work, improve application security, and build software they can run and maintain.',
         type: 'website',
         url: 'https://bluedot.it.com',
     },

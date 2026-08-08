@@ -1,34 +1,55 @@
-'use client'
 import Link from 'next/link'
-import { useRef } from 'react'
-import useReveal from '@/hooks/useReveal'
 
 export default function Hero() {
-  const textRef = useRef<HTMLDivElement | null>(null)
-  useReveal(textRef)
-
   return (
-    <section className="relative overflow-hidden pt-24 pb-16 border-b border-white/5">
-      <div className="page-shell">
-          <div ref={textRef} className="reveal space-y-8 text-center md:text-left md:max-w-5xl">
-          <div className="flex flex-wrap items-center gap-3 justify-center md:justify-start opacity-70">
-             <span className="pill">Security</span>
-             <span className="pill">AI Automation</span>
-             <span className="pill">Full-Stack</span>
-          </div>
-          <h1 className="text-5xl font-bold tracking-tighter md:text-7xl leading-[1.05]">
-            Build the application. <span className="text-primary">Automate the workflow. Secure the system.</span>
-          </h1>
-          <p className="text-xl text-base-content/70 max-w-[65ch] font-medium leading-relaxed">
-            BlueDot IT designs and builds full-stack applications, AI-powered automations, and security-conscious systems for startups, technical teams, and growing businesses.
+    <section className="authority-hero" id="top">
+      <div className="authority-wrap authority-hero-grid">
+        <div className="authority-hero-copy">
+          <div className="authority-eyebrow">Practical engineering for growing teams</div>
+          <h1>Build it. Harden it. <span>Keep control.</span></h1>
+          <p className="authority-hero-lede">
+            BlueDot IT helps growing businesses improve the software and workflows they rely on. We automate repetitive work, review security, and build applications that are easier to run and maintain.
           </p>
-
-          <div className="flex flex-wrap gap-6 justify-center md:justify-start pt-4">
-            <Link href="/contact" className="px-10 py-4 bg-white text-black font-bold uppercase tracking-widest text-xs hover:bg-primary transition-colors">Discuss your project</Link>
-            <Link href="/services" className="px-10 py-4 border border-white/20 text-white font-bold uppercase tracking-widest text-xs hover:border-white transition-colors">Explore services</Link>
+          <div className="authority-button-row">
+            <Link href="/contact" className="authority-button">Talk about your project</Link>
+            <Link href="#services" className="authority-button authority-button-secondary">View services</Link>
           </div>
-          <p className="text-sm text-base-content/55">Remote engagements. Defined scope. Production-ready implementation. Clear documentation and handoff.</p>
+          <div className="authority-hero-note" aria-label="Engagement principles">
+            <span>Clear scope</span>
+            <span>Direct communication</span>
+            <span>Documentation included</span>
+          </div>
         </div>
+
+        <div className="authority-delivery-wrap" aria-label="Typical BlueDot delivery">
+          <div className="authority-delivery-card">
+            <div className="authority-delivery-top"><span>BlueDot IT / Delivery</span><span>Defined from day one</span></div>
+            <div className="authority-delivery-title">Leave with usable work, not another recommendation.</div>
+            <div className="authority-delivery-list">
+              <div className="authority-delivery-item"><b>01</b><strong>Review</strong><small>Current setup and priority</small></div>
+              <div className="authority-delivery-item"><b>02</b><strong>Build</strong><small>Agreed change and testing</small></div>
+              <div className="authority-delivery-item"><b>03</b><strong>Hand off</strong><small>Documentation and next steps</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="authority-wrap authority-hero-services" aria-label="Primary services">
+        <Link className="authority-hero-service authority-hero-service-featured" href="/services/operations-automation-reporting">
+          <span className="authority-service-number">01 / Featured service</span>
+          <strong>Operations Automation &amp; Reporting Sprint</strong>
+          <small>Cut down manual reporting and status chasing.</small>
+        </Link>
+        <Link className="authority-hero-service" href="/services/security-reviews">
+          <span className="authority-service-number">02 / Security</span>
+          <strong>Security review and remediation</strong>
+          <small>Find the risk and help fix it.</small>
+        </Link>
+        <Link className="authority-hero-service" href="/services/full-stack-development">
+          <span className="authority-service-number">03 / Build</span>
+          <strong>Full-stack application delivery</strong>
+          <small>Build the next useful piece.</small>
+        </Link>
       </div>
     </section>
   )
