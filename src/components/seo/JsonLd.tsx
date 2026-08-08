@@ -7,7 +7,7 @@ export default function JsonLd() {
         '@id': 'https://bluedot.it.com/#organization',
         name: 'BlueDot IT',
         url: 'https://bluedot.it.com/',
-        description: 'BlueDot IT provides application security, AI agent and workflow automation, and full-stack software development for startups, technical teams, and growing businesses.',
+        description: 'BlueDot IT helps growing teams automate repetitive work, improve application security, and build software they can run and maintain.',
         logo: 'https://bluedot.it.com/bluedot-logo.png',
         founder: {
           '@id': 'https://bluedot.it.com/#person',

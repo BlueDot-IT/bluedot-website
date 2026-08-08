@@ -84,7 +84,7 @@ assert.match(serviceLanding, /Scope and handoff/, 'service landing template must
 assert.match(serviceLanding, /destructive testing/, 'security reviews must state meaningful scope exclusions')
 
 const rootMetadata = read('src/app/layout.tsx')
-assert.match(rootMetadata, /Security, AI Automation, and Full-Stack Development/, 'root metadata must use the new positioning')
+assert.match(rootMetadata, /Security, Automation, and Software Delivery/, 'root metadata must use the new positioning')
 assert.doesNotMatch(rootMetadata, /Business Automation in Lenoir|Caldwell County/, 'root metadata must not lead with local positioning')
 
 assert.ok(existsSync(join(root, 'docs/ai-indexing-content-checklist.md')), 'future AI-answerable content checklist must exist')

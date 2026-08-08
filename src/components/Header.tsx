@@ -5,20 +5,18 @@ import ThemeSwitch from "./ThemeSwitch";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50">
-      <div className="absolute inset-0 bg-linear-to-r from-white/5 via-primary/8 to-white/5 backdrop-blur-2xl border-b border-white/10 shadow-[0_1px_0_rgba(255,255,255,0.08)]" />
-      <nav aria-label="Primary navigation" className="page-shell relative flex items-center gap-6 py-4">
-        <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight text-base-content">
-          <div className="relative h-10 w-10 overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-inner">
-            <Image alt="BlueDot IT" src="/bluedot-logo.png" fill className="object-contain" sizes="40px" />
+    <header className="authority-site-header">
+      <nav aria-label="Primary navigation" className="authority-wrap authority-nav">
+        <Link href="/" className="authority-brand">
+          <div className="authority-brand-mark">
+            <Image alt="BlueDot IT" src="/bluedot-logo.png" fill className="object-contain" sizes="34px" />
           </div>
-          <div className="leading-tight">
-            <span className="block text-[0.6rem] uppercase tracking-[0.2em] text-base-content/60">Security • AI • Full-Stack</span>
-            <span className="block text-lg heading-accent">BlueDot IT</span>
+          <div>
+            <span>BlueDot IT<small>Security · Automation · Systems</small></span>
           </div>
         </Link>
 
-        <div className="hidden md:flex items-center gap-1 text-sm font-medium">
+        <div className="authority-nav-links hidden md:flex">
           {[
             { href: "/services", label: "Services" },
             { href: "/projects", label: "Work" },
@@ -29,13 +27,13 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-full px-3 py-2 text-base-content/80 hover:text-primary hover:bg-white/5 transition"
+              className="authority-nav-link"
             >
               {item.label}
             </Link>
           ))}
         </div>
-        <div role="navigation" aria-label="Mobile primary navigation" className="md:hidden absolute left-0 right-0 top-full flex snap-x gap-1 overflow-x-auto border-b border-white/10 bg-black/90 px-4 py-2 text-xs font-semibold backdrop-blur-xl">
+        <div role="navigation" aria-label="Mobile primary navigation" className="authority-mobile-nav md:hidden">
           {[
             { href: "/services", label: "Services" },
             { href: "/projects", label: "Work" },
@@ -46,7 +44,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="whitespace-nowrap rounded-full px-3 py-2 text-base-content/80 hover:bg-white/5 hover:text-primary"
+              className="authority-nav-link"
             >
               {item.label}
             </Link>
@@ -56,12 +54,12 @@ export default function Header() {
         <div className="ml-auto flex items-center gap-3">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-primary text-primary-content px-3 py-2 text-xs font-semibold shadow-[0_12px_30px_rgba(15,159,225,0.28)] hover:-translate-y-0.5 transition sm:px-4 sm:text-sm"
+            className="authority-nav-cta"
           >
             <span className="sm:hidden">Discuss</span>
             <span className="hidden sm:inline">Discuss your project</span>
           </Link>
-          <ThemeSwitch className="btn-ghost border border-white/10" />
+          <ThemeSwitch className="authority-theme-switch" />
         </div>
       </nav>
     </header>
