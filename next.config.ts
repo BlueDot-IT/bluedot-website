@@ -22,6 +22,13 @@ const nextConfig: NextConfig = {
         source: "/resume.pdf",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" }],
       },
+      {
+        source: "/.well-known/bluedot-disclosure-public-key.asc",
+        headers: [
+          { key: "Content-Type", value: "application/pgp-keys" },
+          { key: "Content-Disposition", value: "inline" },
+        ],
+      },
     ];
   },
 };
