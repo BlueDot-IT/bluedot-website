@@ -106,7 +106,7 @@ export default function HomeIndex() {
         <div className="sr2-wrap">
           <div className="sr2-section-head">
             <div><span className="sr2-kicker">Selected work</span><h2 id="cases-heading">Two public examples. No invented client metrics.</h2></div>
-            <p>Public repositories and this site show the approach. Private client work is not represented as a case study without permission.</p>
+            <p>Public repositories show the approach. Private client work is not represented as a case study without permission.</p>
           </div>
           <div className="sr2-home-case-list">
             {caseStudies.map((study) => (

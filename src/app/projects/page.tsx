@@ -10,16 +10,16 @@ export const revalidate = 3600
 
 export const metadata: Metadata = {
   title: 'Selected Work & Case Studies',
-  description: 'Proof-driven BlueDot IT case studies across security engineering, AI automation, and full-stack delivery, with public repositories and inspectable artifacts.',
+  description: 'Proof-driven BlueDot IT case studies across security engineering and AI automation, with public repositories and inspectable artifacts.',
   alternates: { canonical: 'https://bluedot.it.com/projects' },
   openGraph: {
     title: 'Selected Work & Case Studies | BlueDot IT',
-    description: 'Public systems, artifacts, and delivery decisions across security engineering, AI automation, and full-stack development.',
+    description: 'Public systems, artifacts, and delivery decisions across security engineering and AI automation.',
     type: 'website',
     url: 'https://bluedot.it.com/projects',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Selected BlueDot IT work' }],
   },
-  twitter: { card: 'summary_large_image', title: 'Selected Work & Case Studies | BlueDot IT', description: 'Public systems, artifacts, and delivery decisions across security engineering, AI automation, and full-stack development.', images: ['/twitter-image'] },
+  twitter: { card: 'summary_large_image', title: 'Selected Work & Case Studies | BlueDot IT', description: 'Public systems, artifacts, and delivery decisions across security engineering and AI automation.', images: ['/twitter-image'] },
 }
 
 export default async function Projects() {
@@ -62,7 +62,7 @@ export default async function Projects() {
 
       <section className="sr2-editorial">
         <div className="sr2-wrap">
-          <p className="sr2-editorial-intro">The primary work page stays focused on the clearest security, AI automation, and full-stack examples. The broader public repository archive remains available separately.</p>
+          <p className="sr2-editorial-intro">The primary work page stays focused on the clearest security and AI automation examples. The broader public repository archive remains available separately.</p>
           <div className="sr2-case-study-list">
             {projects.map((project) => project.caseStudy && (
               <article className="sr2-case-study" key={project.id}>

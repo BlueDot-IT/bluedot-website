@@ -1574,6 +1574,13 @@ body.signal-app::before {
   text-transform: none;
 }
 
+@media (max-width: 900px) {
+  .sr2-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
 /* The home page is a cover and a table of contents, not a second copy of the site. */
 .sr2-home-index {
   padding: 72px 0 78px;
