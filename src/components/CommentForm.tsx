@@ -18,11 +18,12 @@ export default function CommentForm({ postId }: { postId: number }) {
     }
     return (
         <form onSubmit={submit} className="space-y-3">
+            <label htmlFor={`comment-${postId}`} className="sr-only">Comment</label>
             <Textarea
+                id={`comment-${postId}`}
                 rows={4}
                 value={body}
                 onChange={(e) => setBody(e.target.value)}
-                placeholder="Write a comment…"
             />
             <Button>Comment</Button>
             {ok && <div className="text-sm opacity-70">{ok}</div>}

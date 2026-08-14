@@ -62,7 +62,6 @@ export default function NewsletterForm({
           type="email"
           inputMode="email"
           autoComplete="email"
-          placeholder="you@domain.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="authority-newsletter-input"
