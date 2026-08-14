@@ -2488,3 +2488,177 @@ body.signal-app::before {
     gap: 14px;
   }
 }
+
+/* Services landing page
+   The landing page is a document of three distinct offers. Keep each one
+   legible as a chapter instead of letting its content collapse into a text
+   stream when the page-specific markup is rendered. */
+.sr2-service-categories {
+  border-top: 1px solid var(--signal-line);
+}
+
+.sr2-service-category {
+  padding: 58px 0 70px;
+  border-bottom: 1px solid var(--signal-line);
+}
+
+.sr2-service-category-head {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.72fr) minmax(0, 1.28fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.sr2-service-category-head h2 {
+  max-width: 19ch;
+  margin-top: 11px;
+  color: var(--signal-paper);
+  font-family: var(--signal-serif);
+  font-size: clamp(1.8rem, 2.8vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+}
+
+.sr2-service-category-head p {
+  max-width: 60ch;
+  margin-top: 15px;
+  font-size: 0.95rem;
+  line-height: 1.62;
+}
+
+.sr2-service-category-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(235px, 0.65fr);
+  gap: 64px;
+  margin-top: 39px;
+  padding-top: 28px;
+  border-top: 1px solid var(--signal-soft-line);
+}
+
+.sr2-service-answers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 29px 42px;
+}
+
+.sr2-service-answers > div:last-child {
+  grid-column: 1 / -1;
+  max-width: 70ch;
+}
+
+.sr2-service-answers h3,
+.sr2-service-offerings h3 {
+  margin-bottom: 8px;
+  color: var(--signal-paper);
+  font-family: var(--signal-sans);
+  font-size: 0.94rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.sr2-service-answers p {
+  max-width: 39ch;
+  font-size: 0.84rem;
+  line-height: 1.62;
+}
+
+.sr2-service-answers > div:last-child p {
+  max-width: 70ch;
+}
+
+.sr2-service-offerings {
+  align-self: start;
+  padding-left: 29px;
+  border-left: 1px solid var(--signal-line);
+}
+
+.sr2-service-offerings h3 {
+  margin-bottom: 14px;
+  font-family: var(--signal-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.sr2-service-offerings ul {
+  display: grid;
+  gap: 9px;
+}
+
+.sr2-service-offerings li {
+  position: relative;
+  padding-left: 14px;
+  color: var(--signal-dim);
+  font-size: 0.83rem;
+  line-height: 1.45;
+}
+
+.sr2-service-offerings li::before {
+  position: absolute;
+  top: 0.66em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--signal-blue);
+  content: "";
+}
+
+.sr2-service-offerings li a {
+  color: inherit;
+}
+
+.sr2-service-offerings li a:hover,
+.sr2-service-offerings li a:focus-visible {
+  color: var(--signal-paper);
+}
+
+.sr2-service-offerings > .sr2-link {
+  margin-top: 25px;
+}
+
+@media (max-width: 900px) {
+  .sr2-service-category-head,
+  .sr2-service-category-body {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .sr2-service-offerings {
+    padding-top: 27px;
+    padding-left: 0;
+    border-top: 1px solid var(--signal-soft-line);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .sr2-service-category {
+    padding: 44px 0 52px;
+  }
+
+  .sr2-service-category-head {
+    gap: 12px;
+  }
+
+  .sr2-service-category-head h2 {
+    font-size: clamp(1.75rem, 8vw, 2.25rem);
+  }
+
+  .sr2-service-category-body {
+    gap: 29px;
+    margin-top: 29px;
+    padding-top: 23px;
+  }
+
+  .sr2-service-answers {
+    grid-template-columns: 1fr;
+    gap: 23px;
+  }
+
+  .sr2-service-answers > div:last-child {
+    grid-column: auto;
+  }
+}
