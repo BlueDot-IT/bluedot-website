@@ -56,11 +56,15 @@ export default function Footer({
             <h2 className="sr-only">{tagline}</h2>
             <p>Practical engineering for teams that need working changes, clear boundaries, and a handoff they can operate.</p>
           </div>
-          <div>
-            <h3>Navigate</h3>
-            <nav className="sr2-footer-nav" aria-label="Footer navigation">
-              {menuItems.flatMap((section) => section.links.map((link) => ({ ...link, key: `${section.title}-${link.text}` }))).map((link) => <a key={link.key} href={link.url}>{link.text}</a>)}
-            </nav>
+          <div className="sr2-footer-nav-groups">
+            {menuItems.map((section) => (
+              <div className="sr2-footer-nav-group" key={section.title}>
+                <h3>{section.title}</h3>
+                <nav className="sr2-footer-nav" aria-label={`${section.title} navigation`}>
+                  {section.links.map((link) => <a key={link.text} href={link.url}>{link.text}</a>)}
+                </nav>
+              </div>
+            ))}
           </div>
           <div className="sr2-footer-note">
             <NewsletterForm title="Product and security updates" description="A short email when BlueDot ships something useful. No spam." />

@@ -48,19 +48,6 @@ const caseStudies = [
     result: 'The design makes tool authority and operator oversight visible enough to review before an agent is allowed into a real workflow.',
     href: 'https://github.com/BlueDot-IT/GhostMCP',
   },
-  {
-    title: 'A public site that can be operated after launch',
-    project: 'BlueDot IT website',
-    category: 'Full-stack development',
-    artifact: '/proof/full-stack-delivery.svg',
-    alt: 'Diagram showing a full-stack website moving from content and application code through validation to deployment and handoff.',
-    caption: 'Public artifact: the delivery path used by this site.',
-    problem: 'A consultancy site has to explain the work, publish useful writing, handle inquiries, protect its admin surface, and remain deployable as the content changes.',
-    work: 'This Next.js application combines public server-rendered routes, Prisma-backed Insights and administration, contact and newsletter flows, metadata, security controls, and VPS deployment.',
-    evidence: 'The live site and public source repository are available for inspection. Routes, build checks, tests, deployment configuration, and the handoff-oriented content are all part of the artifact.',
-    result: 'The website is a working service surface and an inspectable example of the same full-stack concerns BlueDot brings to client systems.',
-    href: 'https://github.com/BlueDot-IT/bluedot-website',
-  },
 ]
 
 const services = [
@@ -118,7 +105,7 @@ export default function HomeIndex() {
       <section className="sr2-home-cases sr2-section-deep" aria-labelledby="cases-heading">
         <div className="sr2-wrap">
           <div className="sr2-section-head">
-            <div><span className="sr2-kicker">Selected work</span><h2 id="cases-heading">Three public examples. No invented client metrics.</h2></div>
+            <div><span className="sr2-kicker">Selected work</span><h2 id="cases-heading">Two public examples. No invented client metrics.</h2></div>
             <p>Public repositories and this site show the approach. Private client work is not represented as a case study without permission.</p>
           </div>
           <div className="sr2-home-case-list">

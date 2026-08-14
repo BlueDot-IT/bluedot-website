@@ -56,7 +56,7 @@ export default async function Projects() {
       <section className="sr2-page-hero">
         <div className="sr2-wrap sr2-page-hero-grid">
           <div><span className="sr2-kicker">BlueDot IT work</span><h1>Proof, not a <span>repository dump.</span></h1></div>
-          <div className="sr2-page-hero-note"><p>Three flagship examples show the problem, the work, the evidence, and the result. They are public engineering artifacts—not disguised client testimonials.</p><Link className="sr2-link" href="/contact">Request a scoped review</Link></div>
+          <div className="sr2-page-hero-note"><p>Two flagship examples show the problem, the work, the evidence, and the result. They are public engineering artifacts—not disguised client testimonials.</p><Link className="sr2-link" href="/contact">Request a scoped review</Link></div>
         </div>
       </section>
 
