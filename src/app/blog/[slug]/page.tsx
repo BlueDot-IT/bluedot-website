@@ -4,8 +4,6 @@ import { notFound } from "next/navigation"
 import MDXContent from "@/components/MDXContent"
 import CommentForm from "@/components/CommentForm"
 import ShareButtons from "@/components/ShareButtons"
-import { Card, CardHeader, CardContent } from "@/components/ui/Card"
-import { Separator } from "@/components/ui/Separator"
 import { Metadata } from "next"
 import { approvedCommentsWhere } from "@/lib/comments"
 
@@ -122,53 +120,34 @@ export default async function PostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializedJsonLd }}
       />
-      <div className="page-shell">
-        <div className="mx-auto max-w-3xl space-y-12 py-12">
-          <Card className="p-8">
-            <CardHeader>
-              <h1 className="text-3xl font-bold text-base-content">{post.title}</h1>
-              <p className="text-sm text-base-content/70">
-                {new Date(post.createdAt).toLocaleDateString()}
-              </p>
-            </CardHeader>
-            <CardContent className="prose max-w-none prose-headings:text-base-content prose-p:text-base-content/85 prose-strong:text-primary prose-code:text-primary">
-              <MDXContent source={mdxSource} />
-            </CardContent>
-            <div className="px-4 pb-6 pt-6">
-              <ShareButtons
-                title={post.title}
-                url={`https://bluedot.it.com/blog/${post.slug}`}
-              />
-            </div>
-          </Card>
-
-          <Card className="p-8">
-            <CardHeader>
-              <h2 className="text-xl font-semibold text-base-content">Comments</h2>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <CommentForm postId={post.id} />
-              <Separator className="bg-white/10" />
-              <ul className="space-y-4">
-                {comments.map((comment: any) => (
-                  <li
-                    key={comment.id}
-                    className="rounded-xl border border-white/10 p-4"
-                  >
-                    <div className="text-sm text-base-content/70">
-                      {comment.author} •{" "}
-                      {new Date(comment.createdAt).toLocaleString()}
-                    </div>
-                    <p className="mt-1 text-base-content/85 whitespace-pre-wrap">
-                      {comment.content}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+      <article className="sr2-document">
+        <div className="sr2-wrap sr2-document-inner">
+          <header>
+            <span className="sr2-kicker">BlueDot insights</span>
+            <h1>{post.title}</h1>
+            <p className="sr2-date">{new Date(post.createdAt).toLocaleDateString()}</p>
+          </header>
+          <div className="prose max-w-none">
+            <MDXContent source={mdxSource} />
+          </div>
+          <div className="mt-10 border-t border-white/10 pt-6">
+            <ShareButtons title={post.title} url={`https://bluedot.it.com/blog/${post.slug}`} />
+          </div>
+          <section className="mt-16 border-t border-white/10 pt-8">
+            <span className="sr2-kicker">Conversation</span>
+            <h2>Comments</h2>
+            <div className="mt-6"><CommentForm postId={post.id} /></div>
+            <ul className="mt-8 space-y-5">
+              {comments.map((comment: any) => (
+                <li key={comment.id} className="border-t border-white/10 pt-5">
+                  <div className="sr2-date">{comment.author} · {new Date(comment.createdAt).toLocaleString()}</div>
+                  <p className="mt-2 whitespace-pre-wrap">{comment.content}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
         </div>
-      </div>
+      </article>
     </>
   )
 }

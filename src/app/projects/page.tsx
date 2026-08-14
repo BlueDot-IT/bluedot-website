@@ -1,9 +1,6 @@
-import RepoCard from "@/components/RepoCard"
 import { fetchRepos } from "@/lib/github"
-import { Card, CardContent } from "@/components/ui/Card"
 import type { Project } from "@/types/project"
 import Link from "next/link"
-import Reveal from "@/components/Reveal"
 import { Metadata } from "next"
 
 export const revalidate = 3600
@@ -107,7 +104,7 @@ const projectDetails = [
 
 const categoryGroups = [
   { title: 'AI systems', matches: ['AI systems'] },
-  { title: 'Security engineering', matches: ['Security engineering', 'Security /'] },
+  { title: 'Security engineering', matches: ['Security engineering'] },
   { title: 'Engineering and evaluation', matches: ['Engineering and evaluation'] },
 ]
 
@@ -139,68 +136,38 @@ export default async function Projects() {
   })
 
   const primaryLanguages = [...new Set(projects.map((project) => project.language).filter(Boolean))].join(' / ')
-  const stats = [
-    { label: "Selected systems", value: projects.length },
-    { label: "Capability areas represented", value: categoryGroups.length },
-    { label: "Primary languages", value: primaryLanguages || 'Public metadata unavailable' },
-  ]
-
   return (
-    <div className="page-shell space-y-14">
-      <Reveal>
-        <div className="text-center space-y-4">
-          <span className="kicker">BlueDot IT work</span>
-          <h1 className="heading-accent text-4xl md:text-5xl font-bold">Selected systems with public evidence.</h1>
-          <p className="text-base-content/80 max-w-3xl mx-auto">
-            A curated set of public repositories showing work across AI systems, security engineering, application infrastructure, and evaluation. These are engineering examples, not representations of private client work.
-          </p>
+    <>
+      <section className="sr2-page-hero">
+        <div className="sr2-wrap sr2-page-hero-grid">
+          <div><span className="sr2-kicker">BlueDot IT work</span><h1>Selected systems with <span>public evidence.</span></h1></div>
+          <div className="sr2-page-hero-note"><p>A curated set of public repositories showing work across AI systems, security engineering, application infrastructure, and evaluation.</p><a className="sr2-link" href="https://github.com/BlueDot-IT" target="_blank" rel="noreferrer">Open the organization</a></div>
         </div>
-      </Reveal>
+      </section>
 
-      <Reveal>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {stats.map((stat) => (
-            <Card key={stat.label} className="text-center h-full">
-              <CardContent className="pt-6 pb-5 space-y-2">
-                <div className="text-3xl font-bold text-primary">{stat.value}</div>
-                <div className="text-base-content/70 text-xs uppercase tracking-[0.2em]">{stat.label}</div>
-              </CardContent>
-            </Card>
-          ))}
+      <section className="sr2-editorial">
+        <div className="sr2-wrap">
+          <p className="sr2-editorial-intro">These are engineering examples, not representations of private client work. Read the code, decisions, and constraints directly. Selected languages: {primaryLanguages || 'public metadata unavailable'}.</p>
+          <div className="sr2-evidence-table">
+            {categoryGroups.map((category) => {
+              const categoryProjects = projects.filter((project) => category.matches.some((match) => project.category.includes(match)))
+              if (categoryProjects.length === 0) return null
+              return categoryProjects.map((project) => (
+                <article className="sr2-evidence-row" key={project.id}>
+                  <div><small>{project.category}</small><h2>{project.name}</h2><p>{project.description}</p></div>
+                  <div><small>What it demonstrates</small><p>{project.demonstrates}</p><p className="sr2-disclaimer">{project.concerns}</p></div>
+                  <div><small>Relevant stack</small><div className="sr2-tech">{project.technologies.map((technology) => <span key={technology}>{technology}</span>)}</div><a className="sr2-link" style={{ marginTop: 25 }} href={project.url} target="_blank" rel="noreferrer">Repository</a></div>
+                </article>
+              ))
+            })}
+          </div>
+          <p className="sr2-disclaimer">Public work is evidence of approach, not a claim about a private client engagement.</p>
         </div>
-      </Reveal>
+      </section>
 
-      {categoryGroups.map((category) => {
-        const categoryProjects = projects.filter((project) => category.matches.some((match) => project.category.includes(match)))
-        if (categoryProjects.length === 0) return null
-        return (
-          <section key={category.title} className="space-y-6">
-            <Reveal>
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold">{category.title}</h2>
-                <p className="text-base-content/70 max-w-3xl">Public examples of the implementation and control problems represented in this capability area.</p>
-              </div>
-            </Reveal>
-            <div className="grid gap-8 md:grid-cols-2">
-              {categoryProjects.map((project) => (
-                <Reveal key={project.id} className="h-full">
-                  <RepoCard repo={project} />
-                </Reveal>
-              ))}
-            </div>
-          </section>
-        )
-      })}
-
-      <Reveal>
-        <Card className="text-center">
-          <CardContent className="space-y-4 p-8">
-            <h2 className="text-2xl font-bold text-base-content">Need a system built with the same discipline?</h2>
-            <p className="text-base-content/80 max-w-2xl mx-auto">Tell me what you are building, automating, or securing, and where the current boundary is failing.</p>
-            <Link href="/contact" className="btn btn-primary">Discuss your project</Link>
-          </CardContent>
-        </Card>
-      </Reveal>
-    </div>
+      <section className="sr2-section sr2-section-deep">
+        <div className="sr2-wrap"><div className="sr2-section-head"><div><span className="sr2-kicker">Next system</span><h2>Need a system built with the same discipline?</h2></div><p>Tell me what you are building, automating, or securing, and where the current boundary is failing.</p></div><Link className="sr2-link" href="/contact">Discuss your project</Link></div>
+      </section>
+    </>
   )
 }

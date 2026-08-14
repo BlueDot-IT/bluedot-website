@@ -6,6 +6,7 @@
 @plugin "tailwindcss-animate";
 @import "tw-animate-css";
 @import "../styles/design-tokens.css";
+@import "../styles/signal-room.css";
 
 @custom-variant dark (&:is([data-theme="bluedot-aurora"] *));
 

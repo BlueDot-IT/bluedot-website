@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { Card } from '@/components/ui/Card'
 
 export type ServiceSlug = keyof typeof servicePages
 
@@ -149,97 +148,70 @@ export function renderServicePage(slug: ServiceSlug) {
   const page = servicePages[slug]
 
   return (
-    <div className="page-shell space-y-12 py-12">
-      <section className="max-w-4xl space-y-5">
-        <span className="pill">{page.category}</span>
-        <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">{page.title}</h1>
-        <p className="text-xl text-base-content/80">{page.description}</p>
-        <div className="flex flex-wrap gap-3 pt-2">
-          <Link href={`/contact?service=${slug}`} className="btn btn-primary">Discuss this service</Link>
-          <Link href="/projects" className="btn btn-outline border-white/20 hover:bg-white/10">View selected work</Link>
+    <>
+      <section className="sr2-page-hero">
+        <div className="sr2-wrap sr2-page-hero-grid">
+          <div>
+            <span className="sr2-kicker">{page.category}</span>
+            <h1>{page.title}</h1>
+          </div>
+          <div className="sr2-page-hero-note">
+            <p>{page.description}</p>
+            <Link className="sr2-link" href={`/contact?service=${slug}`}>Discuss this service</Link>
+          </div>
         </div>
       </section>
 
-      <div className="grid gap-6 lg:grid-cols-2">
-        <Card className="space-y-3 bg-white/5 border-white/10 p-8">
-          <h2 className="text-2xl font-bold">Who it is for</h2>
-          <p className="text-base-content/75 leading-relaxed">{page.who}</p>
-        </Card>
-        <Card className="space-y-3 bg-white/5 border-white/10 p-8">
-          <h2 className="text-2xl font-bold">Scope and handoff</h2>
-          <p className="text-base-content/75 leading-relaxed">{page.scope}</p>
-        </Card>
-      </div>
-
-      <section className="grid gap-6 lg:grid-cols-3">
-        <Card className="space-y-4 bg-white/5 border-white/10 p-8">
-          <h2 className="text-2xl font-bold">Problems this addresses</h2>
-          <ul className="list-disc space-y-2 pl-5 text-base-content/75">
-            {page.problems.map((item) => <li key={item}>{item}</li>)}
-          </ul>
-        </Card>
-        <Card className="space-y-4 bg-white/5 border-white/10 p-8">
-          <h2 className="text-2xl font-bold">Deliverables</h2>
-          <ul className="list-disc space-y-2 pl-5 text-base-content/75">
-            {page.deliverables.map((item) => <li key={item}>{item}</li>)}
-          </ul>
-        </Card>
-        <Card className="space-y-4 bg-white/5 border-white/10 p-8">
-          <h2 className="text-2xl font-bold">Relevant stack</h2>
-          <ul className="list-disc space-y-2 pl-5 text-base-content/75">
-            {page.tools.map((item) => <li key={item}>{item}</li>)}
-          </ul>
-        </Card>
+      <section className="sr2-editorial">
+        <div className="sr2-wrap">
+          <p className="sr2-editorial-intro">{page.who}</p>
+          <div className="sr2-service-page-list">
+            <article className="sr2-service-page-row">
+              <div><span className="sr2-kicker">Scope and handoff</span><h2>Make the boundary legible.</h2></div>
+              <div><p>{page.scope}</p><Link className="sr2-link" href="/projects">View selected work</Link></div>
+            </article>
+            <article className="sr2-service-page-row">
+              <div><span className="sr2-kicker">Problems this addresses</span><h2>Start with the pressure point.</h2></div>
+              <div className="sr2-service-page-details">
+                <div><h4>Observed concerns</h4><ul>{page.problems.map((item) => <li key={item}>{item}</li>)}</ul></div>
+                <div><h4>Relevant stack</h4><ul>{page.tools.map((item) => <li key={item}>{item}</li>)}</ul></div>
+              </div>
+            </article>
+            <article className="sr2-service-page-row">
+              <div><span className="sr2-kicker">Deliverables</span><h2>Leave with usable work.</h2></div>
+              <div className="sr2-service-page-details">
+                <div><h4>Included in scope</h4><ul>{page.deliverables.map((item) => <li key={item}>{item}</li>)}</ul></div>
+                <div><h4>Example scope</h4><ul>{page.examples.map((item) => <li key={item}>{item}</li>)}</ul></div>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
 
-      <Card className="space-y-4 bg-white/5 border-white/10 p-8">
-        <h2 className="text-2xl font-bold">Example scope</h2>
-        <ul className="grid gap-3 md:grid-cols-3">
-          {page.examples.map((item) => <li key={item} className="rounded-xl border border-white/10 p-4 text-base-content/75">{item}</li>)}
-        </ul>
-      </Card>
-
       {slug === 'security-reviews' && (
-        <section className="grid gap-6 lg:grid-cols-2">
-          <Card className="space-y-4 bg-white/5 border-white/10 p-8">
-            <h2 className="text-2xl font-bold">Review methodology</h2>
-            <ol className="list-decimal space-y-2 pl-5 text-base-content/75">
-              <li>Confirm the agreed domains, hosts, repositories, and access boundaries.</li>
-              <li>Review public exposure, authentication, dependencies, headers, deployment, and secrets handling.</li>
-              <li>Validate material findings with safe, authorized evidence and explain the technical and business impact.</li>
-              <li>Prioritize remediation by likelihood, impact, effort, and available rollback path.</li>
-            </ol>
-          </Card>
-          <Card className="space-y-4 bg-white/5 border-white/10 p-8">
-            <h2 className="text-2xl font-bold">Remediation path</h2>
-            <p className="text-base-content/75 leading-relaxed">
-              The handoff includes findings, evidence, remediation order, and a retest checklist. Implementation support can address agreed fixes instead of leaving the team with a scanner dump.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-2 text-sm font-semibold">
-              <Link href="/services/server-hardening" className="text-primary hover:underline">Related: server hardening</Link>
-              <Link href="/services/nextjs-security-hardening" className="text-primary hover:underline">Related: Next.js hardening</Link>
+        <section className="sr2-section sr2-section-deep">
+          <div className="sr2-wrap sr2-about-grid">
+            <div className="sr2-about-block"><span className="sr2-kicker">Review methodology</span><h2>Evidence before assurances.</h2></div>
+            <div className="sr2-service-page-details">
+              <div><h4>Sequence</h4><ul><li>Confirm agreed domains, hosts, repositories, and access boundaries.</li><li>Review public exposure, authentication, dependencies, headers, deployment, and secrets handling.</li><li>Validate material findings with safe, authorized evidence.</li><li>Prioritize remediation by likelihood, impact, effort, and rollback path.</li></ul></div>
+              <div><h4>Related work</h4><ul><li><Link href="/services/server-hardening">Server hardening</Link></li><li><Link href="/services/nextjs-security-hardening">Next.js hardening</Link></li></ul></div>
             </div>
-          </Card>
+          </div>
         </section>
       )}
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">Questions</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          {page.faq.map(([question, answer]) => (
-            <Card key={question} className="space-y-2 bg-white/5 border-white/10 p-6">
-              <h3 className="font-bold">{question}</h3>
-              <p className="text-sm text-base-content/75 leading-relaxed">{answer}</p>
-            </Card>
-          ))}
+      <section className="sr2-section">
+        <div className="sr2-wrap">
+          <div className="sr2-section-head"><div><span className="sr2-kicker">Questions</span><h2>Before the work starts.</h2></div><p>Scope is confirmed in writing. These answers describe the normal boundary for this service.</p></div>
+          <div className="sr2-note-list">
+            {page.faq.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}
+          </div>
         </div>
       </section>
 
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-8 text-center space-y-4">
-        <h2 className="text-2xl font-bold">Need this scoped for your system?</h2>
-        <p className="text-base-content/75">Send the target, the concern, and what outcome would make the work useful.</p>
-        <Link href={`/contact?service=${slug}`} className="btn btn-primary btn-lg">Contact BlueDot IT</Link>
+      <section className="sr2-close">
+        <div className="sr2-wrap"><div className="sr2-close-copy"><div><span className="sr2-kicker">Next step</span><h2>Need this scoped for your system?</h2></div><div><p>Send the target, the concern, and what outcome would make the work useful.</p><Link className="sr2-link" href={`/contact?service=${slug}`}>Contact BlueDot IT</Link></div></div></div>
       </section>
-    </div>
+    </>
   )
 }

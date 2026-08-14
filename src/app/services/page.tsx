@@ -1,14 +1,10 @@
 import Link from 'next/link'
-import { Card } from '@/components/ui/Card'
-import Reveal from '@/components/Reveal'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Services',
   description: 'Security engineering, AI automation, and full-stack development for teams building real systems.',
-  alternates: {
-    canonical: 'https://bluedot.it.com/services',
-  },
+  alternates: { canonical: 'https://bluedot.it.com/services' },
   openGraph: {
     title: 'Services | BlueDot IT',
     description: 'Security engineering, AI automation, and full-stack development for teams building real systems.',
@@ -20,10 +16,11 @@ export const metadata: Metadata = {
 const categories = [
   {
     id: 'security-engineering',
-    title: 'Security Engineering',
+    kicker: 'Security engineering',
+    title: 'Find the risk. Fix what matters.',
     description: 'Review, harden, and improve the application and infrastructure boundaries that matter to production.',
-    cta: 'Start with a security review',
     href: '/services/security-reviews',
+    cta: 'Start with a security review',
     services: [
       { name: 'Application and API security', href: '/services/security-reviews' },
       { name: 'Authentication and authorization reviews', href: '/services/nextjs-security-hardening' },
@@ -36,10 +33,11 @@ const categories = [
   },
   {
     id: 'ai-automation',
-    title: 'AI Automation',
+    kicker: 'AI automation',
+    title: 'Give useful tools a governed shape.',
     description: 'Build controlled agents and workflow automations with explicit permissions, logs, approvals, and maintainable failure handling.',
-    cta: 'Explore AI automation',
     href: '/services/workflow-automation',
+    cta: 'Explore AI automation',
     services: [
       { name: 'AI agent development', href: '/services/ai-security-tooling' },
       { name: 'Workflow automation and API integrations', href: '/services/workflow-automation' },
@@ -52,10 +50,11 @@ const categories = [
   },
   {
     id: 'full-stack-development',
-    title: 'Full-Stack Development',
+    kicker: 'Full-stack development',
+    title: 'Build the next useful piece.',
     description: 'Design, build, deploy, and improve applications and services from frontend through production operations.',
-    cta: 'Explore full-stack development',
     href: '/services/full-stack-development',
+    cta: 'Explore full-stack development',
     services: [
       { name: 'Full-stack application development', href: '/services/full-stack-development' },
       { name: 'React and Next.js applications', href: '/services/full-stack-development' },
@@ -72,132 +71,121 @@ const entryPoints = [
   {
     title: 'Security Review',
     description: 'A bounded review of an application, repository, deployment, AI integration, or supporting host.',
-    deliverables: ['Findings with severity and evidence', 'Technical and business impact', 'Prioritized remediation plan', 'Optional implementation and retest checklist'],
     href: '/contact?service=security-review',
   },
   {
     title: 'AI Automation Discovery and Prototype',
     description: 'Map one workflow and build a controlled working prototype with clear boundaries.',
-    deliverables: ['Workflow and tool map', 'Data and permission boundaries', 'Functional prototype', 'Logs, approval points, and production roadmap'],
     href: '/contact?service=ai-automation-discovery',
   },
   {
     title: 'Full-Stack Build Sprint',
     description: 'A defined implementation phase for an application capability, internal tool, dashboard, API, integration, or backend service.',
-    deliverables: ['Written scope and architecture', 'Implementation and tests', 'Deployment', 'Documentation and handoff'],
     href: '/contact?service=full-stack-build-sprint',
   },
 ]
 
 export default function ServicesPage() {
   return (
-    <div className="page-shell space-y-20 py-12">
-      <Reveal>
-        <section className="max-w-4xl space-y-5">
-          <span className="pill">Security • AI Automation • Full-Stack</span>
-          <h1 className="text-5xl font-extrabold tracking-tight md:text-6xl">
-            Build the system. <span className="heading-accent">Respect the boundary.</span>
-          </h1>
-          <p className="text-xl text-base-content/80">
-            BlueDot combines security engineering, AI automation, and full-stack implementation so the application, workflow, deployment, and control surface can be designed together.
-          </p>
-        </section>
-      </Reveal>
-
-      <section className="space-y-8">
-        {categories.map((category) => (
-          <Reveal key={category.id}>
-            <section id={category.id} className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10">
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                <div className="max-w-2xl space-y-3">
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Capability pillar</p>
-                  <h2 className="text-3xl font-bold md:text-4xl">{category.title}</h2>
-                  <p className="text-base-content/75 leading-relaxed">{category.description}</p>
-                </div>
-                <Link href={category.href} className="btn btn-outline w-fit border-white/20 hover:bg-white/10">
-                  {category.cta}
-                </Link>
-              </div>
-              <div className="mt-8 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-                {category.services.map((service) => (
-                  <Link key={service.name} href={service.href} className="rounded-2xl border border-white/10 bg-black/10 p-4 text-sm font-semibold text-base-content/85 hover:bg-white/10 hover:text-primary transition-colors">
-                    {service.name}
-                  </Link>
-                ))}
-              </div>
-            </section>
-          </Reveal>
-        ))}
-      </section>
-
-      <Reveal>
-        <section className="space-y-6">
-          <div className="max-w-3xl space-y-3">
-            <span className="pill">Existing offering</span>
-            <h2 className="text-3xl font-bold">Operations automation and reporting, inside AI Automation.</h2>
-            <p className="text-base-content/70 leading-relaxed">
-              The Operations Automation and Reporting Sprint remains available for one bounded workflow, report, dashboard, or integration. It is an entry point—not the definition of the company.
-            </p>
+    <>
+      <section className="sr2-page-hero">
+        <div className="sr2-wrap sr2-page-hero-grid">
+          <div>
+            <span className="sr2-kicker">Security · AI Automation · Full-Stack</span>
+            <h1>Build the system. <span>Respect the boundary.</span></h1>
           </div>
-          <Card className="border-primary/30 bg-primary/5 p-8">
-            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-              <div className="space-y-2">
-                <h3 className="text-2xl font-bold">Start with one reliable handoff.</h3>
-                <p className="max-w-2xl text-base-content/70">Scope the inputs, outputs, failure modes, approvals, validation, and documentation before the workflow grows teeth.</p>
-              </div>
-              <Link href="/services/operations-automation-reporting" className="btn btn-primary w-fit">View the sprint</Link>
-            </div>
-          </Card>
-        </section>
-      </Reveal>
-
-      <section className="space-y-8">
-        <Reveal>
-          <div className="max-w-3xl space-y-3">
-            <span className="pill">Productized entry points</span>
-            <h2 className="text-3xl font-bold">Three clear ways to begin.</h2>
-            <p className="text-base-content/70 leading-relaxed">No fixed prices or invented timelines. The target, boundary, deliverables, and acceptance criteria are defined in writing.</p>
+          <div className="sr2-page-hero-note">
+            <p>BlueDot combines security engineering, AI automation, and full-stack implementation so the application, workflow, deployment, and control surface can be designed together.</p>
+            <Link className="sr2-link" href="/contact">Discuss your project</Link>
           </div>
-        </Reveal>
-        <div className="grid gap-6 lg:grid-cols-3">
-          {entryPoints.map((entryPoint) => (
-            <Reveal key={entryPoint.title}>
-              <Card className="h-full flex flex-col space-y-5 bg-white/5 border-white/10 p-8">
-                <h3 className="text-2xl font-bold">{entryPoint.title}</h3>
-                <p className="text-base-content/70 leading-relaxed">{entryPoint.description}</p>
-                <ul className="flex-1 list-disc space-y-2 pl-5 text-sm text-base-content/75">
-                  {entryPoint.deliverables.map((deliverable) => <li key={deliverable}>{deliverable}</li>)}
-                </ul>
-                <Link href={entryPoint.href} className="btn btn-outline border-white/20 hover:bg-white/10 w-full">Discuss this entry point</Link>
-              </Card>
-            </Reveal>
-          ))}
         </div>
       </section>
 
-      <Reveal>
-        <section id="how-it-works" className="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12 space-y-8">
-          <div className="max-w-3xl space-y-3">
-            <span className="pill">How BlueDot works</span>
-            <h2 className="text-3xl font-bold">Scope, build, validate, hand off.</h2>
-            <p className="text-base-content/70 leading-relaxed">The process stays legible: written boundaries first, implementation against those boundaries, evidence that the result works, and documentation for what comes next.</p>
-          </div>
-          <div className="grid gap-8 md:grid-cols-4">
-            {[
-              ['01. Scope', 'Agree the target, inputs, risks, exclusions, and acceptance criteria.'],
-              ['02. Design', 'Choose the architecture, permissions, integrations, and failure paths.'],
-              ['03. Build', 'Implement the application, automation, controls, and supporting infrastructure.'],
-              ['04. Handoff', 'Validate behavior, document the system, and leave the next operator a clear path.'],
-            ].map(([label, description]) => (
-              <div key={label} className="space-y-2">
-                <div className="text-primary font-bold text-xl">{label}</div>
-                <p className="text-sm text-base-content/70">{description}</p>
-              </div>
+      <section className="sr2-editorial">
+        <div className="sr2-wrap">
+          <p className="sr2-editorial-intro">No fixed prices or invented timelines. The target, boundary, deliverables, and acceptance criteria are defined in writing.</p>
+          <div className="sr2-service-page-list">
+            {categories.map((category) => (
+              <article className="sr2-service-page-row" id={category.id} key={category.id}>
+                <div>
+                  <span className="sr2-kicker">{category.kicker}</span>
+                  <h2>{category.title}</h2>
+                </div>
+                <div>
+                  <p>{category.description}</p>
+                  <div className="sr2-service-page-details">
+                    <div>
+                      <h4>Where it helps</h4>
+                      <p>Review, design, implementation, validation, and a handoff across the system boundary that matters.</p>
+                    </div>
+                    <div>
+                      <h4>Available work</h4>
+                      <ul>
+                        {category.services.map((service) => (
+                          <li key={service.name}><Link href={service.href}>{service.name}</Link></li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <Link className="sr2-link" href={category.href}>{category.cta}</Link>
+                </div>
+              </article>
             ))}
           </div>
-          <Link href="/contact" className="btn btn-primary btn-lg w-fit">Discuss your project</Link>
-        </section>
-      </Reveal>
-    </div>
+        </div>
+      </section>
+
+      <section className="sr2-sprint">
+        <div className="sr2-wrap sr2-sprint-grid">
+          <div>
+            <span className="sr2-kicker">Operations entry point</span>
+            <h2>Operations Automation &amp; Reporting Sprint</h2>
+            <p>Replace one repetitive operational process with a maintainable automation, report, or lightweight dashboard built around agreed tools and data sources. It is an entry point—not the definition of the company.</p>
+            <Link className="sr2-link" href="/services/operations-automation-reporting">View the sprint</Link>
+          </div>
+          <div className="sr2-scope">
+            <div><strong>Review the current process</strong><span>Document the inputs, data sources, handoffs, and biggest time cost.</span></div>
+            <div><strong>Improve one high-cost step</strong><span>Reduce repetitive collection, cleanup, or status chasing.</span></div>
+            <div><strong>Hand off the result</strong><span>Leave working changes, validation evidence, and clear next steps.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="sr2-section sr2-section-deep">
+        <div className="sr2-wrap">
+          <div className="sr2-section-head">
+            <div>
+              <span className="sr2-kicker">Three ways to begin</span>
+              <h2>Choose the first useful cut.</h2>
+            </div>
+            <p>Each entry point is a bounded engagement. The target, boundary, deliverables, and acceptance criteria are defined before implementation begins.</p>
+          </div>
+          <div>
+            {entryPoints.map((entryPoint) => (
+              <Link className="sr2-entry-line" href={entryPoint.href} key={entryPoint.title}>
+                <h3>{entryPoint.title}</h3>
+                <p>{entryPoint.description}</p>
+                <span aria-hidden="true">↗</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sr2-section">
+        <div className="sr2-wrap sr2-process">
+          <div>
+            <span className="sr2-kicker">Working together</span>
+            <h2>A straightforward process.</h2>
+          </div>
+          <div className="sr2-process-line">
+            <div><strong>Review</strong><p>Understand the current setup and priority.</p></div>
+            <div><strong>Plan</strong><p>Set the scope, assumptions, and acceptance criteria.</p></div>
+            <div><strong>Build</strong><p>Implement, test, and keep decisions visible.</p></div>
+            <div><strong>Hand off</strong><p>Leave documentation, validation, and next steps.</p></div>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }

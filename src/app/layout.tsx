@@ -44,7 +44,7 @@ export const metadata:  Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
             <html lang="en" data-theme="bluedot-aurora" suppressHydrationWarning>
-                <body className="min-h-dvh flex flex-col">
+                <body className="signal-app min-h-dvh flex flex-col">
                 <JsonLd />
                 <Providers>
                     <Header />

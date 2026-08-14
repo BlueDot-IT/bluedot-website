@@ -4,9 +4,7 @@ import ContactForm from '@/components/ContactForm'
 export const metadata: Metadata = {
   title: 'Contact BlueDot IT',
   description: 'Tell BlueDot IT what you are building, automating, or securing, including application security, AI automation, full-stack development, APIs, integrations, and production hardening.',
-  alternates: {
-    canonical: 'https://bluedot.it.com/contact',
-  },
+  alternates: { canonical: 'https://bluedot.it.com/contact' },
   openGraph: {
     title: 'Contact | BlueDot IT',
     description: 'Describe the system, workflow, application, or security boundary you need to improve.',
@@ -43,7 +41,5 @@ interface ContactPageProps {
 export default async function ContactPage({ searchParams }: ContactPageProps) {
   const params = await searchParams
   const service = Array.isArray(params.service) ? params.service[0] : params.service
-  const initialSubject = service ? serviceSubjects[service] || '' : ''
-
-  return <ContactForm initialSubject={initialSubject} />
+  return <ContactForm initialSubject={service ? serviceSubjects[service] || '' : ''} />
 }

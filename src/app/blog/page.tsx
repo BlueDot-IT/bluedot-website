@@ -1,7 +1,5 @@
 import Link from "next/link"
 import { prisma } from "@/lib/prisma"
-import { Card, CardHeader, CardContent } from "@/components/ui/Card"
-import Reveal from "@/components/Reveal"
 import { Metadata } from "next"
 
 export const dynamic = "force-dynamic"
@@ -9,9 +7,7 @@ export const dynamic = "force-dynamic"
 export const metadata: Metadata = {
   title: 'Insights',
   description: 'Technical insights from BlueDot IT across security engineering, AI automation, and full-stack development.',
-  alternates: {
-    canonical: 'https://bluedot.it.com/blog',
-  },
+  alternates: { canonical: 'https://bluedot.it.com/blog' },
   openGraph: {
     title: 'Insights | BlueDot IT',
     description: 'Technical writing across security engineering, AI automation, and full-stack development.',
@@ -21,109 +17,47 @@ export const metadata: Metadata = {
 }
 
 const topicTracks = [
-  {
-    title: 'Security',
-    description: 'Application boundaries, infrastructure hardening, authorization, evidence, and practical risk reduction.',
-  },
-  {
-    title: 'AI Automation',
-    description: 'Agents, tool permissions, human approval, observability, workflow design, and controlled integrations.',
-  },
-  {
-    title: 'Full-Stack Engineering',
-    description: 'Applications, APIs, data, deployment, maintainability, and the production concerns around the code.',
-  },
+  { title: 'Security', description: 'Application boundaries, infrastructure hardening, authorization, evidence, and practical risk reduction.' },
+  { title: 'AI Automation', description: 'Agents, tool permissions, human approval, observability, workflow design, and controlled integrations.' },
+  { title: 'Full-Stack Engineering', description: 'Applications, APIs, data, deployment, maintainability, and the production concerns around the code.' },
 ]
 
 export default async function BlogPage() {
   const posts = await prisma.post.findMany({
     orderBy: { createdAt: "desc" },
-    select: {
-      id: true,
-      title: true,
-      slug: true,
-      excerpt: true,
-      createdAt: true,
-    },
+    select: { id: true, title: true, slug: true, excerpt: true, createdAt: true },
   })
 
   return (
-    <div className="page-shell space-y-12">
-      <div className="text-center space-y-4">
-        <span className="kicker">BlueDot insights</span>
-        <h1 className="heading-accent text-4xl md:text-5xl font-bold">
-          Notes from the system boundary.
-        </h1>
-        <p className="text-lg text-base-content/80 max-w-2xl mx-auto">
-          Technical writing for teams building, automating, securing, and operating real systems.
-        </p>
-      </div>
-
-      <section className="space-y-5" aria-labelledby="topic-tracks">
-        <div>
-          <h2 id="topic-tracks" className="text-2xl font-bold">Topic tracks</h2>
-          <p className="mt-2 text-base-content/70">Existing writing can be read through these three connected lenses.</p>
-        </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          {topicTracks.map((track) => (
-            <Card key={track.title} className="h-full bg-white/5 border-white/10 p-6">
-              <h3 className="text-xl font-bold text-base-content">{track.title}</h3>
-              <p className="mt-3 text-sm text-base-content/70 leading-relaxed">{track.description}</p>
-            </Card>
-          ))}
+    <>
+      <section className="sr2-page-hero">
+        <div className="sr2-wrap sr2-page-hero-grid">
+          <div><span className="sr2-kicker">BlueDot insights</span><h1>Notes from the <span>system boundary.</span></h1></div>
+          <div className="sr2-page-hero-note"><p>Technical writing for teams building, automating, securing, and operating real systems.</p><Link className="sr2-link" href="/contact">Discuss a system</Link></div>
         </div>
       </section>
 
-      <section id="latest-insights" className="space-y-6" aria-labelledby="latest-insights-heading">
-        <div>
-          <h2 id="latest-insights-heading" className="text-2xl font-bold">Latest insights</h2>
-        </div>
-        {posts.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {posts.map((post: any) => (
-              <Reveal key={post.id} className="h-full">
-                <Card className="transition-all duration-300 hover:-translate-y-1 h-full">
-                  <CardHeader>
-                    <time className="text-sm text-primary">
-                      {new Date(post.createdAt).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </time>
-                  </CardHeader>
-                  <CardContent>
-                    <h3 className="text-xl font-bold text-base-content hover:text-primary transition-colors mb-3">
-                      <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                    </h3>
-                    {post.excerpt && (
-                      <p className="text-base-content/80 leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
-                    )}
-                    <Link href={`/blog/${post.slug}`} className="text-primary hover:text-accent text-sm font-medium">
-                      Read more →
-                    </Link>
-                  </CardContent>
-                </Card>
-              </Reveal>
-            ))}
+      <section className="sr2-editorial">
+        <div className="sr2-wrap">
+          <div className="sr2-section-head"><div><span className="sr2-kicker">Topic tracks</span><h2>Three connected lenses.</h2></div><p>Existing writing can be read through these three connected lenses.</p></div>
+          <div className="sr2-note-list">
+            {topicTracks.map((track) => <article key={track.title}><h3>{track.title}</h3><p>{track.description}</p></article>)}
           </div>
-        ) : (
-          <Reveal>
-            <Card className="p-12 text-center">
-              <h3 className="text-2xl font-bold text-base-content mb-4">No posts yet</h3>
-              <p className="text-base-content/80">Technical notes will appear here as they are published.</p>
-            </Card>
-          </Reveal>
-        )}
+        </div>
       </section>
 
-      <Reveal>
-        <Card className="mt-4 p-8 text-center">
-          <h2 className="text-2xl font-bold text-base-content mb-4">Have a system question?</h2>
-          <p className="text-base-content/80 mb-6 max-w-2xl mx-auto">Bring a security concern, automation idea, or application problem to the same conversation.</p>
-          <Link href="/contact" className="btn btn-primary">Discuss your project</Link>
-        </Card>
-      </Reveal>
-    </div>
+      <section className="sr2-section sr2-section-deep" id="latest-insights" aria-labelledby="latest-insights-heading">
+        <div className="sr2-wrap">
+          <div className="sr2-section-head"><div><span className="sr2-kicker">Latest insights</span><h2 id="latest-insights-heading">Read the notes.</h2></div><p>Technical notes stay grounded in the systems, boundaries, and decisions they describe.</p></div>
+          {posts.length > 0 ? (
+            <div className="sr2-note-list">
+              {posts.map((post) => <article key={post.id}><time className="sr2-kicker" dateTime={post.createdAt.toISOString()}>{new Date(post.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time><h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3>{post.excerpt && <p>{post.excerpt}</p>}<Link className="sr2-link" href={`/blog/${post.slug}`}>Read the note</Link></article>)}
+            </div>
+          ) : <div className="sr2-note-list"><article><h3>No posts yet.</h3><p>Technical notes will appear here as they are published.</p></article></div>}
+        </div>
+      </section>
+
+      <section className="sr2-close"><div className="sr2-wrap sr2-close-copy"><div><span className="sr2-kicker">Next conversation</span><h2>Have a system question?</h2></div><div><p>Bring a security concern, automation idea, or application problem to the same conversation.</p><Link className="sr2-link" href="/contact">Discuss your project</Link></div></div></section>
+    </>
   )
 }

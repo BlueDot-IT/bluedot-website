@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 const selectedWork = [
   {
     name: 'Odinn-Forge',
@@ -23,26 +21,25 @@ const selectedWork = [
 
 export default function SelectedWorkPreview() {
   return (
-    <section className="authority-section authority-logs" id="logs">
-      <div className="authority-wrap">
-        <div className="authority-section-header">
+    <section className="sr2-section sr2-section-deep" id="logs">
+      <div className="sr2-wrap">
+        <div className="sr2-section-head">
           <div>
-            <div className="authority-eyebrow">Engineering logs</div>
+            <div className="sr2-kicker">Engineering logs</div>
             <h2>Public systems with inspectable boundaries.</h2>
-            <p className="authority-section-intro">These are public repositories, not private client case studies. Read the code, decisions, and constraints directly.</p>
           </div>
-          <a className="authority-section-link" href="https://github.com/BlueDot-IT" target="_blank" rel="noreferrer">Open GitHub <span aria-hidden="true">↗</span></a>
+          <p>These are public repositories, not private client case studies. Read the code, decisions, and constraints directly.</p>
         </div>
-        <div className="authority-logs-grid">
-          {selectedWork.map((project, index) => (
-            <a className="authority-log-entry" key={project.name} href={project.href} target="_blank" rel="noreferrer">
-              <span className="authority-log-meta">0{index + 1} / {project.category} · GitHub</span>
-              <h3>{project.name}</h3>
+        <div className="sr2-work-list">
+          {selectedWork.map((project) => (
+            <a className="sr2-work-item" key={project.name} href={project.href} target="_blank" rel="noreferrer">
+              <div><h3>{project.name}</h3><small>{project.category} · GitHub</small></div>
               <p>{project.description}</p>
-              <span className="authority-log-link">Read the repository <span aria-hidden="true">↗</span></span>
+              <span className="sr2-link">Open GitHub</span>
             </a>
           ))}
         </div>
+        <p className="sr2-disclaimer">Public repositories show engineering evidence. They are not representations of private client work.</p>
       </div>
     </section>
   )

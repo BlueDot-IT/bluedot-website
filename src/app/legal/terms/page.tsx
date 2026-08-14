@@ -42,30 +42,30 @@ const sections = [
 
 export default function Terms() {
   return (
-    <div className="page-shell">
-      <div className="max-w-4xl mx-auto space-y-8">
-        <header className="space-y-3">
-          <span className="pill">BlueDot IT</span>
-          <h1 className="text-4xl font-bold heading-accent">Website Terms</h1>
-          <p className="text-base-content/70">Last updated: July 28, 2026</p>
-          <p className="text-base-content/80 leading-relaxed">
+    <article className="sr2-document">
+      <div className="sr2-wrap sr2-document-inner">
+        <header>
+          <span className="sr2-kicker">BlueDot IT</span>
+          <h1>Website Terms</h1>
+          <p className="sr2-date">Last updated: July 28, 2026</p>
+          <p className="mt-4">
             These terms apply to the public website. They do not replace a signed client services agreement, statement of work, or other written engagement document.
           </p>
         </header>
 
-        <div className="space-y-8">
+        <div>
           {sections.map((section) => (
-            <section key={section.title} className="space-y-3">
-              <h2 className="text-2xl font-semibold text-secondary">{section.title}</h2>
-              <p className="text-base-content/80 leading-relaxed">{section.body}</p>
+            <section key={section.title}>
+              <h2>{section.title}</h2>
+              <p>{section.body}</p>
             </section>
           ))}
         </div>
 
-        <p className="border-t border-white/10 pt-8 text-sm text-base-content/65">
-          See the <Link href="/legal/privacy" className="text-primary hover:underline">Privacy Policy</Link> for information about data handled through this website.
+        <p className="mt-10 border-t border-white/10 pt-8 text-sm">
+          See the <Link href="/legal/privacy" className="text-[color:var(--signal-lime)] hover:underline">Privacy Policy</Link> for information about data handled through this website.
         </p>
       </div>
-    </div>
+    </article>
   )
 }

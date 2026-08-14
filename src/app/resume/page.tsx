@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import { useReactToPrint } from "react-to-print"
 import Button from "@/components/ui/Button"
-import { Card, CardContent } from "@/components/ui/Card"
+import { CardContent } from "@/components/ui/Card"
 import { Download } from "lucide-react"
 
 export default function ResumePage() {
@@ -11,8 +11,8 @@ export default function ResumePage() {
   const handlePrint = useReactToPrint({ contentRef: resumeRef })
 
   return (
-    <div className="min-h-screen pb-20">
-      <div className="page-shell">
+    <div className="sr2-document sr2-resume">
+      <div className="sr2-wrap">
         <div className="mx-auto max-w-4xl space-y-6 text-base-content">
 
           {/* UI Header (screen only) */}
@@ -30,7 +30,7 @@ export default function ResumePage() {
           </header>
 
           {/* ================= PRINTABLE RESUME ================= */}
-          <Card ref={resumeRef} className="p-8 shadow-none ring-0">
+          <div ref={resumeRef} className="sr2-resume-paper p-8">
             <CardContent className="p-0 space-y-6">
 
               {/* CONTACT HEADER */}
@@ -143,7 +143,7 @@ export default function ResumePage() {
               </section>
 
             </CardContent>
-          </Card>
+          </div>
 
           {/* PRINT NORMALIZATION */}
           <style jsx global>{`

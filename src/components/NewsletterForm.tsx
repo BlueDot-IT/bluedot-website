@@ -50,7 +50,7 @@ export default function NewsletterForm({
   }
 
   return (
-    <div className="authority-newsletter">
+    <div className="sr2-newsletter">
       <div>
         <h3>{title}</h3>
         <p>{description}</p>
