@@ -2505,8 +2505,14 @@ body.signal-app::before {
 .sr2-service-category-head {
   display: grid;
   grid-template-columns: minmax(230px, 0.72fr) minmax(0, 1.28fr);
-  gap: 64px;
+  column-gap: 64px;
+  row-gap: 0;
   align-items: start;
+}
+
+.sr2-service-category-head > .sr2-kicker {
+  grid-column: 1 / -1;
+  margin-bottom: 2px;
 }
 
 .sr2-service-category-head h2 {
