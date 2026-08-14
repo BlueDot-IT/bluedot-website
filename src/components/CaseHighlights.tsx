@@ -27,7 +27,7 @@ export default function CaseHighlights() {
             <p>Create the site, tool, integration, or internal application with clear ownership and a handoff your team can use.</p>
             <span className="sr2-rail-arrow" aria-hidden="true">↗</span>
           </Link>
-          <Link className="sr2-rail" href="#logs">
+          <Link className="sr2-rail" href="/blog">
             <h3>Read the engineering logs.</h3>
             <p>Public repositories and technical notes showing how the work is designed, tested, and bounded.</p>
             <span className="sr2-rail-arrow" aria-hidden="true">↗</span>

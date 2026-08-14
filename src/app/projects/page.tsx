@@ -148,17 +148,36 @@ export default async function Projects() {
       <section className="sr2-editorial">
         <div className="sr2-wrap">
           <p className="sr2-editorial-intro">These are engineering examples, not representations of private client work. Read the code, decisions, and constraints directly. Selected languages: {primaryLanguages || 'public metadata unavailable'}.</p>
-          <div className="sr2-evidence-table">
+          <div className="sr2-project-chapters">
             {categoryGroups.map((category) => {
               const categoryProjects = projects.filter((project) => category.matches.some((match) => project.category.includes(match)))
               if (categoryProjects.length === 0) return null
-              return categoryProjects.map((project) => (
-                <article className="sr2-evidence-row" key={project.id}>
-                  <div><small>{project.category}</small><h2>{project.name}</h2><p>{project.description}</p></div>
-                  <div><small>What it demonstrates</small><p>{project.demonstrates}</p><p className="sr2-disclaimer">{project.concerns}</p></div>
-                  <div><small>Relevant stack</small><div className="sr2-tech">{project.technologies.map((technology) => <span key={technology}>{technology}</span>)}</div><a className="sr2-link" style={{ marginTop: 25 }} href={project.url} target="_blank" rel="noreferrer">Repository</a></div>
-                </article>
-              ))
+              return (
+                <section className="sr2-project-chapter" key={category.title} aria-labelledby={`project-${category.title.toLowerCase().replaceAll(' ', '-')}`}>
+                  <header className="sr2-project-chapter-head">
+                    <span className="sr2-kicker">Selected work</span>
+                    <h2 id={`project-${category.title.toLowerCase().replaceAll(' ', '-')}`}>{category.title}</h2>
+                  </header>
+                  <div className="sr2-project-notes">
+                    {categoryProjects.map((project) => (
+                      <article className="sr2-project-note" key={project.id}>
+                        <header className="sr2-project-note-head">
+                          <div><span className="sr2-project-category">{project.category}</span><h3>{project.name}</h3></div>
+                          <a className="sr2-link" href={project.url} target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a>
+                        </header>
+                        <div className="sr2-project-note-main">
+                          <p className="sr2-project-description">{project.description}</p>
+                          <div className="sr2-project-note-copy">
+                            <div><h4>What it demonstrates</h4><p>{project.demonstrates}</p></div>
+                            <div><h4>Boundary to keep in view</h4><p className="sr2-disclaimer">{project.concerns}</p></div>
+                          </div>
+                          <div className="sr2-project-stack"><span>Built with</span><div className="sr2-tech">{[project.language, ...project.technologies].filter(Boolean).filter((technology, index, all) => all.indexOf(technology) === index).map((technology) => <span key={technology}>{technology}</span>)}</div></div>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              )
             })}
           </div>
           <p className="sr2-disclaimer">Public work is evidence of approach, not a claim about a private client engagement.</p>

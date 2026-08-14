@@ -19,8 +19,8 @@ export default function Footer({
     {
       title: "Services",
       links: [
-        { text: "Security engineering", url: "/services#security-engineering" },
-        { text: "Workflow automation", url: "/services#ai-automation" },
+        { text: "Security engineering", url: "/services" },
+        { text: "Workflow automation", url: "/services" },
         { text: "Full-stack development", url: "/services/full-stack-development" },
         { text: "Security reviews", url: "/services/security-reviews" },
       ],
@@ -56,14 +56,14 @@ export default function Footer({
           <div>
             <h3>Navigate</h3>
             <nav className="sr2-footer-nav" aria-label="Footer navigation">
-              {menuItems.flatMap((section) => section.links).map((link) => <Link key={link.url} href={link.url}>{link.text}</Link>)}
+              {menuItems.flatMap((section) => section.links).map((link) => <a key={link.url} href={link.url}>{link.text}</a>)}
             </nav>
           </div>
           <div className="sr2-footer-note">
             <NewsletterForm title="Product and security updates" description="A short email when BlueDot ships something useful. No spam." />
           </div>
         </div>
-        <div className="sr2-legal">{new Date().getFullYear()} {copyright} · North Carolina / Remote · <Link href={bottomLinks[0].url}>{bottomLinks[0].text}</Link> · <Link href={bottomLinks[1].url}>{bottomLinks[1].text}</Link></div>
+        <div className="sr2-legal">{new Date().getFullYear()} {copyright} · North Carolina / Remote · <a href={bottomLinks[0].url}>{bottomLinks[0].text}</a> · <a href={bottomLinks[1].url}>{bottomLinks[1].text}</a></div>
       </div>
     </footer>
   );

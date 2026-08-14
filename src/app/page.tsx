@@ -1,8 +1,5 @@
 import Hero from '@/components/Hero';
-import PersonaGrid from '@/components/PersonaGrid';
-import CaseHighlights from '@/components/CaseHighlights';
-import SelectedWorkPreview from '@/components/SelectedWorkPreview';
-import EngagementEntryPoints from '@/components/EngagementEntryPoints';
+import HomeIndex from '@/components/HomeIndex';
 import type { Metadata } from 'next';
 
 export const dynamic = 'force-dynamic';
@@ -27,10 +24,7 @@ export default function Landing() {
     return (
         <>
             <Hero />
-            <PersonaGrid />
-            <CaseHighlights />
-            <SelectedWorkPreview />
-            <EngagementEntryPoints />
+            <HomeIndex />
         </>
     );
 }

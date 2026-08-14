@@ -6,6 +6,7 @@ export default function Header() {
     { href: "/projects", label: "Work" },
     { href: "/about", label: "About" },
     { href: "/blog", label: "Insights" },
+    { href: "/contact", label: "Contact" },
   ]
 
   return (
@@ -17,12 +18,11 @@ export default function Header() {
         </Link>
         <div className="sr2-nav">
           {links.map((item) => (
-            <Link key={item.href} href={item.href} className="sr2-nav-link">
+            <a key={item.href} href={item.href} className="sr2-nav-link">
               {item.label}
-            </Link>
+            </a>
           ))}
         </div>
-        <Link href="/contact" className="sr2-contact-link">Contact BlueDot</Link>
       </nav>
     </header>
   );
