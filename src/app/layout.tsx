@@ -9,10 +9,10 @@ import AnalyticsConsent from '@/components/AnalyticsConsent'
 
 export const metadata:  Metadata = {
     title: {
-        default: 'BlueDot IT | Security, Automation, and Software Delivery',
+        default: 'Security, AI Automation & Full-Stack Delivery | BlueDot IT',
         template: '%s | BlueDot IT'
     },
-    description: 'BlueDot IT helps growing teams automate repetitive work, improve application security, and build software they can run and maintain.',
+    description: 'BlueDot IT helps technical founders and lean teams harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.',
     metadataBase: new URL('https://bluedot.it.com'),
     keywords: ['application security consulting', 'AI automation development', 'AI agent development', 'full-stack development', 'Next.js security', 'MCP security', 'workflow automation', 'TypeScript development', 'Python automation', 'secure software development', 'application hardening', 'AI agent security'],
     authors: [{ name: 'Jason O\'Neal' }],
@@ -22,20 +22,20 @@ export const metadata:  Metadata = {
         locale: 'en_US',
         url: 'https://bluedot.it.com',
         siteName: 'BlueDot IT',
-        title: 'BlueDot IT | Security, Automation, and Software Delivery',
-        description: 'BlueDot IT helps growing teams automate repetitive work, improve application security, and build software they can run and maintain.',
+        title: 'Security, AI Automation & Full-Stack Delivery | BlueDot IT',
+        description: 'Harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.',
         images: [{
-            url: '/bluedot-logo.png',
+            url: '/opengraph-image',
             width: 1200,
             height: 630,
-            alt: 'BlueDot IT Logo'
+            alt: 'BlueDot IT security, AI automation, and full-stack delivery'
         }]
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'BlueDot IT | Security, Automation, and Software Delivery',
-        description: 'BlueDot IT helps growing teams automate repetitive work, improve application security, and build software they can run and maintain.',
-        images: ['/bluedot-logo.png'],
+        title: 'Security, AI Automation & Full-Stack Delivery | BlueDot IT',
+        description: 'Harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.',
+        images: ['/twitter-image'],
         // creator: '@yourhandle', // Add your Twitter handle
     }
 }

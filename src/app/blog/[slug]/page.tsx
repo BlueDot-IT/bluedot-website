@@ -6,6 +6,7 @@ import CommentForm from "@/components/CommentForm"
 import ShareButtons from "@/components/ShareButtons"
 import { Metadata } from "next"
 import { approvedCommentsWhere } from "@/lib/comments"
+import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
 
 export const dynamic = "force-dynamic"
 
@@ -22,6 +23,7 @@ export async function generateMetadata({
       excerpt: true,
       createdAt: true,
       updatedAt: true,
+      category: { select: { name: true } },
     },
   })
 
@@ -45,11 +47,13 @@ export async function generateMetadata({
       modifiedTime: post.updatedAt?. toISOString(),
       authors: ['Jason O\'Neal'],
       url: `https://bluedot.it.com/blog/${slug}`,
+      images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: `${post.title} | BlueDot IT` }],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt || post.title,
+      images: ['/twitter-image'],
     },
   }
 }
@@ -70,6 +74,7 @@ export default async function PostPage({
       excerpt: true,
       createdAt: true,
       updatedAt: true,
+      category: { select: { name: true } },
     },
   })
 
@@ -113,6 +118,12 @@ export default async function PostPage({
     orderBy: { createdAt: "desc" },
     select: { id: true, content: true, author: true, createdAt: true },
   })
+  const category = post.category?.name?.toLowerCase() || ''
+  const relatedService = category.includes('security')
+    ? { href: '/services/security-reviews', label: 'Security review' }
+    : category.includes('ai') || category.includes('automation')
+      ? { href: '/services/workflow-automation', label: 'AI automation' }
+      : { href: '/services/full-stack-development', label: 'Full-stack delivery' }
 
   return (
     <>
@@ -120,12 +131,13 @@ export default async function PostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializedJsonLd }}
       />
+      <BreadcrumbJsonLd items={[{ name: 'BlueDot IT', url: 'https://bluedot.it.com/' }, { name: 'Insights', url: 'https://bluedot.it.com/blog' }, { name: post.title, url: `https://bluedot.it.com/blog/${post.slug}` }]} />
       <article className="sr2-document">
         <div className="sr2-wrap sr2-document-inner">
           <header>
             <span className="sr2-kicker">BlueDot insights</span>
             <h1>{post.title}</h1>
-            <p className="sr2-date">{new Date(post.createdAt).toLocaleDateString()}</p>
+            <div className="sr2-article-meta"><p className="sr2-date"><time dateTime={post.createdAt.toISOString()}>{new Date(post.createdAt).toLocaleDateString()}</time></p><span className="sr2-post-category">{post.category?.name || 'Engineering note'}</span></div>
           </header>
           <div className="prose max-w-none">
             <MDXContent source={mdxSource} />
@@ -133,6 +145,12 @@ export default async function PostPage({
           <div className="mt-10 border-t border-white/10 pt-6">
             <ShareButtons title={post.title} url={`https://bluedot.it.com/blog/${post.slug}`} />
           </div>
+          <aside className="sr2-related-service">
+            <span className="sr2-kicker">Put this to work</span>
+            <h2>Need this considered in an existing system?</h2>
+            <p>Insights are general. An engagement starts with the application, workflow, or infrastructure you actually need to change.</p>
+            <a className="sr2-link" href={relatedService.href}>See the {relatedService.label} engagement</a>
+          </aside>
           <section className="mt-16 border-t border-white/10 pt-8">
             <span className="sr2-kicker">Conversation</span>
             <h2>Comments</h2>

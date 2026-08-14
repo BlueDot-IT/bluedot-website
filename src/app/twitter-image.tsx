@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'nodejs'
-export const alt = 'BlueDot IT | Security, AI Automation, and Full-Stack Development'
+export const alt = 'BlueDot IT | Security, AI Automation, and Full-Stack Delivery'
 export const size = {
   width: 1200,
   height: 630,
@@ -14,7 +14,7 @@ export default async function Image() {
       <div
         style={{
           fontSize: 64,
-          background:  'linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%)',
+          background:  'linear-gradient(135deg, #101617 0%, #172122 55%, #263536 100%)',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -33,7 +33,7 @@ export default async function Image() {
             left:  0,
             right: 0,
             bottom: 0,
-            background: 'radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)',
+            background: 'radial-gradient(circle at 20% 50%, rgba(77, 163, 232, 0.2) 0%, transparent 50%)',
           }}
         />
         <div
@@ -43,7 +43,7 @@ export default async function Image() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%)',
+            background: 'radial-gradient(circle at 80% 50%, rgba(192, 181, 142, 0.12) 0%, transparent 50%)',
           }}
         />
         
@@ -60,7 +60,7 @@ export default async function Image() {
             style={{
               fontSize:  72,
               fontWeight:  'bold',
-              background:  'linear-gradient(90deg, #60A5FA 0%, #A78BFA 100%)',
+              background:  'linear-gradient(90deg, #4DA3E8 0%, #C0B58E 100%)',
               backgroundClip:  'text',
               color:  'transparent',
               marginBottom: 10,
@@ -75,7 +75,7 @@ export default async function Image() {
               fontWeight: 500,
             }}
           >
-            Jason O&apos;Neal
+            Security, AI automation, and full-stack delivery
           </div>
           <div
             style={{
@@ -86,7 +86,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            Security • AI Automation • Full-Stack Development
+            for systems that have to work.
           </div>
         </div>
         

@@ -3,11 +3,11 @@ export const dynamic = 'force-static'
 export async function GET() {
   const body = `# BlueDot IT - Full Documentation
 
-> BlueDot IT is a remote technical consultancy and development studio operated by Jason O'Neal. It provides security engineering, AI automation and agent systems, and full-stack application development for startups, software companies, technical teams, agencies, and growing businesses.
+> BlueDot IT helps technical founders and lean teams harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.
 
 ## Positioning
 
-Build the application. Automate the workflow. Secure the system.
+Security, AI automation, and full-stack delivery for systems that have to work.
 
 BlueDot works across frontend applications, backend services, APIs, data, authentication, deployment, Linux infrastructure, AI tool boundaries, and security controls. The work is scoped in writing and delivered with validation, documentation, and handoff.
 
@@ -16,9 +16,11 @@ BlueDot works across frontend applications, backend services, APIs, data, authen
 - Home: https://bluedot.it.com/
 - Services: https://bluedot.it.com/services
 - Work: https://bluedot.it.com/projects
+- Open-source archive: https://bluedot.it.com/open-source
 - About: https://bluedot.it.com/about
 - Insights: https://bluedot.it.com/blog
 - Contact: https://bluedot.it.com/contact
+- Security and vulnerability reporting: https://bluedot.it.com/security
 - Privacy: https://bluedot.it.com/legal/privacy
 - Terms: https://bluedot.it.com/legal/terms
 - Security policy: https://bluedot.it.com/.well-known/security.txt

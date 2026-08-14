@@ -2,14 +2,19 @@ export default function Hero() {
   return (
     <section className="sr2-hero">
       <div className="sr2-wrap sr2-hero-grid">
-        <h1 className="sr2-hero-title"><span>Build it.</span><span>Harden it.</span><span>Keep control.</span></h1>
+        <div className="sr2-hero-heading">
+          <span className="sr2-kicker">BlueDot IT · security · AI automation · full-stack delivery</span>
+          <h1 className="sr2-hero-title">Security, AI automation, and full-stack delivery for systems that have to work.</h1>
+          <p className="sr2-hero-statement">Build it. Harden it. Keep control.</p>
+        </div>
         <div className="sr2-hero-note">
-          <span className="sr2-kicker">Practical engineering for growing teams</span>
-          <p>BlueDot IT helps growing businesses improve the software and workflows they rely on. We automate repetitive work, review security, and build applications that are easier to run and maintain.</p>
+          <p>BlueDot IT helps technical founders and lean teams harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.</p>
+          <div className="sr2-hero-actions">
+            <a className="sr2-link sr2-link-primary" href="/contact?service=security-review">Request a scoped review</a>
+            <a className="sr2-link sr2-link-secondary" href="/projects">See selected work</a>
+          </div>
           <span className="sr2-mark" aria-hidden="true" />
-          <small>Clear scope<br />Direct communication<br />Documentation included</small>
-          <strong className="sr2-hero-delivery">Leave with usable work, not another recommendation.</strong>
-          <a className="sr2-link" href="/contact">Talk about your project</a>
+          <small>Written scope · direct communication · validation and handoff included</small>
         </div>
       </div>
     </section>

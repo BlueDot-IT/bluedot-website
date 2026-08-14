@@ -17,9 +17,9 @@ export function Prose({ children, className = '' }: ProseProps) {
 
 export const mdxComponents: MDXComponents = {
   h1: ({ children, ...props }) => (
-    <h1 className="text-3xl text-secondary font-bold mb-4 mt-8 first:mt-0" {...props}>
+    <h2 className="text-3xl text-secondary font-bold mb-4 mt-8 first:mt-0" {...props}>
       {children}
-    </h1>
+    </h2>
   ),
   h2: ({ children, ...props }) => (
     <h2 className="text-2xl text-secondary font-semibold mb-3 mt-6" {...props}>

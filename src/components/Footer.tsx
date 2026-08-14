@@ -14,7 +14,7 @@ interface FooterProps {
 }
 
 export default function Footer({
-  tagline = "Security, automation, and software for growing teams.",
+  tagline = "Security, AI automation, and full-stack delivery for systems that have to work.",
   menuItems = [
     {
       title: "Services",
@@ -29,8 +29,10 @@ export default function Footer({
       title: "Company",
       links: [
         { text: "Work", url: "/projects" },
+        { text: "Open source", url: "/open-source" },
         { text: "About", url: "/about" },
         { text: "Insights", url: "/blog" },
+        { text: "Security", url: "/security" },
         { text: "Contact", url: "/contact" },
       ],
     },
@@ -39,6 +41,7 @@ export default function Footer({
   bottomLinks = [
     { text: "Privacy", url: "/legal/privacy" },
     { text: "Terms & Conditions", url: "/legal/terms" },
+    { text: "Security posture", url: "/security" },
   ],
 }: FooterProps) {
   return (
@@ -56,7 +59,7 @@ export default function Footer({
           <div>
             <h3>Navigate</h3>
             <nav className="sr2-footer-nav" aria-label="Footer navigation">
-              {menuItems.flatMap((section) => section.links).map((link) => <a key={link.url} href={link.url}>{link.text}</a>)}
+              {menuItems.flatMap((section) => section.links.map((link) => ({ ...link, key: `${section.title}-${link.text}` }))).map((link) => <a key={link.key} href={link.url}>{link.text}</a>)}
             </nav>
           </div>
           <div className="sr2-footer-note">

@@ -6,6 +6,11 @@ import { contactRateLimit } from "@/lib/rateLimit";
 const MAX_NAME_LENGTH = 100;
 const MAX_SUBJECT_LENGTH = 160;
 const MAX_MESSAGE_LENGTH = 10_000;
+const MAX_SERVICE_LENGTH = 80;
+const MAX_STAGE_LENGTH = 80;
+const MAX_STACK_LENGTH = 240;
+const MAX_TIMING_LENGTH = 80;
+const MAX_BUDGET_LENGTH = 80;
 
 function normalizeText(value: unknown, maxLength: number) {
   return typeof value === "string" ? value.trim().slice(0, maxLength + 1) : "";
@@ -36,6 +41,11 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const name = normalizeText(body?.name, MAX_NAME_LENGTH);
     const email = normalizeText(body?.email, 320);
+    const service = normalizeText(body?.service, MAX_SERVICE_LENGTH);
+    const stage = normalizeText(body?.stage, MAX_STAGE_LENGTH);
+    const stack = normalizeText(body?.stack, MAX_STACK_LENGTH);
+    const timing = normalizeText(body?.timing, MAX_TIMING_LENGTH);
+    const budget = normalizeText(body?.budget, MAX_BUDGET_LENGTH);
     const subject = normalizeText(body?.subject, MAX_SUBJECT_LENGTH);
     const message = normalizeText(body?.message, MAX_MESSAGE_LENGTH);
     const startedAt = Number(body?.startedAt);
@@ -58,11 +68,16 @@ export async function POST(req: NextRequest) {
     // 3) Basic validation
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || "");
     if (!emailOk) return NextResponse.json({ ok: false, error: "Bad email" }, { status: 400 });
-    if (!name || !subject || !message) {
+    if (!name || !service || !stage || !subject || !message) {
       return NextResponse.json({ ok: false, error: "Missing fields" }, { status: 400 });
     }
     if (
       name.length > MAX_NAME_LENGTH ||
+      service.length > MAX_SERVICE_LENGTH ||
+      stage.length > MAX_STAGE_LENGTH ||
+      stack.length > MAX_STACK_LENGTH ||
+      timing.length > MAX_TIMING_LENGTH ||
+      budget.length > MAX_BUDGET_LENGTH ||
       subject.length > MAX_SUBJECT_LENGTH ||
       message.length > MAX_MESSAGE_LENGTH
     ) {
@@ -100,8 +115,8 @@ export async function POST(req: NextRequest) {
     const result = await sendMail({
       to: "jason@bluedot.it.com",
       subject: `[BlueDot contact] ${singleLine(subject)}`,
-      text: `Business or project: ${singleLine(subject)}\nFrom: ${singleLine(name)} <${singleLine(email)}>\n\n${message}`,
-      html: `<p><b>Business or project:</b> ${escapeHtml(subject)}</p><p><b>From:</b> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p><pre>${escapeHtml(message)}</pre>`,
+      text: `Business or project: ${singleLine(subject)}\nService: ${singleLine(service)}\nProject stage: ${singleLine(stage)}\nCurrent stack: ${singleLine(stack || "Not provided")}\nTarget timing: ${singleLine(timing || "Not provided")}\nBudget range: ${singleLine(budget || "Not provided")}\nFrom: ${singleLine(name)} <${singleLine(email)}>\n\n${message}`,
+      html: `<p><b>Business or project:</b> ${escapeHtml(subject)}</p><p><b>Service:</b> ${escapeHtml(service)}</p><p><b>Project stage:</b> ${escapeHtml(stage)}</p><p><b>Current stack:</b> ${escapeHtml(stack || "Not provided")}</p><p><b>Target timing:</b> ${escapeHtml(timing || "Not provided")}</p><p><b>Budget range:</b> ${escapeHtml(budget || "Not provided")}</p><p><b>From:</b> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p><pre>${escapeHtml(message)}</pre>`,
       replyTo: singleLine(email),
     });
 

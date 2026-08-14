@@ -21,7 +21,7 @@ Table of contents
 
 ## About
 
-BlueDot IT is a remote technical consultancy and development studio operated by Jason O'Neal. The site communicates three connected capabilities: security engineering, AI automation and agent systems, and full-stack application development. It also provides a technical insights platform, selected public work, a downloadable resume, and an admin panel for content management.
+BlueDot IT is a remote technical consultancy and development studio operated by Jason O'Neal. The site communicates three connected capabilities: security engineering, AI automation and agent systems, and full-stack application development. It also provides a technical insights platform, selected public work, a security posture page, and an admin panel for content management.
 
 
 ## Features
@@ -31,7 +31,7 @@ Features include:
 - Clean, responsive website layout optimized for desktop and mobile
 - Selected public work across AI systems, security engineering, and technical evaluation
 - Insights with Markdown/MDX support and SEO-friendly routes (/blog/[slug])
-- Resume download and structured experience section
+- Public security posture and structured About page
 - Admin panel for creating and managing blog posts and projects
 - SEO-first setup: comprehensive metadata, sitemap, robots, and JSON-LD
 - PWA manifest and basic offline support
@@ -232,4 +232,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 - Site: [https://bluedot.it.com](https://bluedot.it.com)
 - GitHub: [https://github.com/jason-allen-oneal](https://github.com/jason-allen-oneal)
-- Email: [jason.allen.oneal@gmail.com](mailto:jason.allen.oneal@gmail.com)
+- Email: [jason@bluedot.it.com](mailto:jason@bluedot.it.com)

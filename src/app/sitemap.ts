@@ -1,4 +1,4 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
 import { prisma } from '@/lib/prisma'
 
 const baseUrl = 'https://bluedot.it.com'
@@ -7,8 +7,9 @@ export const dynamic = 'force-dynamic'
 // Keep these dates tied to the content change being deployed. A fixed date is
 // preferable to claiming that every request changed the page, but it must be
 // advanced whenever the corresponding static content changes.
-const lastContentUpdate = new Date('2026-08-08')
+const lastContentUpdate = new Date('2026-08-14')
 const lastLegalUpdate = new Date('2026-08-02')
+const lastSecurityUpdate = new Date('2026-08-14')
 const servicePageSlugs = [
   'operations-automation-reporting',
   'security-reviews',
@@ -47,6 +48,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/open-source`,
+      lastModified: lastContentUpdate,
+      changeFrequency: 'monthly',
+      priority: 0.65,
+    },
+    {
       url: `${baseUrl}/blog`,
       lastModified: lastContentUpdate,
       changeFrequency: 'weekly',
@@ -57,6 +64,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: lastContentUpdate,
       changeFrequency: 'monthly',
       priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/security`,
+      lastModified: lastSecurityUpdate,
+      changeFrequency: 'yearly',
+      priority: 0.5,
     },
     {
       url: `${baseUrl}/legal/privacy`,

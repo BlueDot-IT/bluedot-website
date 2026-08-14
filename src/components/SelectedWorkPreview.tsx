@@ -25,7 +25,7 @@ export default function SelectedWorkPreview() {
       <div className="sr2-wrap">
         <div className="sr2-section-head">
           <div>
-            <div className="sr2-kicker">Engineering logs</div>
+            <div className="sr2-kicker">Selected work</div>
             <h2>Public systems with inspectable boundaries.</h2>
           </div>
           <p>These are public repositories, not private client case studies. Read the code, decisions, and constraints directly.</p>

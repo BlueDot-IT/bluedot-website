@@ -80,11 +80,11 @@ assert.match(serviceLanding, /<h1[\s\S]*?>[\s\S]*?<\/h1>/, 'service landing temp
 assert.match(serviceLanding, /Questions|FAQ/i, 'service landing template must include an FAQ section')
 assert.match(serviceLanding, /\/contact/, 'service landing template must link to contact')
 assert.match(serviceLanding, /Review methodology/, 'security reviews must explain the review methodology')
-assert.match(serviceLanding, /Scope and handoff/, 'service landing template must explain scope and handoff')
+assert.match(serviceLanding, /How it begins/, 'service landing template must explain how the engagement starts')
 assert.match(serviceLanding, /destructive testing/, 'security reviews must state meaningful scope exclusions')
 
 const rootMetadata = read('src/app/layout.tsx')
-assert.match(rootMetadata, /Security, Automation, and Software Delivery/, 'root metadata must use the new positioning')
+assert.match(rootMetadata, /Security, AI Automation & Full-Stack Delivery/, 'root metadata must use the current positioning')
 assert.doesNotMatch(rootMetadata, /Business Automation in Lenoir|Caldwell County/, 'root metadata must not lead with local positioning')
 
 assert.ok(existsSync(join(root, 'docs/ai-indexing-content-checklist.md')), 'future AI-answerable content checklist must exist')

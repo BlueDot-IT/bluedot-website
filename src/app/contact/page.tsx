@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import ContactForm from '@/components/ContactForm'
+import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
 
 export const metadata: Metadata = {
   title: 'Contact BlueDot IT',
@@ -7,14 +8,16 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://bluedot.it.com/contact' },
   openGraph: {
     title: 'Contact | BlueDot IT',
-    description: 'Describe the system, workflow, application, or security boundary you need to improve.',
+    description: 'Describe the system, workflow, application, or security concern you need to improve.',
     type: 'website',
     url: 'https://bluedot.it.com/contact',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Request a scoped review from BlueDot IT' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact | BlueDot IT',
-    description: 'Describe the system, workflow, application, or security boundary you need to improve.',
+    description: 'Describe the system, workflow, application, or security concern you need to improve.',
+    images: ['/twitter-image'],
   },
 }
 
@@ -34,6 +37,22 @@ const serviceSubjects: Record<string, string> = {
   'ai-security-tooling': 'AI Security Tooling',
 }
 
+const serviceSelections: Record<string, string> = {
+  'operations-sprint': 'ai-automation',
+  'operations-automation-reporting': 'ai-automation',
+  'workflow-automation': 'ai-automation',
+  'ai-automation-discovery': 'ai-automation',
+  'security-reviews': 'security-review',
+  'security-review': 'security-review',
+  'server-hardening': 'security-review',
+  'nextjs-security-hardening': 'security-review',
+  'mcp-security-consulting': 'ai-automation',
+  'full-stack-development': 'full-stack-development',
+  'full-stack-build-sprint': 'full-stack-development',
+  'small-business-websites': 'full-stack-development',
+  'ai-security-tooling': 'ai-automation',
+}
+
 interface ContactPageProps {
   searchParams: Promise<{ service?: string | string[] }>
 }
@@ -41,5 +60,5 @@ interface ContactPageProps {
 export default async function ContactPage({ searchParams }: ContactPageProps) {
   const params = await searchParams
   const service = Array.isArray(params.service) ? params.service[0] : params.service
-  return <ContactForm initialSubject={service ? serviceSubjects[service] || '' : ''} />
+  return <><BreadcrumbJsonLd items={[{ name: 'BlueDot IT', url: 'https://bluedot.it.com/' }, { name: 'Contact', url: 'https://bluedot.it.com/contact' }]} /><ContactForm initialSubject={service ? serviceSubjects[service] || '' : ''} initialService={service ? serviceSelections[service] || '' : ''} /></>
 }

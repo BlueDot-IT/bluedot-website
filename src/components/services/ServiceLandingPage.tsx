@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
 
 export type ServiceSlug = keyof typeof servicePages
 
@@ -86,7 +87,7 @@ export const servicePages = {
     description: 'Design and review Model Context Protocol tool exposure so AI agents can use useful capabilities without unnecessary authority or hidden side effects.',
     who: 'Builders exposing local tools, internal APIs, security utilities, or business workflows to AI agents.',
     problems: ['Overbroad tool permissions', 'No approval layer for sensitive actions', 'Weak audit trails for agent-triggered operations'],
-    deliverables: ['Tool exposure review', 'Approval and audit recommendations', 'Safer tool-boundary design', 'Implementation support for MCP-related systems'],
+    deliverables: ['Tool exposure review', 'Approval and audit recommendations', 'Safer tool authorization design', 'Implementation support for MCP-related systems'],
     tools: ['MCP', 'TypeScript', 'Python', 'policy gates', 'audit logs', 'local-first agent runtimes'],
     examples: ['Review an MCP server before wider use', 'Add approval gates for sensitive tools', 'Separate safe read-only tools from write actions'],
     scope: 'MCP consulting is scoped by tool count, action risk, credential boundaries, transport, and whether implementation support is included.',
@@ -107,7 +108,7 @@ export const servicePages = {
     scope: 'AI security tooling starts with a bounded prototype or review before any wider production workflow is considered.',
     faq: [
       ['Do you remove human oversight?', 'No. Sensitive actions should keep a human approval step.'],
-      ['Can you work with local models?', 'Yes, if the workflow, model boundary, and hardware constraints are clear.'],
+      ['Can you work with local models?', 'Yes, if the workflow, model, data, and hardware constraints are clear.'],
     ],
   },
   'full-stack-development': {
@@ -119,13 +120,24 @@ export const servicePages = {
     deliverables: ['Written scope and architecture', 'Frontend and backend implementation', 'APIs, data, authentication, and integrations', 'Tests and validation', 'Deployment, documentation, and handoff'],
     tools: ['TypeScript', 'React', 'Next.js', 'Node.js', 'Python', 'SQL', 'Docker', 'Linux infrastructure'],
     examples: ['Internal platform or dashboard', 'API and integration layer', 'Production service or application capability'],
-    scope: 'A build sprint is defined by the application capability, constraints, dependencies, production boundary, and acceptance criteria agreed in writing.',
+    scope: 'A build sprint is defined by the application capability, constraints, dependencies, production conditions, and acceptance criteria agreed in writing.',
     faq: [
       ['Can you work inside an existing codebase?', 'Yes. The first step is to understand the current architecture, boundaries, and highest-value implementation path.'],
       ['Do you handle deployment?', 'Deployment and production hardening can be included when they are part of the written scope.'],
     ],
   },
 } as const
+
+const serviceGuidance: Record<ServiceSlug, { outside: string }> = {
+  'operations-automation-reporting': { outside: 'Unstable portals, unowned source data, major cleanup, and ongoing operations are separate decisions rather than hidden inside a starter sprint.' },
+  'security-reviews': { outside: 'Unauthorized testing, destructive actions, third-party systems, and a complete penetration test remain outside the review unless explicitly scoped and authorized.' },
+  'server-hardening': { outside: 'Application rewrites, unmanaged hosts, and changes that cannot be tested or rolled back safely need a separate plan.' },
+  'nextjs-security-hardening': { outside: 'A full rebuild, product redesign, and unbounded feature work are separate from targeted production hardening.' },
+  'workflow-automation': { outside: 'Brittle scraping, unofficial integrations, and autonomous actions against sensitive systems are not assumed to be safe or maintainable.' },
+  'mcp-security-consulting': { outside: 'A general AI safety guarantee, unrestricted credentials, and authorization to test systems you do not own are outside the engagement.' },
+  'ai-security-tooling': { outside: 'Unsupervised high-impact actions, production autonomy without an owner, and claims of universal model safety stay outside the initial prototype or review.' },
+  'full-stack-development': { outside: 'An indefinite feature queue, an ownerless production launch, and a rebuild without an agreed capability are separate engagements.' },
+}
 
 export function metadataForServicePage(slug: ServiceSlug): Metadata {
   const page = servicePages[slug]
@@ -140,15 +152,19 @@ export function metadataForServicePage(slug: ServiceSlug): Metadata {
       description: page.description,
       type: 'website',
       url: `https://bluedot.it.com/services/${slug}`,
+      images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: `${page.title} | BlueDot IT` }],
     },
+    twitter: { card: 'summary_large_image', title: `${page.title} | BlueDot IT`, description: page.description, images: ['/twitter-image'] },
   }
 }
 
 export function renderServicePage(slug: ServiceSlug) {
   const page = servicePages[slug]
+  const guidance = serviceGuidance[slug]
 
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: 'BlueDot IT', url: 'https://bluedot.it.com/' }, { name: 'Services', url: 'https://bluedot.it.com/services' }, { name: page.title, url: `https://bluedot.it.com/services/${slug}` }]} />
       <section className="sr2-page-hero">
         <div className="sr2-wrap sr2-page-hero-grid">
           <div>
@@ -164,25 +180,39 @@ export function renderServicePage(slug: ServiceSlug) {
 
       <section className="sr2-editorial">
         <div className="sr2-wrap">
-          <p className="sr2-editorial-intro">{page.who}</p>
-          <div className="sr2-service-page-list">
-            <article className="sr2-service-page-row">
-              <div><span className="sr2-kicker">Scope and handoff</span><h2>Make the boundary legible.</h2></div>
-              <div><p>{page.scope}</p><Link className="sr2-link" href="/projects">View selected work</Link></div>
+          <div className="sr2-service-detail-intro">
+            <span className="sr2-kicker">Who this is for</span>
+            <p>{page.who}</p>
+          </div>
+          <div className="sr2-service-detail-sections">
+            <article>
+              <span className="sr2-kicker">The problem</span>
+              <h2>Start with the pressure point.</h2>
+              <p>{page.description}</p>
+              <ul>{page.problems.map((item) => <li key={item}>{item}</li>)}</ul>
             </article>
-            <article className="sr2-service-page-row">
-              <div><span className="sr2-kicker">Problems this addresses</span><h2>Start with the pressure point.</h2></div>
-              <div className="sr2-service-page-details">
-                <div><h4>Observed concerns</h4><ul>{page.problems.map((item) => <li key={item}>{item}</li>)}</ul></div>
-                <div><h4>Relevant stack</h4><ul>{page.tools.map((item) => <li key={item}>{item}</li>)}</ul></div>
-              </div>
+            <article>
+              <span className="sr2-kicker">Systems and environment</span>
+              <h2>Work with what is already real.</h2>
+              <p>The review or build is grounded in the stack, data, permissions, and deployment conditions that the result has to survive.</p>
+              <ul>{page.tools.map((item) => <li key={item}>{item}</li>)}</ul>
             </article>
-            <article className="sr2-service-page-row">
-              <div><span className="sr2-kicker">Deliverables</span><h2>Leave with usable work.</h2></div>
-              <div className="sr2-service-page-details">
-                <div><h4>Included in scope</h4><ul>{page.deliverables.map((item) => <li key={item}>{item}</li>)}</ul></div>
-                <div><h4>Example scope</h4><ul>{page.examples.map((item) => <li key={item}>{item}</li>)}</ul></div>
-              </div>
+            <article>
+              <span className="sr2-kicker">Deliverables</span>
+              <h2>Leave with usable work.</h2>
+              <ul>{page.deliverables.map((item) => <li key={item}>{item}</li>)}</ul>
+              <p className="sr2-service-examples"><strong>Typical starting points:</strong> {page.examples.join('; ')}.</p>
+            </article>
+            <article>
+              <span className="sr2-kicker">How it begins</span>
+              <h2>Agree the first useful cut.</h2>
+              <p>{page.scope}</p>
+              <Link className="sr2-link" href="/projects">See related public work</Link>
+            </article>
+            <article>
+              <span className="sr2-kicker">Operational safeguards</span>
+              <h2>Keep the scope honest.</h2>
+              <p>{guidance.outside}</p>
             </article>
           </div>
         </div>
@@ -202,7 +232,7 @@ export function renderServicePage(slug: ServiceSlug) {
 
       <section className="sr2-section">
         <div className="sr2-wrap">
-          <div className="sr2-section-head"><div><span className="sr2-kicker">Questions</span><h2>Before the work starts.</h2></div><p>Scope is confirmed in writing. These answers describe the normal boundary for this service.</p></div>
+          <div className="sr2-section-head"><div><span className="sr2-kicker">Questions</span><h2>Before the work starts.</h2></div><p>Scope is confirmed in writing. These answers describe the normal shape of this service.</p></div>
           <div className="sr2-note-list">
             {page.faq.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}
           </div>

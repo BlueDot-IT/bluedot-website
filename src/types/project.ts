@@ -11,4 +11,13 @@ export type Project = {
   demonstrates: string
   technologies: string[]
   concerns: string
+  caseStudy?: {
+    problem: string
+    work: string
+    evidence: string
+    result: string
+    artifact: string
+    artifactAlt: string
+    artifactCaption: string
+  }
 }

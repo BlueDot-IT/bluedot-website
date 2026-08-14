@@ -6,17 +6,24 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'BlueDot IT | Security, Automation, and Software Delivery',
+        absolute: 'Security, AI Automation & Full-Stack Delivery | BlueDot IT',
     },
-    description: 'BlueDot IT helps growing teams automate repetitive work, improve application security, and build software they can run and maintain.',
+    description: 'BlueDot IT helps technical founders and lean teams harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.',
     alternates: {
         canonical: 'https://bluedot.it.com',
     },
     openGraph: {
-        title: 'BlueDot IT | Security, Automation, and Software Delivery',
-        description: 'BlueDot IT helps growing teams automate repetitive work, improve application security, and build software they can run and maintain.',
+        title: 'Security, AI Automation & Full-Stack Delivery | BlueDot IT',
+        description: 'Harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.',
         type: 'website',
         url: 'https://bluedot.it.com',
+        images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'BlueDot IT security, AI automation, and full-stack delivery' }],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Security, AI Automation & Full-Stack Delivery | BlueDot IT',
+        description: 'Harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.',
+        images: ['/twitter-image'],
     },
 };
 

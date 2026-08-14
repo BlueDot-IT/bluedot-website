@@ -23,11 +23,41 @@ const nextConfig: NextConfig = {
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" }],
       },
       {
+        source: "/login",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" }],
+      },
+      {
+        source: "/resume",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" }],
+      },
+      {
+        source: "/admin/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" }],
+      },
+      {
+        source: "/contact/thank-you",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" }],
+      },
+      {
         source: "/.well-known/bluedot-disclosure-public-key.asc",
         headers: [
           { key: "Content-Type", value: "application/pgp-keys" },
           { key: "Content-Disposition", value: "inline" },
         ],
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: "/security.txt",
+        destination: "/.well-known/security.txt",
+        permanent: true,
+      },
+      {
+        source: "/resume.pdf",
+        destination: "/about",
+        permanent: true,
       },
     ];
   },

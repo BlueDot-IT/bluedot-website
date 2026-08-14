@@ -28,7 +28,7 @@ export default function CaseHighlights() {
             <span className="sr2-rail-arrow" aria-hidden="true">↗</span>
           </Link>
           <Link className="sr2-rail" href="/blog">
-            <h3>Read the engineering logs.</h3>
+            <h3>Read selected work.</h3>
             <p>Public repositories and technical notes showing how the work is designed, tested, and bounded.</p>
             <span className="sr2-rail-arrow" aria-hidden="true">↗</span>
           </Link>
