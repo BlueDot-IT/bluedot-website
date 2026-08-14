@@ -69,7 +69,7 @@ export const projectCatalog: ProjectCatalogEntry[] = [
     description: 'The public BlueDot IT website: a Next.js service, Insights, contact, metadata, security, and administration surface deployed for ongoing operation.',
     language: 'TypeScript',
     demonstrates: 'Full-stack delivery across server-rendered routes, content, forms, persistence, authentication, metadata, and deployment.',
-    technologies: ['Next.js', 'React', 'TypeScript', 'Prisma', 'PostgreSQL', 'Linux'],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Prisma', 'MySQL', 'Linux'],
     concerns: 'This is BlueDot’s own public platform, not a private client case study or a claim that every client needs the same architecture.',
     featured: true,
     caseStudy: {

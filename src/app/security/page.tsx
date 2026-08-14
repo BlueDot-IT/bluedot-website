@@ -23,7 +23,7 @@ const sections = [
     title: 'Report a vulnerability',
     body: (
       <>
-        Use the <Link href="/contact">BlueDot contact page</Link> to report a suspected vulnerability in a BlueDot-controlled public service or to ask about a security review. Include the affected URL or component, a concise description, and safe reproduction details. Do not include passwords, private keys, access tokens, customer records, regulated data, or other secrets in the public form.
+        Use the <Link href="/contact">BlueDot contact page</Link> for non-sensitive triage of a suspected vulnerability in a BlueDot-controlled public service or to ask about a security review. Include the affected URL or component, a concise description, and safe reproduction details. For sensitive reports, use the <a href="http://w4rnwsxctthctfroeltj7d75wi7npdnllj5owy5okjwgj5jpjmlli7qd.onion/submit" rel="noreferrer">ciphertext-only onion disclosure drop</a> or encrypt the report with the <a href="/.well-known/bluedot-disclosure-public-key.asc">published public key</a> before sending it through an agreed secure channel. Do not include passwords, private keys, access tokens, customer records, regulated data, or other secrets in the public form.
       </>
     ),
   },

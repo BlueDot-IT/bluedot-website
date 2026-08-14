@@ -1,4 +1,5 @@
 const securityTxt = `Contact: https://bluedot.it.com/contact
+# The HTTPS contact form is for non-sensitive triage only; use the encrypted disclosure route for sensitive reports.
 Contact: http://w4rnwsxctthctfroeltj7d75wi7npdnllj5owy5okjwgj5jpjmlli7qd.onion/submit
 Encryption: https://bluedot.it.com/.well-known/bluedot-disclosure-public-key.asc
 Expires: 2027-08-14T00:00:00Z
