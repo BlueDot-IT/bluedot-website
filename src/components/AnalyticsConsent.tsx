@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 const consentKey = "bluedot-analytics-consent";
@@ -47,7 +46,7 @@ export default function AnalyticsConsent() {
               </h2>
               <p id="analytics-consent-description" className="text-sm text-base-content/70">
                 BlueDot can use Google Analytics to understand which public pages are useful. It stays off unless you accept.{" "}
-                <Link href="/legal/privacy" className="text-primary hover:underline">Privacy details</Link>
+                <a href="/legal/privacy" className="text-primary hover:underline">Privacy details</a>
               </p>
             </div>
             <div className="flex gap-3 shrink-0">

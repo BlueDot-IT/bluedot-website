@@ -1,10 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 export default function Header() {
-  const pathname = usePathname();
   const links = [
     { href: "/services", label: "Services" },
     { href: "/projects", label: "Work" },
@@ -22,7 +18,7 @@ export default function Header() {
         </Link>
         <div className="sr2-nav">
           {links.map((item) => (
-            <a key={item.href} href={item.href} className="sr2-nav-link" aria-current={pathname === item.href || pathname.startsWith(`${item.href}/`) ? "page" : undefined}>
+            <a key={item.href} href={item.href} className="sr2-nav-link">
               {item.label}
             </a>
           ))}

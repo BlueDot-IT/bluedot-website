@@ -1,4 +1,3 @@
-import Link from 'next/link'
 
 export default function EngagementEntryPoints() {
   return (
@@ -24,7 +23,7 @@ export default function EngagementEntryPoints() {
             <div className="sr2-kicker">Featured service</div>
             <h2>Operations Automation &amp; Reporting Sprint</h2>
             <p>A short, focused engagement for teams spending too much time collecting updates and preparing reports. We review the process, improve the most expensive step, and leave a usable handoff.</p>
-            <Link className="sr2-link" href="/services/operations-automation-reporting">View the sprint details</Link>
+            <a className="sr2-link" href="/services/operations-automation-reporting">View the sprint details</a>
           </div>
           <div className="sr2-scope" aria-label="Operations automation and reporting sprint scope">
             <div><strong>Review current reporting</strong><span>Document the process and identify the biggest time cost.</span></div>
@@ -43,7 +42,7 @@ export default function EngagementEntryPoints() {
             </div>
             <div>
               <p>Tell me what you are building, automating, or securing.</p>
-              <Link className="sr2-link" href="/contact">Request a scoped review</Link>
+              <a className="sr2-link" href="/contact">Request a scoped review</a>
             </div>
           </div>
         </div>

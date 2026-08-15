@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { fetchRepos } from '@/lib/github'
 import type { Project } from '@/types/project'
 import { featuredProjects } from '@/data/projectCatalog'
@@ -56,7 +55,7 @@ export default async function Projects() {
       <section className="sr2-page-hero">
         <div className="sr2-wrap sr2-page-hero-grid">
           <div><span className="sr2-kicker">BlueDot IT work</span><h1>Proof, not a <span>repository dump.</span></h1></div>
-          <div className="sr2-page-hero-note"><p>Two flagship examples show the problem, the work, the evidence, and the result. They are public engineering artifacts—not disguised client testimonials.</p><Link className="sr2-link" href="/contact">Request a scoped review</Link></div>
+          <div className="sr2-page-hero-note"><p>Two flagship examples show the problem, the work, the evidence, and the result. They are public engineering artifacts—not disguised client testimonials.</p><a className="sr2-link" href="/contact">Request a scoped review</a></div>
         </div>
       </section>
 
@@ -96,12 +95,12 @@ export default async function Projects() {
       <section className="sr2-section sr2-section-deep">
         <div className="sr2-wrap sr2-work-archive">
           <div><span className="sr2-kicker">Open source archive</span><h2>The rest of the lab stays inspectable.</h2></div>
-          <div><p>Additional public systems cover agent runtimes, model routing, vulnerability intelligence, and reproducible evaluation. They are useful technical evidence, but they do not represent private client outcomes.</p><Link className="sr2-link" href="/open-source">Browse the open-source archive</Link></div>
+          <div><p>Additional public systems cover agent runtimes, model routing, vulnerability intelligence, and reproducible evaluation. They are useful technical evidence, but they do not represent private client outcomes.</p><a className="sr2-link" href="/open-source">Browse the open-source archive</a></div>
         </div>
       </section>
 
       <section className="sr2-close">
-        <div className="sr2-wrap sr2-close-copy"><div><span className="sr2-kicker">Next step</span><h2>Need the same discipline applied to your system?</h2></div><div><p>Tell BlueDot what is failing, what is already in place, and what outcome would make the work useful.</p><Link className="sr2-link sr2-link-primary" href="/contact">Request a scoped review</Link></div></div>
+        <div className="sr2-wrap sr2-close-copy"><div><span className="sr2-kicker">Next step</span><h2>Need the same discipline applied to your system?</h2></div><div><p>Tell BlueDot what is failing, what is already in place, and what outcome would make the work useful.</p><a className="sr2-link sr2-link-primary" href="/contact">Request a scoped review</a></div></div>
       </section>
     </>
   )

@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Metadata } from 'next'
 import { fetchRepos } from '@/lib/github'
 import { openSourceProjects } from '@/data/projectCatalog'
@@ -56,7 +55,7 @@ export default async function OpenSourcePage() {
         </div>
       </section>
 
-      <section className="sr2-close"><div className="sr2-wrap sr2-close-copy"><div><span className="sr2-kicker">Looking for delivery?</span><h2>Public code is evidence of approach. Your system needs a scope.</h2></div><div><p>Bring the application, workflow, or security concern that needs a useful next move.</p><Link className="sr2-link sr2-link-primary" href="/contact">Request a scoped review</Link></div></div></section>
+      <section className="sr2-close"><div className="sr2-wrap sr2-close-copy"><div><span className="sr2-kicker">Looking for delivery?</span><h2>Public code is evidence of approach. Your system needs a scope.</h2></div><div><p>Bring the application, workflow, or security concern that needs a useful next move.</p><a className="sr2-link sr2-link-primary" href="/contact">Request a scoped review</a></div></div></section>
     </>
   )
 }

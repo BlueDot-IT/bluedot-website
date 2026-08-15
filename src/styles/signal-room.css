@@ -1684,14 +1684,14 @@ body.signal-app::before {
   font-size: 0.84rem;
 }
 
-.sr2-document-link > span {
+.sr2-document-link > span[aria-hidden="true"] {
   color: var(--signal-blue);
   font-size: 1rem;
   text-align: right;
 }
 
 .sr2-document-link:hover h3,
-.sr2-document-link:hover > span {
+.sr2-document-link:hover > span[aria-hidden="true"] {
   color: var(--signal-blue);
 }
 

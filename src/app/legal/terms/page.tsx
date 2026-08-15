@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Website Terms',
@@ -63,7 +62,7 @@ export default function Terms() {
         </div>
 
         <p className="mt-10 border-t border-white/10 pt-8 text-sm">
-          See the <Link href="/legal/privacy" className="text-[color:var(--signal-lime)] hover:underline">Privacy Policy</Link> for information about data handled through this website.
+          See the <a href="/legal/privacy" className="text-[color:var(--signal-lime)] hover:underline">Privacy Policy</a> for information about data handled through this website.
         </p>
       </div>
     </article>

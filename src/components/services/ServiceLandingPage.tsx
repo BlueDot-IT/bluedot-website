@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import type { Metadata } from 'next'
 import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
 
@@ -173,7 +172,7 @@ export function renderServicePage(slug: ServiceSlug) {
           </div>
           <div className="sr2-page-hero-note">
             <p>{page.description}</p>
-            <Link className="sr2-link" href={`/contact?service=${slug}`}>Discuss this service</Link>
+            <a className="sr2-link" href={`/contact?service=${slug}`}>Discuss this service</a>
           </div>
         </div>
       </section>
@@ -207,7 +206,7 @@ export function renderServicePage(slug: ServiceSlug) {
               <span className="sr2-kicker">How it begins</span>
               <h2>Define the first deliverable.</h2>
               <p>{page.scope}</p>
-              <Link className="sr2-link" href="/projects">See related public work</Link>
+              <a className="sr2-link" href="/projects">See related public work</a>
             </article>
             <article>
               <span className="sr2-kicker">Operational safeguards</span>
@@ -224,7 +223,7 @@ export function renderServicePage(slug: ServiceSlug) {
             <div className="sr2-about-block"><span className="sr2-kicker">Review methodology</span><h2>Evidence before assurances.</h2></div>
             <div className="sr2-service-page-details">
               <div><h4>Sequence</h4><ul><li>Confirm agreed domains, hosts, repositories, and access boundaries.</li><li>Review public exposure, authentication, dependencies, headers, deployment, and secrets handling.</li><li>Validate material findings with safe, authorized evidence.</li><li>Prioritize remediation by likelihood, impact, effort, and rollback path.</li></ul></div>
-              <div><h4>Related work</h4><ul><li><Link href="/services/server-hardening">Server hardening</Link></li><li><Link href="/services/nextjs-security-hardening">Next.js hardening</Link></li></ul></div>
+              <div><h4>Related work</h4><ul><li><a href="/services/server-hardening">Server hardening</a></li><li><a href="/services/nextjs-security-hardening">Next.js hardening</a></li></ul></div>
             </div>
           </div>
         </section>
@@ -240,7 +239,7 @@ export function renderServicePage(slug: ServiceSlug) {
       </section>
 
       <section className="sr2-close">
-        <div className="sr2-wrap"><div className="sr2-close-copy"><div><span className="sr2-kicker">Start with the system</span><h2>Ready to define the first deliverable?</h2></div><div><p>Send the target, the concern, and what outcome would make the work useful.</p><Link className="sr2-link" href={`/contact?service=${slug}`}>Contact BlueDot IT</Link></div></div></div>
+        <div className="sr2-wrap"><div className="sr2-close-copy"><div><span className="sr2-kicker">Start with the system</span><h2>Ready to define the first deliverable?</h2></div><div><p>Send the target, the concern, and what outcome would make the work useful.</p><a className="sr2-link" href={`/contact?service=${slug}`}>Contact BlueDot IT</a></div></div></div>
       </section>
     </>
   )

@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import type { Metadata } from 'next'
 import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
 
@@ -23,7 +22,7 @@ const sections = [
     title: 'Report a vulnerability',
     body: (
       <>
-        Use the <Link href="/contact">BlueDot contact page</Link> for non-sensitive triage of a suspected vulnerability in a BlueDot-controlled public service or to ask about a security review. Include the affected URL or component, a concise description, and safe reproduction details. For sensitive reports, use the <a href="http://w4rnwsxctthctfroeltj7d75wi7npdnllj5owy5okjwgj5jpjmlli7qd.onion/submit" rel="noreferrer">ciphertext-only onion disclosure drop</a> or encrypt the report with the <a href="/.well-known/bluedot-disclosure-public-key.asc">published public key</a> before sending it through an agreed secure channel. Do not include passwords, private keys, access tokens, customer records, regulated data, or other secrets in the public form.
+        Use the <a href="/contact">BlueDot contact page</a> for non-sensitive triage of a suspected vulnerability in a BlueDot-controlled public service or to ask about a security review. Include the affected URL or component, a concise description, and safe reproduction details. For sensitive reports, use the <a href="http://w4rnwsxctthctfroeltj7d75wi7npdnllj5owy5okjwgj5jpjmlli7qd.onion/submit" rel="noreferrer">ciphertext-only onion disclosure drop</a> or encrypt the report with the <a href="/.well-known/bluedot-disclosure-public-key.asc">published public key</a> before sending it through an agreed secure channel. Do not include passwords, private keys, access tokens, customer records, regulated data, or other secrets in the public form.
       </>
     ),
   },
@@ -35,7 +34,7 @@ const sections = [
     title: 'Inquiry data handling',
     body: (
       <>
-        Security inquiries are handled as project or operational information rather than as a place to deposit sensitive material. BlueDot collects the information needed to understand and respond to the request. The public contact form is not an encrypted vulnerability-submission portal; follow the instruction not to submit credentials, regulated data, customer records, or other sensitive content. See the <Link href="/legal/privacy">Privacy Policy</Link> for website information handling.
+        Security inquiries are handled as project or operational information rather than as a place to deposit sensitive material. BlueDot collects the information needed to understand and respond to the request. The public contact form is not an encrypted vulnerability-submission portal; follow the instruction not to submit credentials, regulated data, customer records, or other sensitive content. See the <a href="/legal/privacy">Privacy Policy</a> for website information handling.
       </>
     ),
   },
@@ -78,7 +77,7 @@ export default function SecurityPage() {
         </div>
 
         <p className="mt-10 border-t border-white/10 pt-8 text-sm">
-          See the <Link href="/.well-known/security.txt" className="text-[color:var(--signal-lime)] hover:underline">security.txt policy record</Link>, <Link href="/legal/privacy" className="text-[color:var(--signal-lime)] hover:underline">Privacy Policy</Link>, and <Link href="/legal/terms" className="text-[color:var(--signal-lime)] hover:underline">Website Terms</Link>. For a scoped review or a non-sensitive initial report, <Link href="/contact" className="text-[color:var(--signal-lime)] hover:underline">contact BlueDot IT</Link>.
+          See the <a href="/.well-known/security.txt" className="text-[color:var(--signal-lime)] hover:underline">security.txt policy record</a>, <a href="/legal/privacy" className="text-[color:var(--signal-lime)] hover:underline">Privacy Policy</a>, and <a href="/legal/terms" className="text-[color:var(--signal-lime)] hover:underline">Website Terms</a>. For a scoped review or a non-sensitive initial report, <a href="/contact" className="text-[color:var(--signal-lime)] hover:underline">contact BlueDot IT</a>.
         </p>
       </div>
       </article>

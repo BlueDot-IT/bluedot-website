@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import type { Metadata } from 'next'
 import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
 
@@ -115,7 +114,7 @@ export default function ServicesPage() {
           </div>
           <div className="sr2-page-hero-note">
             <p>BlueDot helps technical founders and lean teams harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.</p>
-            <Link className="sr2-link sr2-link-primary" href="/contact">Request a scoped review</Link>
+            <a className="sr2-link sr2-link-primary" href="/contact">Request a scoped review</a>
           </div>
         </div>
       </section>
@@ -141,8 +140,8 @@ export default function ServicesPage() {
                   </div>
                   <div className="sr2-service-offerings">
                     <h3>Available work</h3>
-                    <ul>{category.services.map((service) => <li key={service.name}><Link href={service.href}>{service.name}</Link></li>)}</ul>
-                    <Link className="sr2-link" href={category.href}>{category.cta}</Link>
+                    <ul>{category.services.map((service) => <li key={service.name}><a href={service.href}>{service.name}</a></li>)}</ul>
+                    <a className="sr2-link" href={category.href}>{category.cta}</a>
                   </div>
                 </div>
               </article>
@@ -157,7 +156,7 @@ export default function ServicesPage() {
             <span className="sr2-kicker">Bounded entry point</span>
             <h2>Operations Automation &amp; Reporting Sprint</h2>
             <p>Replace one repetitive operational process with a maintainable automation, report, or lightweight dashboard built around agreed tools and data sources. It is a focused way to begin an AI automation engagement, not a promise of “AI everywhere.”</p>
-            <Link className="sr2-link" href="/services/operations-automation-reporting">View the sprint</Link>
+            <a className="sr2-link" href="/services/operations-automation-reporting">View the sprint</a>
           </div>
           <div className="sr2-scope">
             <div><strong>Review the current process</strong><span>Document inputs, data sources, handoffs, exceptions, and the biggest time cost.</span></div>
@@ -175,9 +174,9 @@ export default function ServicesPage() {
           </div>
           <div className="sr2-entry-lines">
             {entryPoints.map((entryPoint) => (
-              <Link className="sr2-entry-line" href={entryPoint.href} key={entryPoint.title}>
+              <a className="sr2-entry-line" href={entryPoint.href} key={entryPoint.title}>
                 <h3>{entryPoint.title}</h3><p>{entryPoint.description}</p><span aria-hidden="true">↗</span>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
@@ -196,7 +195,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="sr2-close">
-        <div className="sr2-wrap sr2-close-copy"><div><span className="sr2-kicker">Start with the system</span><h2>Ready to define the work?</h2></div><div><p>Tell BlueDot what is failing, what system is involved, and what outcome would make the engagement worthwhile.</p><Link className="sr2-link sr2-link-primary" href="/contact">Request a scoped review</Link></div></div>
+        <div className="sr2-wrap sr2-close-copy"><div><span className="sr2-kicker">Start with the system</span><h2>Ready to define the work?</h2></div><div><p>Tell BlueDot what is failing, what system is involved, and what outcome would make the engagement worthwhile.</p><a className="sr2-link sr2-link-primary" href="/contact">Request a scoped review</a></div></div>
       </section>
     </>
   )
