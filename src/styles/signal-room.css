@@ -1645,6 +1645,40 @@ body.signal-app::before {
   letter-spacing: -0.025em;
 }
 
+.sr2-document-link > span:nth-child(2) {
+  display: grid;
+  gap: 6px;
+}
+
+.sr2-document-link strong {
+  display: block;
+  color: var(--signal-paper);
+  font-family: var(--signal-serif);
+  font-size: clamp(1.2rem, 1.7vw, 1.65rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+.sr2-document-link small {
+  display: block;
+  max-width: 48ch;
+  color: var(--signal-dim);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.sr2-document-link em {
+  display: inline-block;
+  margin-top: 3px;
+  color: var(--signal-lime);
+  font-family: var(--signal-mono);
+  font-size: 0.59rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .sr2-document-link p {
   max-width: 48ch;
   font-size: 0.84rem;
@@ -1698,6 +1732,17 @@ body.signal-app::before {
   .sr2-evidence-row > :last-child {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+}
+
+@media (max-width: 620px) {
+  .sr2-document-link {
+    grid-template-columns: minmax(0, 1fr) 22px;
+    gap: 10px;
+  }
+
+  .sr2-document-link > .sr2-kicker {
+    grid-column: 1 / -1;
   }
 }
 
