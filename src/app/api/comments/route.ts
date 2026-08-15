@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
         const { postId, body: content } = body;
 
         if (!postId || !content) {
-            return NextResponse.json({ error: 'Post ID and comment body are required' }, { status: 400 });
+            return NextResponse.json({ error: 'Please include a post and a comment.' }, { status: 400 });
         }
 
         // 2. Validate Post Existence
@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
         });
 
         if (!post) {
-            return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+            return NextResponse.json({ error: 'That post could not be found.' }, { status: 404 });
         }
 
         // 3. Create Comment (Default to unapproved for security)
@@ -40,6 +40,6 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ id: comment.id, status: 'pending' });
     } catch (err) {
         console.error('Comment submission error:', err);
-        return NextResponse.json({ error: 'Failed to post comment' }, { status: 500 });
+        return NextResponse.json({ error: 'We could not submit your comment. Please try again.' }, { status: 500 });
     }
 }

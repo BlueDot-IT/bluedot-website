@@ -73,7 +73,7 @@ export default function HomeIndex() {
     <>
       <section className="sr2-proof-strip" aria-labelledby="proof-heading">
         <div className="sr2-wrap">
-          <span className="sr2-kicker">Evidence before assurances</span>
+          <span className="sr2-kicker">What you can inspect</span>
           <h2 id="proof-heading" className="sr-only">What BlueDot brings to the work</h2>
           <ul>
             <li><strong>Since 2002</strong><span>Building software, automation, and systems.</span></li>
@@ -87,7 +87,7 @@ export default function HomeIndex() {
       <section className="sr2-home-problems sr2-section" aria-labelledby="problems-heading">
         <div className="sr2-wrap">
           <div className="sr2-section-head">
-            <div><span className="sr2-kicker">Start with the pressure point</span><h2 id="problems-heading">Useful work begins with the thing that keeps failing.</h2></div>
+            <div><span className="sr2-kicker">Problems worth bringing</span><h2 id="problems-heading">Bring the failure that is costing the team time or confidence.</h2></div>
             <p>BlueDot is a good fit when a technical problem has a real owner, a meaningful consequence, and enough access to inspect the current system.</p>
           </div>
           <div className="sr2-problem-chapters">
@@ -105,7 +105,7 @@ export default function HomeIndex() {
       <section className="sr2-home-cases sr2-section-deep" aria-labelledby="cases-heading">
         <div className="sr2-wrap">
           <div className="sr2-section-head">
-            <div><span className="sr2-kicker">Selected work</span><h2 id="cases-heading">Two public examples. No invented client metrics.</h2></div>
+            <div><span className="sr2-kicker">Selected work</span><h2 id="cases-heading">Two public case studies, with the evidence attached.</h2></div>
             <p>Public repositories show the approach. Private client work is not represented as a case study without permission.</p>
           </div>
           <div className="sr2-home-case-list">
@@ -136,7 +136,7 @@ export default function HomeIndex() {
       <section className="sr2-home-services sr2-section" aria-labelledby="home-services-heading">
         <div className="sr2-wrap">
           <div className="sr2-section-head">
-            <div><span className="sr2-kicker">Three capabilities</span><h2 id="home-services-heading">The service is the change, not the technology label.</h2></div>
+            <div><span className="sr2-kicker">What BlueDot delivers</span><h2 id="home-services-heading">Security, automation, and software delivery around a real operating need.</h2></div>
             <p>Each engagement starts with a concrete problem and ends with a result someone can validate and operate.</p>
           </div>
           <div className="sr2-home-service-list">
@@ -153,7 +153,7 @@ export default function HomeIndex() {
 
       <section className="sr2-home-process sr2-section-deep" aria-labelledby="process-heading">
         <div className="sr2-wrap sr2-process">
-          <div><span className="sr2-kicker">How the work moves</span><h2 id="process-heading">Review, scope, implement, validate, hand off.</h2></div>
+          <div><span className="sr2-kicker">Engagement sequence</span><h2 id="process-heading">Review the system. Define the change. Leave it operable.</h2></div>
           <ol className="sr2-process-line">
             <li><strong>Review</strong><p>Understand the current system, pressure point, permissions, and constraints.</p></li>
             <li><strong>Scope</strong><p>Agree deliverables, exclusions, acceptance criteria, price, and schedule in writing.</p></li>
@@ -165,17 +165,17 @@ export default function HomeIndex() {
 
       <section className="sr2-fit sr2-section" aria-labelledby="fit-heading">
         <div className="sr2-wrap sr2-fit-grid">
-          <div><span className="sr2-kicker">Fit matters</span><h2 id="fit-heading">Good work starts with an honest scope.</h2></div>
+          <div><span className="sr2-kicker">Who this works for</span><h2 id="fit-heading">The right engagement has a real owner and a defined outcome.</h2></div>
           <div className="sr2-fit-columns">
             <article><h3>Good fit</h3><ul><li>Technical founders and lean teams with a real system to improve.</li><li>Teams willing to provide authorized access and a decision-maker.</li><li>Work where clear scope and a usable handoff matter more than theater.</li></ul></article>
-            <article><h3>Probably not a fit</h3><ul><li>Unbounded “make it secure” requests with no agreed target.</li><li>Unauthorized testing, credential collection, or work against third-party systems.</li><li>Projects looking for a disposable prototype with no owner after launch.</li></ul></article>
+            <article><h3>Not a fit when</h3><ul><li>“Make it secure” has no agreed target or system boundary.</li><li>The work involves unauthorized testing, credential collection, or third-party systems.</li><li>The project needs a disposable prototype with no owner after launch.</li></ul></article>
           </div>
         </div>
       </section>
 
       <section className="sr2-home-faq sr2-section-deep" aria-labelledby="faq-heading">
         <div className="sr2-wrap sr2-faq-grid">
-          <div><span className="sr2-kicker">Before you write</span><h2 id="faq-heading">A few useful answers.</h2></div>
+          <div><span className="sr2-kicker">Common questions</span><h2 id="faq-heading">What to expect before we start.</h2></div>
           <div className="sr2-faq-list">
             <details><summary>What does an engagement begin with?</summary><p>A short review of the system, the problem, the intended outcome, and the access or authorization required to work safely.</p></details>
             <details><summary>Do you publish fixed prices?</summary><p>Pricing follows the written scope. Scope, deliverables, acceptance criteria, pricing, and schedule are agreed before work begins.</p></details>
@@ -187,7 +187,7 @@ export default function HomeIndex() {
 
       <section className="sr2-close">
         <div className="sr2-wrap sr2-close-copy">
-          <div><span className="sr2-kicker">Next step</span><h2>Bring the problem. Leave with a scoped next move.</h2></div>
+          <div><span className="sr2-kicker">Start with the problem</span><h2>Bring the problem. Leave with a defined first move.</h2></div>
           <div><p>BlueDot will review the request, identify any immediate scope or authorization questions, and reply with the appropriate next step.</p><a className="sr2-link sr2-link-primary" href="/contact">Request a scoped review</a></div>
         </div>
       </section>

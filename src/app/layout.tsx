@@ -36,7 +36,6 @@ export const metadata:  Metadata = {
         title: 'Security, AI Automation & Full-Stack Delivery | BlueDot IT',
         description: 'Harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.',
         images: ['/twitter-image'],
-        // creator: '@yourhandle', // Add your Twitter handle
     }
 }
 

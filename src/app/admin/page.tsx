@@ -95,7 +95,7 @@ export default function AdminPage() {
           Admin Dashboard
         </h1>
         <p className="text-base-content/70">
-          Manage posts, comments, and analytics in one place.
+          Manage posts and comments from this private workspace.
         </p>
       </div>
 
@@ -140,14 +140,14 @@ export default function AdminPage() {
           {
             label: "Comments",
             icon: MessageSquare,
-            value: "-",
-            detail: "Awaiting moderation",
+            value: "Review",
+            detail: "Open the moderation queue",
           },
           {
             label: "Analytics",
             icon: BarChart3,
-            value: "-",
-            detail: "Monthly traffic",
+            value: "Off",
+            detail: "No traffic service connected",
           },
         ].map((item, idx) => (
           <Card

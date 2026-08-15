@@ -187,31 +187,31 @@ export function renderServicePage(slug: ServiceSlug) {
           <div className="sr2-service-detail-sections">
             <article>
               <span className="sr2-kicker">The problem</span>
-              <h2>Start with the pressure point.</h2>
+              <h2>What this engagement is meant to change.</h2>
               <p>{page.description}</p>
               <ul>{page.problems.map((item) => <li key={item}>{item}</li>)}</ul>
             </article>
             <article>
               <span className="sr2-kicker">Systems and environment</span>
-              <h2>Work with what is already real.</h2>
+              <h2>Use the stack you already run.</h2>
               <p>The review or build is grounded in the stack, data, permissions, and deployment conditions that the result has to survive.</p>
               <ul>{page.tools.map((item) => <li key={item}>{item}</li>)}</ul>
             </article>
             <article>
               <span className="sr2-kicker">Deliverables</span>
-              <h2>Leave with usable work.</h2>
+              <h2>What you receive and can operate.</h2>
               <ul>{page.deliverables.map((item) => <li key={item}>{item}</li>)}</ul>
               <p className="sr2-service-examples"><strong>Typical starting points:</strong> {page.examples.join('; ')}.</p>
             </article>
             <article>
               <span className="sr2-kicker">How it begins</span>
-              <h2>Agree the first useful cut.</h2>
+              <h2>Define the first deliverable.</h2>
               <p>{page.scope}</p>
               <Link className="sr2-link" href="/projects">See related public work</Link>
             </article>
             <article>
               <span className="sr2-kicker">Operational safeguards</span>
-              <h2>Keep the scope honest.</h2>
+              <h2>Boundaries are part of the deliverable.</h2>
               <p>{guidance.outside}</p>
             </article>
           </div>
@@ -232,7 +232,7 @@ export function renderServicePage(slug: ServiceSlug) {
 
       <section className="sr2-section">
         <div className="sr2-wrap">
-          <div className="sr2-section-head"><div><span className="sr2-kicker">Questions</span><h2>Before the work starts.</h2></div><p>Scope is confirmed in writing. These answers describe the normal shape of this service.</p></div>
+        <div className="sr2-section-head"><div><span className="sr2-kicker">Questions clients ask</span><h2>What to know before we start.</h2></div><p>Scope is confirmed in writing. These answers describe the normal shape of this service.</p></div>
           <div className="sr2-note-list">
             {page.faq.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}
           </div>
@@ -240,7 +240,7 @@ export function renderServicePage(slug: ServiceSlug) {
       </section>
 
       <section className="sr2-close">
-        <div className="sr2-wrap"><div className="sr2-close-copy"><div><span className="sr2-kicker">Next step</span><h2>Need this scoped for your system?</h2></div><div><p>Send the target, the concern, and what outcome would make the work useful.</p><Link className="sr2-link" href={`/contact?service=${slug}`}>Contact BlueDot IT</Link></div></div></div>
+        <div className="sr2-wrap"><div className="sr2-close-copy"><div><span className="sr2-kicker">Start with the system</span><h2>Ready to define the first deliverable?</h2></div><div><p>Send the target, the concern, and what outcome would make the work useful.</p><Link className="sr2-link" href={`/contact?service=${slug}`}>Contact BlueDot IT</Link></div></div></div>
       </section>
     </>
   )

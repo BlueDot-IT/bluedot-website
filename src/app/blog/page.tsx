@@ -50,7 +50,7 @@ export default async function BlogPage() {
 
       <section className="sr2-editorial">
         <div className="sr2-wrap">
-          <div className="sr2-section-head"><div><span className="sr2-kicker">Topic tracks</span><h2>Three connected lenses.</h2></div><p>Existing writing can be read through these three connected lenses.</p></div>
+          <div className="sr2-section-head"><div><span className="sr2-kicker">Topic tracks</span><h2>Notes tied to the work.</h2></div><p>Read about the systems BlueDot reviews, automates, and ships through three practical tracks.</p></div>
           <div className="sr2-note-list">
             {topicTracks.map((track) => <article key={track.title}><h3>{track.title}</h3><p>{track.description}</p><Link className="sr2-link" href={track.href}>{track.link}</Link></article>)}
           </div>
@@ -62,9 +62,9 @@ export default async function BlogPage() {
           <div className="sr2-section-head"><div><span className="sr2-kicker">Latest insights</span><h2 id="latest-insights-heading">Read the notes.</h2></div><p>Technical notes stay grounded in the systems, boundaries, and decisions they describe.</p></div>
           {posts.length > 0 ? (
             <div className="sr2-note-list">
-              {posts.map((post) => { const service = serviceForCategory(post.category?.name); return <article key={post.id}><time className="sr2-kicker" dateTime={post.createdAt.toISOString()}>{new Date(post.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time><span className="sr2-post-category">{post.category?.name || 'Engineering note'}</span><h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3>{post.excerpt && <p>{post.excerpt}</p>}<div className="sr2-note-actions"><Link className="sr2-link" href={`/blog/${post.slug}`}>Read the note</Link><Link className="sr2-link sr2-link-muted" href={service.href}>Related service: {service.label}</Link></div></article> })}
+              {posts.map((post) => { const service = serviceForCategory(post.category?.name); return <article key={post.id}><time className="sr2-kicker" dateTime={post.createdAt.toISOString()}>{new Date(post.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time><span className="sr2-post-category">{post.category?.name || 'BlueDot note'}</span><h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3>{post.excerpt && <p>{post.excerpt}</p>}<div className="sr2-note-actions"><Link className="sr2-link" href={`/blog/${post.slug}`}>Read the note</Link><Link className="sr2-link sr2-link-muted" href={service.href}>Related service: {service.label}</Link></div></article> })}
             </div>
-          ) : <div className="sr2-note-list"><article><h3>No posts yet.</h3><p>Technical notes will appear here as they are published.</p></article></div>}
+          ) : <div className="sr2-note-list"><article><h3>No published insights yet.</h3><p>New technical notes will appear here when they are ready to share.</p></article></div>}
         </div>
       </section>
 

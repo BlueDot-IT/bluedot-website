@@ -183,7 +183,7 @@ export default function EditPostPage() {
                 onChange={handleChange}
                 className="w-full mt-1 p-3 rounded-md border border-accent/60 bg-secondary/20 text-secondary"
               >
-                <option value="">Select category...</option>
+                <option value="">No category</option>
                 {categories.map((cat) => (
                   <option key={cat.id} value={cat.id}>
                     {cat.name}

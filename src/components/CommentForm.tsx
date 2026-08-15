@@ -13,12 +13,12 @@ export default function CommentForm({ postId }: { postId: number }) {
             method: "POST",
             body: JSON.stringify({ postId, body }),
         });
-        setOk(res.ok ? "Sent!" : "Failed");
+        setOk(res.ok ? "Comment submitted for review." : "Comment could not be submitted. Please try again.");
         if (res.ok) setBody("");
     }
     return (
         <form onSubmit={submit} className="space-y-3">
-            <label htmlFor={`comment-${postId}`} className="sr-only">Comment</label>
+            <label htmlFor={`comment-${postId}`} className="block text-sm font-medium opacity-80">Comment</label>
             <Textarea
                 id={`comment-${postId}`}
                 rows={4}

@@ -137,7 +137,7 @@ export default async function PostPage({
           <header>
             <span className="sr2-kicker">BlueDot insights</span>
             <h1>{post.title}</h1>
-            <div className="sr2-article-meta"><p className="sr2-date"><time dateTime={post.createdAt.toISOString()}>{new Date(post.createdAt).toLocaleDateString()}</time></p><span className="sr2-post-category">{post.category?.name || 'Engineering note'}</span></div>
+            <div className="sr2-article-meta"><p className="sr2-date"><time dateTime={post.createdAt.toISOString()}>{new Date(post.createdAt).toLocaleDateString()}</time></p><span className="sr2-post-category">{post.category?.name || 'BlueDot note'}</span></div>
           </header>
           <div className="prose max-w-none">
             <MDXContent source={mdxSource} />

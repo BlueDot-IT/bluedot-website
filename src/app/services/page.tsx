@@ -170,7 +170,7 @@ export default function ServicesPage() {
       <section className="sr2-section sr2-section-deep">
         <div className="sr2-wrap">
           <div className="sr2-section-head">
-            <div><span className="sr2-kicker">Three ways to begin</span><h2>Choose the first useful cut.</h2></div>
+            <div><span className="sr2-kicker">Choose the engagement</span><h2>Start with the engagement that matches the problem.</h2></div>
             <p>Each entry point is a defined engagement. The target, deliverables, acceptance criteria, price, and schedule are settled before implementation begins.</p>
           </div>
           <div className="sr2-entry-lines">
@@ -185,7 +185,7 @@ export default function ServicesPage() {
 
       <section className="sr2-section">
         <div className="sr2-wrap sr2-process">
-          <div><span className="sr2-kicker">Working together</span><h2>A straightforward process.</h2></div>
+          <div><span className="sr2-kicker">Engagement sequence</span><h2>A defined path from review to handoff.</h2></div>
           <div className="sr2-process-line">
             <div><strong>Review</strong><p>Understand the current setup, priority, and authorization.</p></div>
             <div><strong>Scope</strong><p>Set deliverables, assumptions, exclusions, price, and acceptance criteria.</p></div>
@@ -196,7 +196,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="sr2-close">
-        <div className="sr2-wrap sr2-close-copy"><div><span className="sr2-kicker">Next step</span><h2>Need the right first cut?</h2></div><div><p>Tell BlueDot what is failing, what system is involved, and what useful change would make the engagement worthwhile.</p><Link className="sr2-link sr2-link-primary" href="/contact">Request a scoped review</Link></div></div>
+        <div className="sr2-wrap sr2-close-copy"><div><span className="sr2-kicker">Start with the system</span><h2>Ready to define the work?</h2></div><div><p>Tell BlueDot what is failing, what system is involved, and what outcome would make the engagement worthwhile.</p><Link className="sr2-link sr2-link-primary" href="/contact">Request a scoped review</Link></div></div>
       </section>
     </>
   )

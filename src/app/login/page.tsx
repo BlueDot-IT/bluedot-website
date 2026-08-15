@@ -98,7 +98,6 @@ export default function LoginPage() {
                 required
                 value={form.username}
                 onChange={handleChange}
-                placeholder="Enter your username"
                 className="bg-white/5 border-white/15 text-base-content mt-1"
               />
             </div>
@@ -112,7 +111,6 @@ export default function LoginPage() {
                 required
                 value={form.password}
                 onChange={handleChange}
-                placeholder="Enter your password"
                 className="bg-white/5 border-white/15 text-base-content mt-1"
               />
             </div>

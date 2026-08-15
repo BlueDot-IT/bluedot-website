@@ -147,7 +147,6 @@ export default function CreatePostPage() {
                   value={form.title}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  placeholder="Enter post title"
                   className="w-full p-3 mt-1 rounded-md border border-accent/60 bg-secondary/20 text-secondary"
                 />
                 {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
@@ -162,7 +161,6 @@ export default function CreatePostPage() {
                     value={form.slug}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    placeholder="auto-generated slug"
                     className="flex-1 p-3 rounded-md border border-accent/60 bg-secondary/20 text-secondary"
                   />
                   <Button onClick={generateSlug} style="outline">
@@ -183,7 +181,7 @@ export default function CreatePostPage() {
                 onChange={handleChange}
                 className="w-full mt-1 p-3 rounded-md border border-accent/60 bg-secondary/20 text-secondary"
               >
-                <option value="">Select category...</option>
+                <option value="">No category</option>
                 {categories.map((cat) => (
                   <option key={cat.id} value={cat.id}>
                     {cat.name}
@@ -217,7 +215,6 @@ export default function CreatePostPage() {
                 name="excerpt"
                 value={form.excerpt}
                 onChange={handleChange}
-                placeholder="Short summary of your post..."
                 rows={3}
                 className="w-full p-3 mt-1 rounded-md border border-accent/60 bg-secondary/20 text-secondary"
               />
@@ -232,7 +229,6 @@ export default function CreatePostPage() {
                 value={form.content}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                placeholder="Write your post here..."
                 rows={10}
                 className="w-full p-3 mt-1 rounded-md border border-accent/60 bg-secondary/20 text-secondary"
               />

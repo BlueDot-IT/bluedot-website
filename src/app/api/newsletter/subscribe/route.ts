@@ -51,6 +51,7 @@ export async function POST(req: NextRequest) {
       data: { email },
     });
 
+    let welcomeEmailSent = false;
     if (hasSmtpConfigured()) {
       try {
         await sendMail({
@@ -65,6 +66,7 @@ export async function POST(req: NextRequest) {
             </div>
           `.trim(),
         });
+        welcomeEmailSent = true;
       } catch (emailErr) {
         // Don’t block a successful subscription if SMTP is down/misconfigured.
         console.error("Newsletter welcome email failed:", emailErr);
@@ -72,7 +74,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json(
-      { ok: true, message: "Subscribed! Check your inbox for a welcome email." },
+      { ok: true, message: welcomeEmailSent ? "You’re subscribed. A welcome message is on its way." : "You’re subscribed." },
       { status: 201 }
     );
   } catch (err: any) {

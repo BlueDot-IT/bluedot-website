@@ -60,16 +60,16 @@ export async function POST(req: NextRequest) {
     const elapsed = Date.now() - startedAt;
     if (!Number.isFinite(elapsed) || elapsed < 1500 || elapsed > 24 * 60 * 60 * 1000) {
       return NextResponse.json(
-        { ok: false, error: "Suspicious timing" },
+        { ok: false, error: "The request took an unexpected amount of time. Please reload the page and try again." },
         { status: 400 }
       );
     }
 
     // 3) Basic validation
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || "");
-    if (!emailOk) return NextResponse.json({ ok: false, error: "Bad email" }, { status: 400 });
+    if (!emailOk) return NextResponse.json({ ok: false, error: "Please enter a valid email address." }, { status: 400 });
     if (!name || !service || !stage || !subject || !message) {
-      return NextResponse.json({ ok: false, error: "Missing fields" }, { status: 400 });
+      return NextResponse.json({ ok: false, error: "Please complete the required fields before sending your request." }, { status: 400 });
     }
     if (
       name.length > MAX_NAME_LENGTH ||
@@ -81,13 +81,13 @@ export async function POST(req: NextRequest) {
       subject.length > MAX_SUBJECT_LENGTH ||
       message.length > MAX_MESSAGE_LENGTH
     ) {
-      return NextResponse.json({ ok: false, error: "A field is too long" }, { status: 400 });
+      return NextResponse.json({ ok: false, error: "One or more fields are too long. Please shorten the request and try again." }, { status: 400 });
     }
 
     // 4) Content scoring
     const urlCount = (message.match(/https?:\/\/|www\./gi) || []).length;
     if (urlCount > 2) {
-      return NextResponse.json({ ok: false, error: "Too many links" }, { status: 400 });
+      return NextResponse.json({ ok: false, error: "Please remove extra links from the message and try again." }, { status: 400 });
     }
     const banned = ["viagra", "casino", "crypto investment"];
     const lower = `${subject} ${message}`.toLowerCase();
@@ -125,6 +125,6 @@ export async function POST(req: NextRequest) {
     }
     return NextResponse.json({ ok: true, id: result.messageId });
   } catch (err) {
-    return NextResponse.json({ ok: false, error: "Server error" }, { status: 500 });
+    return NextResponse.json({ ok: false, error: "We could not send the request right now. Please try again in a moment." }, { status: 500 });
   }
 }

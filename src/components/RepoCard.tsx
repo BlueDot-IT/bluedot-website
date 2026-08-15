@@ -26,10 +26,12 @@ export default function RepoCard({ repo }: { repo: Project }) {
         </div>
 
         <div className="space-y-5">
-          <div>
-            <p className="mb-1 text-xs font-bold uppercase tracking-widest text-base-content/55">What it is</p>
-            <p className="text-sm text-base-content/80 leading-relaxed">{repo.description || "Public BlueDot IT repository."}</p>
-          </div>
+          {repo.description && (
+            <div>
+              <p className="mb-1 text-xs font-bold uppercase tracking-widest text-base-content/55">What it is</p>
+              <p className="text-sm text-base-content/80 leading-relaxed">{repo.description}</p>
+            </div>
+          )}
           <div>
             <p className="mb-1 text-xs font-bold uppercase tracking-widest text-base-content/55">What it demonstrates</p>
             <p className="text-sm text-base-content/75 leading-relaxed">{repo.demonstrates}</p>
@@ -46,16 +48,16 @@ export default function RepoCard({ repo }: { repo: Project }) {
         </div>
 
         <div className="mt-6 flex items-center justify-between gap-4 border-t border-white/10 pt-5">
-          <div className="flex items-center space-x-2">
+          {repo.language && <div className="flex items-center space-x-2">
             <div
               className={`w-3 h-3 rounded-full ring-1 ring-base-300/60 ${getLanguageColor(
                 repo.language
               )}`}
             />
             <span className="text-sm text-base-content font-medium">
-              {repo.language || "Unknown"}
+              {repo.language}
             </span>
-          </div>
+          </div>}
 
           <a
             href={repo.url}

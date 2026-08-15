@@ -86,7 +86,7 @@ These are public engineering examples, not named clients, testimonials, or priva
 
 ## Insights
 
-The /blog route is presented publicly as Insights. Existing technical writing can be read through three topic tracks: Security, AI Automation, and Full-Stack Engineering.
+The /blog route is presented publicly as Insights. Notes are organized around three practical tracks: Security, AI Automation, and Full-Stack Engineering.
 
 ## Contact and data boundaries
 

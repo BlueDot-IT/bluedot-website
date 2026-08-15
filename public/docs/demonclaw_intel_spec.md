@@ -1,25 +1,21 @@
-# Clinical Intelligence Module Spec (DemonClaw v1.0)
++# DemonClaw intelligence runtime
 
-## 1. Tactical Pattern Engine
+DemonClaw is a Rust-native runtime for controlled purple-team and defensive
+operations. This public note describes the engineering direction represented by
+the project; it is not a client report, deployment guarantee, or authorization
+to test a system.
 
-- **Objective**: Map raw telemetry to known threat actor tactics.
-- **Implementation**: A heuristic layer that watches the `GUARDIAN_06` queue for specific tool-use combinations.
-- **Feature**: Automatic MITRE ATT&CK mapping.
+## What the project demonstrates
 
-## 2. Dynamic Intel Enrichment
+- Policy gates around security tooling and operator decisions.
+- Constrained WASM execution for selected workloads.
+- Evidence collection that can be reviewed after an authorized engagement.
+- Persistent state for tracking approved operations and their outcomes.
+- Reporting that keeps the target, action, decision, and evidence connected.
 
-- **Objective**: Provide real-world context to internal signals.
-- **Implementation**: Integration hooks for open-source intelligence providers.
-- **Feature**: Live IP reputation enrichment.
+## Operational limits
 
-## 3. Incident Correlation
-
-- **Objective**: Pivot from events to connected incident narratives.
-- **Implementation**: A stateful correlation engine that groups alerts by source, target, and proximity.
-- **Feature**: Timeline reconstruction in the reporting UI.
-
-## 4. Pattern Memory
-
-- **Objective**: Recognize returning hostile actors or repeated test cycles.
-- **Implementation**: Long-term storage of session signatures.
-- **Feature**: Anomaly baselines for authorized engagements.
+DemonClaw is intended for authorized, supervised use. Constrained execution
+reduces the available authority but does not make arbitrary code safe by
+itself. Scope, credentials, data handling, and approval remain the operator’s
+responsibility.

@@ -6,14 +6,14 @@ export default function EngagementEntryPoints() {
       <section className="sr2-section" id="process">
         <div className="sr2-wrap sr2-process">
           <div>
-            <div className="sr2-kicker">Working together</div>
-            <h2>A straightforward process.</h2>
+            <div className="sr2-kicker">Engagement sequence</div>
+            <h2>A defined path from review to handoff.</h2>
           </div>
           <div className="sr2-process-line">
-            <div><strong>Review</strong><p>Understand the current setup.</p></div>
-            <div><strong>Plan</strong><p>Set the scope.</p></div>
-            <div><strong>Build</strong><p>Make the change.</p></div>
-            <div><strong>Hand off</strong><p>Leave it usable.</p></div>
+            <div><strong>Review</strong><p>Inspect the current setup and the problem to solve.</p></div>
+            <div><strong>Scope</strong><p>Set deliverables, exclusions, and acceptance criteria.</p></div>
+            <div><strong>Implement</strong><p>Make the change and keep failure paths visible.</p></div>
+            <div><strong>Validate</strong><p>Test the result and document how to operate it.</p></div>
           </div>
         </div>
       </section>
@@ -38,12 +38,12 @@ export default function EngagementEntryPoints() {
         <div className="sr2-wrap">
           <div className="sr2-close-copy">
             <div>
-              <div className="sr2-kicker">Start here</div>
+              <div className="sr2-kicker">Start with the system</div>
               <h2>Let’s fix the part that is slowing the team down.</h2>
             </div>
             <div>
               <p>Tell me what you are building, automating, or securing.</p>
-              <Link className="sr2-link" href="/contact">Talk to BlueDot</Link>
+              <Link className="sr2-link" href="/contact">Request a scoped review</Link>
             </div>
           </div>
         </div>

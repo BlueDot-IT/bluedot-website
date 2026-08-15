@@ -41,7 +41,7 @@ export default function NewsletterForm({
       }
 
       setStatus("success");
-      setMessage(data?.message || "Subscribed!");
+      setMessage(data?.message || "You’re on the list.");
       setEmail("");
     } catch {
       setStatus("error");
@@ -56,6 +56,7 @@ export default function NewsletterForm({
         <p>{description}</p>
       </div>
 
+      <label htmlFor="newsletter_signup" className="sr2-newsletter-label">Email address</label>
       <form onSubmit={onSubmit}>
         <input
           id="newsletter_signup"

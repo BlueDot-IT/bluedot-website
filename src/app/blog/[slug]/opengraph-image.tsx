@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 import { prisma } from '@/lib/prisma'
 
 export const runtime = 'nodejs'
-export const alt = 'Blog Post'
+export const alt = 'BlueDot IT insight'
 export const size = {
   width: 1200,
   height: 630,
