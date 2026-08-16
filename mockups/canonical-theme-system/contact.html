@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#030405" id="theme-color">
+  <title>Contact — BlueDot IT, LLC</title>
+  <meta name="description" content="Request a scoped review with BlueDot IT, LLC.">
+  <script>
+    try {
+      const savedTheme = window.localStorage.getItem('bluedot-home-theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
+    } catch (_) {}
+  </script>
+  <link rel="canonical" href="https://bluedot.it.com/contact">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?rev=theme-system-20260816-0040">
+</head>
+<body class="inner-page">
+  <div class="site inner-site">
+    <header class="site-header">
+      <a class="edge-link" href="/services">Services</a>
+      <a class="wordmark" href="/" aria-label="BlueDot IT home"><span class="wordmark-name">BlueDot IT</span><span class="wordmark-rule" aria-hidden="true"></span></a>
+      <div class="header-tools">
+        <a class="edge-link" href="/contact" aria-current="page">Contact</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme" aria-pressed="false">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"></path></svg>
+          <span class="theme-toggle-label">Light</span>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section class="page-hero page-wrap"><div class="mini-ring" aria-hidden="true"></div><p class="section-kicker">Start with the problem</p><h1>Request a scoped review.</h1><p class="page-deck">Tell BlueDot what is slowing the work down, what needs to change, and what a useful result would look like.</p></section>
+      <section class="document-section alt"><div class="page-wrap document-grid contact-grid"><div><p class="section-kicker">A useful first message</p><h2>Enough detail to understand the problem. No technical essay required.</h2><div class="contact-note"><p>BlueDot will review the request and reply with the most useful next step or any questions needed to define it.</p><p>Do not submit passwords, secrets, regulated data, customer records, or active vulnerability details through this form.</p></div></div><form class="contact-form" id="contact-form" aria-label="Project request" novalidate><div class="form-field"><label class="form-label" for="name">Name</label><input id="name" name="name" autocomplete="name" required></div><div class="form-field"><label class="form-label" for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="form-field full"><label class="form-label" for="subject">Project or system</label><input id="subject" name="subject" required></div><div class="form-field full"><label class="form-label" for="service">What do you need help with?</label><select id="service" name="service" required><option value="">Choose one</option><option value="security">Security review</option><option value="automation">AI or workflow automation</option><option value="software">Custom software</option><option value="unsure">Not sure yet</option></select></div><div class="form-field"><label class="form-label" for="stage">Project stage</label><select id="stage" name="stage" required><option value="">Choose a stage</option><option>Exploring</option><option>In progress</option><option>Approaching production</option><option>Already in production</option></select></div><div class="form-field"><label class="form-label" for="timing">Target timing</label><input id="timing" name="timing" placeholder="e.g. this quarter"></div><div class="form-field full"><label class="form-label" for="problem">Primary problem and desired outcome</label><textarea id="problem" name="problem" required></textarea></div><input id="hp" name="hp" type="text" autocomplete="off" tabindex="-1" aria-hidden="true" hidden><button type="submit" id="submit-request">Send request</button><p class="form-status" id="submitted" tabindex="-1" role="status" aria-live="polite" hidden></p></form></div></section>
+    </main>
+    <footer class="site-footer">
+      <a class="footer-brand" href="/"><span class="footer-dot" aria-hidden="true"></span>BlueDot IT</a>
+      <nav class="footer-nav" aria-label="Footer navigation"><a href="/services">Services</a><a href="/work">Work</a><a href="/about">About</a><a href="/process">Process</a><a href="/contact">Contact</a></nav>
+      <span class="footer-caption">© 2026 BlueDot IT, LLC · Build it. Secure it. Stay in control.</span>
+    </footer>
+  </div>
+  <script>
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('submitted');
+    const submitRequest = document.getElementById('submit-request');
+    const startedAt = Date.now();
+    const service = new URLSearchParams(window.location.search).get('service');
+    if (['security', 'automation', 'software'].includes(service)) {
+      document.getElementById('service').value = service;
+    }
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+      submitRequest.disabled = true;
+      formStatus.hidden = false;
+      formStatus.textContent = 'Sending your request…';
+      try {
+        const data = Object.fromEntries(new FormData(contactForm).entries());
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            service: data.service,
+            stage: data.stage,
+            timing: data.timing,
+            subject: data.subject,
+            message: data.problem,
+            startedAt,
+            hp: data.hp,
+          }),
+        });
+        const payload = await response.json().catch(() => null);
+        if (!response.ok || (payload && payload.ok === false)) {
+          throw new Error((payload && payload.error) || 'We could not send the request right now. Please try again in a moment.');
+        }
+        contactForm.reset();
+        formStatus.textContent = 'Request sent. BlueDot will review the brief and reply with the next useful step.';
+        formStatus.focus();
+      } catch (error) {
+        formStatus.setAttribute('role', 'alert');
+        formStatus.textContent = error instanceof Error ? error.message : 'We could not send the request right now. Please try again in a moment.';
+        formStatus.focus();
+      } finally {
+        submitRequest.disabled = false;
+      }
+    });
+  </script>
+  <script src="theme.js"></script>
+</body>
+</html>

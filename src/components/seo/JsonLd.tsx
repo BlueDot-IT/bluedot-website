@@ -29,9 +29,10 @@ export default function JsonLd() {
       {
         '@type': ['Organization', 'ProfessionalService'],
         '@id': organizationId,
-        name: 'BlueDot IT',
+        name: 'BlueDot IT, LLC',
+        legalName: 'BlueDot IT, LLC',
         url: `${baseUrl}/`,
-        description: 'BlueDot IT helps technical founders and lean teams harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.',
+        description: 'BlueDot IT, LLC helps technical founders and lean teams harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.',
         logo: `${baseUrl}/bluedot-logo.png`,
         founder: {
           '@id': `${baseUrl}/#person`,
@@ -47,6 +48,7 @@ export default function JsonLd() {
           'MCP security consulting',
         ],
         sameAs: [
+          'https://github.com/BlueDot-IT',
           'https://github.com/jason-allen-oneal',
           'https://huggingface.co/jason-oneal',
         ],

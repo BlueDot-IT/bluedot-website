@@ -1,0 +1,68 @@
+# BlueDot IT, LLC — Full Documentation
+
+> BlueDot IT, LLC builds practical software, workflow automation, and security systems for teams that need working changes, clear boundaries, and control after handoff.
+
+## Positioning & Philosophy
+
+Security, AI automation, and full-stack delivery for systems that have to hold up.
+
+BlueDot works across frontend applications, backend services, APIs, databases, authentication, deployment, Linux infrastructure, AI tool boundaries, and security controls. Engagements are intentionally scoped in writing and delivered with validation, documentation, and operator handoff.
+
+The person doing the work stays in the room: direct technical communication without agency layers or preselected hourly bloat.
+
+## Public Endpoints
+
+- Home: https://bluedot.it.com/
+- Services: https://bluedot.it.com/services
+- Selected Work: https://bluedot.it.com/work
+- About: https://bluedot.it.com/about
+- Process: https://bluedot.it.com/process
+- Contact: https://bluedot.it.com/contact
+- LLM Index: https://bluedot.it.com/llms.txt
+- Full LLM Doc: https://bluedot.it.com/llms-full.txt
+- Sitemap: https://bluedot.it.com/sitemap.xml
+- Robots: https://bluedot.it.com/robots.txt
+
+## Service Details
+
+### 01 · Security Engineering
+- Application and API security reviews
+- Login, session, and permission analysis
+- Model Context Protocol (MCP) and AI tool permission reviews
+- Linux, VPS, Docker, and NGINX server hardening
+- Prioritized findings backed by reproducible evidence
+- Validation checklists and handoff documentation
+
+### 02 · AI Automation
+- Controlled agent and MCP workflow design
+- Tool authorization, scope validation, and approval gates
+- Reliable API and data integrations
+- Fail-closed publishing and execution paths
+- Evaluation, observability, and audit trails
+- Operational runbooks designed for actual maintainers
+
+### 03 · Custom Software Development
+- Maintainable TypeScript, Next.js, React, Node.js, and Python applications
+- Interfaces, APIs, and clean data flows
+- Cloud and Linux deployment
+- Automated testing and release workflows
+- Observability, runbooks, and handoff documentation
+
+## Engagement Process
+
+1. **Understand**: We map the problem, the people involved, the data, and the current workflow.
+2. **Define**: You receive a written deliverable, price, schedule, and acceptance criteria.
+3. **Build & Test**: We implement the work and verify it against the agreed outcome.
+4. **Secure & Hand Off**: We review risk, document the system, and leave your team in control.
+
+## Selected Public Engineering Systems
+
+- **Odinn-Forge** (https://github.com/BlueDot-IT/Odinn-Forge): Local-first, single-user AI assistant with inspectable memory, approved tools, and an auditable activity history.
+- **GhostMCP** (https://github.com/BlueDot-IT/GhostMCP): Hardened Model Context Protocol server for authorized assessments with per-engagement capability manifests, fail-closed proxy routing, and tamper-evident audit logging.
+- **security-middleware** (https://github.com/BlueDot-IT/security-middleware): Development middleware for Node.js and Next.js that brings header, CORS, and dependency checks into one inspectable path.
+
+## Contact & Boundaries
+
+- Website: https://bluedot.it.com/contact
+- Direct Inquiries: https://bluedot.it.com/contact
+- Public form submissions must not include credentials, passwords, active vulnerability details, or regulated customer data.

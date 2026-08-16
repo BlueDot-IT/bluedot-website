@@ -1,9 +1,9 @@
 export const dynamic = 'force-static'
 
 export async function GET() {
-  const body = `# BlueDot IT
+  const body = `# BlueDot IT, LLC
 
-> BlueDot IT helps technical founders and lean teams harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.
+> BlueDot IT, LLC helps technical founders and lean teams harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.
 
 ## Core positioning
 
@@ -15,12 +15,10 @@ BlueDot can design, build, automate, deploy, secure, and review complete systems
 
 - [Home](https://bluedot.it.com/)
 - [Services](https://bluedot.it.com/services)
-- [Work](https://bluedot.it.com/projects)
-- [Open-source archive](https://bluedot.it.com/open-source)
+- [Work](https://bluedot.it.com/work)
 - [About](https://bluedot.it.com/about)
-- [Insights](https://bluedot.it.com/blog)
+- [Process](https://bluedot.it.com/process)
 - [Contact](https://bluedot.it.com/contact)
-- [Security and vulnerability reporting](https://bluedot.it.com/security)
 
 ## Service pillars
 
@@ -38,10 +36,9 @@ BlueDot can design, build, automate, deploy, secure, and review complete systems
 ## Selected public projects
 
 - Odinn-Forge: local-first, single-user AI assistant with inspectable memory and approved tools.
-- DemonClaw: Rust-native runtime for controlled purple-team and defensive operations with policy gates and evidence collection.
-- GhostMCP: beta security-focused MCP server for authorized assessments with guarded tools and audit logging.
-- SignalGate: OpenAI-compatible model-routing layer using embeddings, KNN, and capability gates.
+- GhostMCP: hardened Model Context Protocol server for authorized assessments with per-engagement capability manifests, fail-closed proxy routing, and tamper-evident audit logging.
 - security-middleware: Node.js and Next.js development middleware for security headers, CORS, and dependency findings.
+- SignalGate: OpenAI-compatible model-routing layer using embeddings, KNN, and capability gates.
 - Ares: operator-supervised security assessment runtime for authorized engagements.
 - ExploitRank: vulnerability and exploit-candidate ingestion, normalization, and scoring engine.
 - agent-benchmarks: reproducible, outcome-verified benchmark harness for command-line AI agents.

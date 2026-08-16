@@ -37,7 +37,7 @@ export default function Footer({
       ],
     },
   ],
-  copyright = "BlueDot IT. All rights reserved.",
+  copyright = "BlueDot IT, LLC. All rights reserved.",
   bottomLinks = [
     { text: "Privacy", url: "/legal/privacy" },
     { text: "Terms & Conditions", url: "/legal/terms" },

@@ -1,9 +1,9 @@
 export const dynamic = 'force-static'
 
 export async function GET() {
-  const body = `# BlueDot IT - Full Documentation
+  const body = `# BlueDot IT, LLC — Full Documentation
 
-> BlueDot IT helps technical founders and lean teams harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.
+> BlueDot IT, LLC helps technical founders and lean teams harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.
 
 ## Positioning
 
@@ -15,12 +15,10 @@ BlueDot works across frontend applications, backend services, APIs, data, authen
 
 - Home: https://bluedot.it.com/
 - Services: https://bluedot.it.com/services
-- Work: https://bluedot.it.com/projects
-- Open-source archive: https://bluedot.it.com/open-source
+- Work: https://bluedot.it.com/work
 - About: https://bluedot.it.com/about
-- Insights: https://bluedot.it.com/blog
+- Process: https://bluedot.it.com/process
 - Contact: https://bluedot.it.com/contact
-- Security and vulnerability reporting: https://bluedot.it.com/security
 - Privacy: https://bluedot.it.com/legal/privacy
 - Terms: https://bluedot.it.com/legal/terms
 - Security policy: https://bluedot.it.com/.well-known/security.txt
@@ -74,10 +72,9 @@ A bounded AI Automation offering for replacing one repetitive operational proces
 ## Selected public projects
 
 - Odinn-Forge: local-first, single-user AI assistant with inspectable memory, approved tools, web research, and local activity history.
-- DemonClaw: Rust-native runtime for controlled purple-team and defensive operations with policy gates, constrained WASM execution, memory, and tamper-evident evidence.
-- GhostMCP: beta security-focused MCP server for authorized assessments with policy-guarded tools, curated workflows, dashboards, scheduling, and audit logging.
-- SignalGate: OpenAI-compatible loopback routing layer for OpenClaw using embeddings, KNN, capability gates, and bounded failover.
+- GhostMCP: hardened Model Context Protocol server for authorized assessments with per-engagement capability manifests, fail-closed proxy routing, and tamper-evident audit logging.
 - security-middleware: Node.js and Next.js development middleware for security headers, CORS, and npm dependency findings.
+- SignalGate: OpenAI-compatible loopback routing layer for OpenClaw using embeddings, KNN, capability gates, and bounded failover.
 - Ares: operator-supervised security assessment runtime with deterministic scope, risk, approvals, evidence, and reporting controls.
 - ExploitRank: engine for ingesting, normalizing, and scoring vulnerability records and exploit-candidate evidence.
 - agent-benchmarks: reproducible benchmark harness using isolated workspaces, deterministic assertions, and outcome-verified reports.

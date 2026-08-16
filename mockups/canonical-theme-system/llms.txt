@@ -1,0 +1,44 @@
+# BlueDot IT, LLC
+
+> BlueDot IT, LLC builds practical software, workflow automation, and security systems for teams that need working changes, clear boundaries, and control after handoff.
+
+## Core positioning
+
+Security engineering, AI automation, and full-stack delivery for systems that have to work.
+
+BlueDot designs, automates, deploys, secures, and reviews production systems. Every engagement uses agreed written scope, verified permissions, audit logging, validation, documentation, and a usable operator handoff.
+
+## Core pages
+
+- [Home](https://bluedot.it.com/)
+- [Services](https://bluedot.it.com/services)
+- [Selected Work](https://bluedot.it.com/work)
+- [About](https://bluedot.it.com/about)
+- [Process](https://bluedot.it.com/process)
+- [Contact & Scoped Review](https://bluedot.it.com/contact)
+
+## Service pillars
+
+- [Security Engineering](https://bluedot.it.com/services#security): Application and API security reviews, login and permission analysis, Model Context Protocol (MCP) and AI tool permission reviews, Linux/Docker/NGINX/VPS server hardening, and prioritized findings with evidence.
+- [AI Automation](https://bluedot.it.com/services#automation): Controlled agent and MCP workflow design, tool authorization and approval gates, reliable API and data integrations, fail-closed publishing paths, evaluation, and operational runbooks.
+- [Custom Software](https://bluedot.it.com/services#software): Maintainable TypeScript, Next.js, and Python applications, interfaces, APIs, database design, Linux deployment, automated testing, and handoff documentation.
+
+## Productized engagement points
+
+- **Security Review**: A bounded review of an application, API, Linux host, or AI tool boundary with actionable, prioritized findings and evidence.
+- **AI Automation Sprint**: Mapping inputs, permissions, and human approval gates to build a reliable workflow automation or lightweight operational dashboard.
+- **Custom Software Build**: Bounded development of internal tools, dashboards, APIs, integrations, and production services with full testing and operational runbooks.
+
+## Selected public engineering systems
+
+- **Odinn-Forge**: Local-first AI assistant designed around inspectable memory, approved tools, and an auditable activity trail. (https://github.com/BlueDot-IT/Odinn-Forge)
+- **GhostMCP**: Hardened Model Context Protocol server featuring per-engagement capability manifests, fail-closed proxy routing, and tamper-evident audit logging. (https://github.com/BlueDot-IT/GhostMCP)
+- **security-middleware**: Security linting middleware for Node.js and Next.js bringing header, CORS, and dependency checks into one inspectable path. (https://github.com/BlueDot-IT/security-middleware)
+
+*These are public engineering systems demonstrating architecture and controls, not customer testimonials or private client case studies.*
+
+## Contact & requests
+
+- Website: https://bluedot.it.com/contact
+- Direct Inquiries: Request a scoped review via https://bluedot.it.com/contact
+- Note: Do not submit passwords, secrets, regulated data, or active vulnerability details through public forms.

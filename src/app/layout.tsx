@@ -9,9 +9,9 @@ import AnalyticsConsent from '@/components/AnalyticsConsent'
 export const metadata:  Metadata = {
     title: {
         default: 'Security, AI Automation & Full-Stack Delivery | BlueDot IT',
-        template: '%s | BlueDot IT'
+        template: '%s | BlueDot IT, LLC'
     },
-    description: 'BlueDot IT helps technical founders and lean teams harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.',
+    description: 'BlueDot IT, LLC helps technical founders and lean teams harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.',
     metadataBase: new URL('https://bluedot.it.com'),
     keywords: ['application security consulting', 'AI automation development', 'AI agent development', 'full-stack development', 'Next.js security', 'MCP security', 'workflow automation', 'TypeScript development', 'Python automation', 'secure software development', 'application hardening', 'AI agent security'],
     authors: [{ name: 'Jason O\'Neal' }],
@@ -20,19 +20,19 @@ export const metadata:  Metadata = {
         type: 'website',
         locale: 'en_US',
         url: 'https://bluedot.it.com',
-        siteName: 'BlueDot IT',
-        title: 'Security, AI Automation & Full-Stack Delivery | BlueDot IT',
+        siteName: 'BlueDot IT, LLC',
+        title: 'Security, AI Automation & Full-Stack Delivery | BlueDot IT, LLC',
         description: 'Harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.',
         images: [{
             url: '/opengraph-image',
             width: 1200,
             height: 630,
-            alt: 'BlueDot IT security, AI automation, and full-stack delivery'
+            alt: 'BlueDot IT, LLC security, AI automation, and full-stack delivery'
         }]
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Security, AI Automation & Full-Stack Delivery | BlueDot IT',
+        title: 'Security, AI Automation & Full-Stack Delivery | BlueDot IT, LLC',
         description: 'Harden production applications, replace fragile manual workflows, and build maintainable software from interface to infrastructure.',
         images: ['/twitter-image'],
     }

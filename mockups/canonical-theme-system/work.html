@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#030405" id="theme-color">
+  <title>Selected Work — BlueDot IT, LLC</title>
+  <meta name="description" content="Selected BlueDot IT, LLC security, AI automation, and engineering work.">
+  <script>
+    try {
+      const savedTheme = window.localStorage.getItem('bluedot-home-theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
+    } catch (_) {}
+  </script>
+  <link rel="canonical" href="https://bluedot.it.com/work">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?rev=theme-system-20260816-0040">
+</head>
+<body class="inner-page">
+  <div class="site inner-site">
+    <header class="site-header">
+      <a class="edge-link" href="/services">Services</a>
+      <a class="wordmark" href="/" aria-label="BlueDot IT home"><span class="wordmark-name">BlueDot IT</span><span class="wordmark-rule" aria-hidden="true"></span></a>
+      <div class="header-tools">
+        <a class="edge-link" href="/contact">Start a conversation</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme" aria-pressed="false">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"></path></svg>
+          <span class="theme-toggle-label">Light</span>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section class="page-hero page-wrap"><div class="mini-ring" aria-hidden="true"></div><p class="section-kicker">Selected work</p><h1>Proof you can inspect directly.</h1><p class="page-deck">These are public engineering systems, not customer testimonials or private client case studies. Read the code, decisions, and constraints directly.</p></section>
+
+      <section class="document-section alt" id="odinn-forge"><div class="page-wrap document-grid"><div><p class="section-kicker">01 · AI systems</p><h2>Odinn-Forge</h2></div><div class="document-copy"><p><strong>Problem.</strong> AI assistants often hide memory, tool use, and decisions behind a chat window.</p><p><strong>Work.</strong> A local-first assistant designed around inspectable memory, approved tools, and an auditable activity trail.</p><p><strong>Evidence.</strong> Public source, tests, and documentation show the current implementation and its boundaries.</p><a class="section-link" href="https://github.com/BlueDot-IT/Odinn-Forge" target="_blank" rel="noreferrer">Open public repository <span aria-hidden="true">↗</span></a></div></div></section>
+      <section class="document-section" id="ghostmcp"><div class="page-wrap document-grid"><div><p class="section-kicker">02 · Security engineering</p><h2>GhostMCP</h2></div><div class="document-copy"><p><strong>Problem.</strong> Security automation and agent tools are difficult to trust without strict authorization boundaries and auditable execution.</p><p><strong>Work.</strong> A hardened Model Context Protocol server featuring per-engagement capability manifests, fail-closed proxy routing, and tamper-evident audit logging.</p><p><strong>Evidence.</strong> Public source, tests, and documentation expose the security model, authorization controls, and runtime gates.</p><a class="section-link" href="https://github.com/BlueDot-IT/GhostMCP" target="_blank" rel="noreferrer">Open public repository <span aria-hidden="true">↗</span></a></div></div></section>
+      <section class="document-section alt" id="security-middleware"><div class="page-wrap document-grid"><div><p class="section-kicker">03 · Application security</p><h2>security-middleware</h2></div><div class="document-copy"><p><strong>Problem.</strong> Headers, CORS behavior, dependency checks, and security defaults are easy to scatter across an application.</p><p><strong>Work.</strong> Security linting middleware for Node.js and Next.js that brings those checks and developer feedback into one inspectable path.</p><p><strong>Evidence.</strong> Public source and test coverage show both the controls and the limits of what middleware can prove.</p><a class="section-link" href="https://github.com/BlueDot-IT/security-middleware" target="_blank" rel="noreferrer">Open public repository <span aria-hidden="true">↗</span></a></div></div></section>
+    </main>
+    <footer class="site-footer">
+      <a class="footer-brand" href="/"><span class="footer-dot" aria-hidden="true"></span>BlueDot IT</a>
+      <nav class="footer-nav" aria-label="Footer navigation"><a href="/services">Services</a><a href="/work">Work</a><a href="/about">About</a><a href="/process">Process</a><a href="/contact">Contact</a></nav>
+      <span class="footer-caption">© 2026 BlueDot IT, LLC · Build it. Secure it. Stay in control.</span>
+    </footer>
+  </div>
+  <script src="theme.js"></script>
+</body>
+</html>

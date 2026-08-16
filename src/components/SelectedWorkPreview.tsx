@@ -6,10 +6,10 @@ const selectedWork = [
     href: 'https://github.com/BlueDot-IT/Odinn-Forge',
   },
   {
-    name: 'DemonClaw',
+    name: 'GhostMCP',
     category: 'Security engineering',
-    description: 'A Rust-native security-focused agent runtime for controlled purple-team operations and tamper-evident evidence collection.',
-    href: 'https://github.com/BlueDot-IT/DemonClaw',
+    description: 'A hardened Model Context Protocol server for authorized assessments with per-engagement capability manifests, fail-closed proxy routing, and tamper-evident audit logging.',
+    href: 'https://github.com/BlueDot-IT/GhostMCP',
   },
   {
     name: 'security-middleware',
