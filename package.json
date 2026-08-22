@@ -15,7 +15,8 @@
     "test:integration": "tsx --test tests/rate-limit.integration.ts",
     "audit:prod": "node scripts/audit-prod.mjs",
     "verify:ai-indexing": "node scripts/verify-ai-indexing.mjs",
-    "optimize": "tsx scripts/optimize-images.ts"
+    "optimize": "tsx scripts/optimize-images.ts",
+    "weekly-blog": "tsx scripts/weekly-blog.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
