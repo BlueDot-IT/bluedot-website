@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import nodemailer from "bluedot-mailer";
 
 export function getTransporter() {
   return nodemailer.createTransport({

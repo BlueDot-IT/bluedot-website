@@ -164,8 +164,6 @@ the hardened application is started.
 - `npm run typecheck` — run the TypeScript compiler without emitting files
 - `npm test` — run security regression tests
 - `npm run audit:prod` — fail on high/critical production dependency advisories
-  except the documented, unreachable Nodemailer `raw`-message advisory until
-  NextAuth accepts a patched Nodemailer major
 - Prisma helpers:
   - `npx prisma studio`
   - `npx prisma migrate`
