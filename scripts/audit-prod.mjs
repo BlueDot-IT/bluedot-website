@@ -2,21 +2,7 @@ import { spawnSync } from "node:child_process";
 
 const severityRank = { info: 0, low: 1, moderate: 2, high: 3, critical: 4 };
 
-// next-auth@4 requires Nodemailer 7. The remaining high advisory requires an
-// attacker to supply Nodemailer's message-level `raw` option. src/lib/mail.ts
-// exposes a closed wrapper that accepts only to/subject/text/html/replyTo and
-// never forwards `raw`, attachments, URLs, or transport configuration.
-// Remove this exception as soon as next-auth permits nodemailer >=9.0.3.
-const allowedAdvisories = new Map([
-  [
-    "https://github.com/advisories/GHSA-p6gq-j5cr-w38f",
-    {
-      reason:
-        "Nodemailer raw-message file/URL access is unreachable through src/lib/mail.ts",
-      expires: "2026-10-31",
-    },
-  ],
-]);
+const allowedAdvisories = new Map();
 
 const audit = spawnSync("npm", ["audit", "--omit=dev", "--json"], {
   encoding: "utf8",
