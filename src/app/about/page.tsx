@@ -5,11 +5,11 @@ export const dynamic = "force-dynamic"
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Jason O’Neal is the founder and primary technical practitioner behind BlueDot IT, focused on secure full-stack applications, AI automation, developer infrastructure, and practical cybersecurity.',
+  description: 'Jason O’Neal is the founder and primary technical practitioner behind BlueDot IT and an active contributor to OpenClaw, focused on secure full-stack applications, AI automation, developer infrastructure, and practical cybersecurity.',
   alternates: { canonical: 'https://bluedot.it.com/about' },
   openGraph: {
     title: 'About Jason O’Neal | BlueDot IT',
-    description: 'Full-stack developer and security-focused systems builder specializing in AI automation.',
+    description: 'Full-stack developer, security-focused systems builder, and active OpenClaw contributor.',
     type: 'profile',
     url: 'https://bluedot.it.com/about',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'About Jason O’Neal and BlueDot IT' }],
@@ -35,7 +35,7 @@ export default function About() {
     url: 'https://bluedot.it.com/about',
     jobTitle: 'Founder and Principal Solutions Engineer',
     worksFor: { '@id': 'https://bluedot.it.com/#organization' },
-    knowsAbout: ['Security engineering', 'AI automation', 'Full-stack development', 'TypeScript', 'Python', 'Linux infrastructure'],
+    knowsAbout: ['Security engineering', 'AI automation', 'Full-stack development', 'TypeScript', 'Python', 'Linux infrastructure', 'OpenClaw'],
   }
 
   return (
@@ -45,7 +45,7 @@ export default function About() {
       <section className="sr2-page-hero">
         <div className="sr2-wrap sr2-page-hero-grid">
           <div><span className="sr2-kicker">Behind BlueDot IT</span><h1>Full-stack developer and security-focused systems builder.</h1></div>
-          <div className="sr2-page-hero-note"><p>I am Jason O&apos;Neal, founder of BlueDot IT. I have been building software since 2002, with current work focused on secure full-stack applications, AI agents and automation, developer infrastructure, and practical cybersecurity.</p><p>Based in North Carolina and working remotely.</p></div>
+          <div className="sr2-page-hero-note"><p>I am Jason O&apos;Neal, founder of BlueDot IT and an active contributor to OpenClaw. I have been building software since 2002, with current work focused on secure full-stack applications, AI agents and automation, developer infrastructure, and practical cybersecurity.</p><p>Based in North Carolina and working remotely.</p></div>
         </div>
       </section>
 

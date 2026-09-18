@@ -1,0 +1,320 @@
+/* The original five chapters continue into four new world locations. */
+.continuous-flow #journey { height: 1640svh; }
+.continuous-flow .stage { position: sticky; top: 0; }
+
+/* Compact in-stage destination overlays. The renderer owns .active and the
+   document owns the copy; no document-sized panel sits in the scroll path. */
+.destination {
+  position: absolute;
+  z-index: 2;
+  right: auto;
+  bottom: 132px;
+  left: var(--edge);
+  width: min(600px, 42vw);
+  max-width: 600px;
+  color: var(--white);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(24px);
+  transition: opacity .5s ease, visibility .5s ease, transform .5s ease;
+}
+.destination.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
+}
+.destination:focus { outline: none; }
+.destination:focus-visible {
+  outline: 2px solid #8ad5fc;
+  outline-offset: 12px;
+  border-radius: 6px;
+}
+.destination-copy { max-width: 590px; }
+.destination-overline {
+  margin: 0 0 23px;
+  color: #c3d3df;
+}
+.destination h2 {
+  margin: 0 0 23px;
+  color: var(--white);
+  font-size: clamp(52px, 5.7vw, 94px);
+  font-weight: 400;
+  letter-spacing: -.06em;
+  line-height: .92;
+  text-wrap: balance;
+}
+.destination h2 em {
+  display: block;
+  color: var(--ice);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: -.06em;
+}
+.destination .description {
+  max-width: 390px;
+  margin: 0 0 27px;
+  color: #d1dbe4;
+  font-size: clamp(13px, 1.06vw, 16px);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+.destination .actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.destination .pill { cursor: pointer; }
+
+/* The final locations are lit by the pale tomorrow landscape. Keep controls,
+   navigation, and chapter rail legible against it. */
+.in-destination .site-header {
+  color: #102e49;
+  background: linear-gradient(#dfebf4dd, #dfebf4a8 78%, transparent);
+}
+.in-destination .site-header nav { color: #315471; }
+.in-destination .site-header .brand-mark:after { background: #c6d8e8; }
+.in-destination .destination-overline { color: #45627a; }
+.in-destination .destination h2 { color: #102e49; }
+.in-destination .destination h2 em { color: #0066e6; }
+.in-destination .destination .description { color: #345570; }
+.in-destination .chapter-rail a:before { background: #52749466; }
+.in-destination .chapter-rail a.active:before { background: #005be2; box-shadow: 0 0 10px #005be288; }
+.in-destination .chapter-rail a:hover:before { background: #005be2; }
+.in-destination .chapter-rail:before { background: #436d9140; }
+.in-destination .scene-footer { color: #426580; }
+.in-destination .chapter-status,
+.in-destination .render-controls {
+  border: 1px solid #436d9140;
+  border-radius: 30px;
+  background: #e4eef5d9;
+  color: #315773;
+  padding: 9px 14px;
+}
+.in-destination #chapter-number { display: none; }
+.in-destination #motion,
+.in-destination #quality,
+.in-destination .quality-label { color: #315773; }
+.in-destination #motion:before { background: #0067e6; }
+.in-destination .mobile-nav { background: #e8f0f7; color: #193951; border-color: #789ab7; }
+.in-destination .scroll-invite:after { content: '↓'; color: #0067ed; }
+
+/* Color accents for the final five chapters */
+.in-tomorrow .tomorrow-rule { background: linear-gradient(90deg, #e65c00, #0067ed); }
+.in-tomorrow .expertise .eyebrow { color: #8c4210; }
+.in-tomorrow .capability-tab.selected:before { background: linear-gradient(90deg, #0067ed, #e65c00); }
+.in-tomorrow .tomorrow-cta { background: linear-gradient(135deg, #0052cc, #0077ed 60%, #e65c00); box-shadow: 0 9px 30px rgba(0, 103, 237, 0.35); }
+
+.in-destination .destination-services .destination-overline { color: #00769d; }
+.in-destination .destination-services h2 em { color: #0088cc; }
+.in-destination .destination-services .pill {
+  background: linear-gradient(135deg, #006da0, #0098cf);
+  box-shadow: 0 5px 22px rgba(0, 152, 207, 0.35);
+  border: 1px solid #00c0f040;
+}
+
+.in-destination .destination-research .destination-overline { color: #5f27c8; }
+.in-destination .destination-research h2 em { color: #6a24db; }
+.in-destination .destination-research .pill {
+  background: linear-gradient(135deg, #531bb3, #7535e6);
+  box-shadow: 0 5px 22px rgba(117, 53, 230, 0.35);
+  border: 1px solid #a370ff40;
+}
+
+.in-destination .destination-about .destination-overline { color: #0b754b; }
+.in-destination .destination-about h2 em { color: #088a56; }
+.in-destination .destination-about .pill {
+  background: linear-gradient(135deg, #057047, #0fa367);
+  box-shadow: 0 5px 22px rgba(15, 163, 103, 0.35);
+  border: 1px solid #2ae09540;
+}
+
+.in-destination .destination-contact .destination-overline { color: #b5380e; }
+.in-destination .destination-contact h2 em { color: #c43c0d; }
+.in-destination .destination-contact .pill {
+  background: linear-gradient(135deg, #b83d10, #e04f18);
+  box-shadow: 0 5px 22px rgba(224, 79, 24, 0.35);
+  border: 1px solid #ff7a4540;
+}
+
+/* Full public copy is available only on demand in the interactive path. */
+.destination-dialog {
+  position: fixed;
+  z-index: 30;
+  width: min(940px, calc(100% - 48px));
+  max-width: 940px;
+  max-height: min(90svh, 920px);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid #9bbad0;
+  border-radius: 8px;
+  background: var(--doc-mist, #e4eef5);
+  color: var(--doc-ink, #132a3c);
+  box-shadow: 0 30px 110px #0009;
+}
+.destination-dialog::backdrop {
+  background: #04101dbd;
+  backdrop-filter: blur(10px);
+}
+.destination-dialog .close {
+  position: absolute;
+  z-index: 3;
+  top: 14px;
+  right: 17px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #7897aa88;
+  border-radius: 50%;
+  background: #e4eef5ee;
+  color: #294b63;
+  font-size: 25px;
+  line-height: 1;
+}
+.destination-dialog .close:hover { background: white; }
+.destination-dialog .close:focus-visible {
+  outline: 2px solid #0051b8;
+  outline-offset: 4px;
+}
+.destination-dialog-content { min-height: 100%; }
+.destination-dialog-content .doc-hero {
+  background: radial-gradient(circle at 77% 25%, #1a5076 0, #0c2a44 27%, var(--doc-night, #07121f) 69%);
+}
+#services-dialog .destination-dialog-content .doc-hero {
+  background: radial-gradient(circle at 77% 25%, #0077b6 0, #0c3352 35%, var(--doc-night, #07121f) 72%);
+}
+#research-dialog .destination-dialog-content .doc-hero {
+  background: radial-gradient(circle at 77% 25%, #5b21b6 0, #24144d 35%, var(--doc-night, #07121f) 72%);
+}
+#about-dialog .destination-dialog-content .doc-hero {
+  background: radial-gradient(circle at 77% 25%, #047857 0, #0c3826 35%, var(--doc-night, #07121f) 72%);
+}
+#contact-dialog .destination-dialog-content .doc-hero {
+  background: radial-gradient(circle at 77% 25%, #c2410c 0, #4d1c07 35%, var(--doc-night, #07121f) 72%);
+}
+.destination-dialog-content .doc-hero-inner {
+  min-height: 330px;
+  padding: 76px 54px 58px;
+}
+.destination-dialog-content .doc-hero h2 {
+  max-width: 780px;
+  margin: 0;
+  color: var(--doc-white, #f5f7f9);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(48px, 6vw, 86px);
+  font-weight: 400;
+  letter-spacing: -.067em;
+  line-height: .93;
+}
+.destination-dialog-content .doc-section { padding: 66px 54px; }
+.destination-dialog-content .doc-section .doc-shell { width: 100%; }
+.destination-dialog-content .doc-section-heading { margin-bottom: 32px; }
+.destination-dialog-content .doc-card-grid { gap: 15px; }
+.destination-dialog-content .doc-card,
+.destination-dialog-content .research-card,
+.destination-dialog-content .process-card { min-height: 0; }
+.destination-dialog-content .doc-card { padding: 25px; }
+.destination-dialog-content .doc-split { gap: 55px; }
+.destination-dialog-content .research-list { gap: 46px; margin-top: 48px; }
+.destination-dialog-content .research-card { padding-bottom: 46px; }
+.destination-dialog-content .doc-form { padding: 25px; }
+.destination-dialog-content :is(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid #0051b8;
+  outline-offset: 4px;
+}
+
+/* The renderer exits early when WebGL is unavailable. Preserve a useful
+   reading order and leave each full destination available through its dialog. */
+.no-webgl #journey { height: auto !important; }
+.no-webgl .stage {
+  position: relative;
+  top: auto;
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
+  padding-bottom: 60px;
+}
+.no-webgl .destination {
+  position: relative;
+  inset: auto;
+  display: block;
+  width: min(700px, calc(100% - 52px));
+  max-width: 700px;
+  margin: 0 26px 90px;
+  transform: none;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.no-webgl .destination h2 { color: var(--white); }
+.no-webgl .destination-dialog { max-height: 90svh; }
+
+/* Destination dialogs are open by default for the no-JavaScript fallback;
+   the UI initializer closes them in the interactive experience. */
+@media print {
+  #journey, .site-header, .scene-footer, .spatial-site-links, dialog { display: none !important; }
+  .destination-dialog {
+    display: block !important;
+    position: relative;
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0 0 30px;
+    border: 0;
+    box-shadow: none;
+    overflow: visible;
+    page-break-inside: avoid;
+  }
+}
+
+@media (max-width: 1100px) {
+  .destination { width: min(540px, 48vw); }
+  .destination h2 { font-size: clamp(46px, 6vw, 76px); }
+}
+
+@media (max-width: 700px) {
+  .continuous-flow #journey { height: 1535svh; }
+  .destination {
+    right: 26px;
+    bottom: 119px;
+    left: 26px;
+    width: auto;
+    max-width: none;
+  }
+  .destination-overline { margin-bottom: 15px; }
+  .destination h2 {
+    margin-bottom: 17px;
+    font-size: clamp(44px, 12.5vw, 70px);
+    line-height: .94;
+  }
+  .destination h2 em { display: inline; }
+  .destination .description { max-width: 320px; margin-bottom: 20px; font-size: 12px; line-height: 1.6; }
+  .destination .actions { gap: 17px; }
+  .destination-dialog {
+    width: calc(100% - 24px);
+    max-height: 92svh;
+  }
+  .destination-dialog-content .doc-hero-inner { min-height: 280px; padding: 65px 23px 42px; }
+  .destination-dialog-content .doc-hero h2 { font-size: clamp(43px, 13vw, 64px); }
+  .destination-dialog-content .doc-section { padding: 52px 23px; }
+  .destination-dialog-content .doc-card-grid,
+  .destination-dialog-content .doc-split,
+  .destination-dialog-content .research-case-study,
+  .destination-dialog-content .doc-form-grid { grid-template-columns: 1fr; }
+  .destination-dialog-content .doc-card { padding: 22px; }
+  .destination-dialog-content .doc-form { padding: 19px; }
+  .destination-dialog-content .doc-field-full { grid-column: auto; }
+  .no-webgl .destination { width: auto; margin: 0 26px 75px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .destination { transition: none; }
+  .destination-dialog::backdrop { backdrop-filter: none; }
+}
+
+.in-destination .site-header > .pill { color: white; }
+.in-destination .destination .description { color: #23465f; }
+.in-destination .scroll-invite { color: #214961; }
+.in-destination .scene-tag { display: none; }
+.in-tomorrow .scroll-invite:after { content: '↓'; }
+.in-destination[data-chapter="8"] .scroll-invite:after { content: '↑'; }
+
+/* Prevent fallback dialogs from painting while the scene initializes. */
+.js .destination-dialog:not([data-initialized]) { display: none; }

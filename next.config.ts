@@ -16,6 +16,20 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "avatars.githubusercontent.com" },
     ],
   },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        { source: "/", destination: "/spatial/index.html" },
+        ...["work", "process"].map((page) => ({
+          source: `/${page}`, destination: `/spatial/${page}.html`,
+        })),
+        { source: "/spatial-documents.css", destination: "/spatial/documents.css" },
+        { source: "/spatial-contact.js", destination: "/spatial/contact.js" },
+      ],
+      afterFiles: [],
+      fallback: [],
+    };
+  },
   async headers() {
     return [
       {
@@ -49,6 +63,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      { source: "/projects", destination: "/work", permanent: true },
+      ...["services", "research", "about", "contact"].map((page) => ({
+        source: `/${page}`, destination: `/#${page}`, permanent: false,
+      })),
+      ...["services", "work", "about", "process", "contact", "research"].map((page) => ({
+        source: `/${page}.html`, destination: `/${page}`, permanent: true,
+      })),
       {
         source: "/security.txt",
         destination: "/.well-known/security.txt",
