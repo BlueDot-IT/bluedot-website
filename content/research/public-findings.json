@@ -1,0 +1,48 @@
+{
+  "reviewedAt": "2026-09-14",
+  "findings": [
+    {
+      "id": "browser-network-policy",
+      "project": "OpenClaw",
+      "title": "Browser CDP discovery network-policy bypass",
+      "ghsa": "GHSA-3x84-qq85-fj65",
+      "cve": "CVE-2026-62197",
+      "role": "Reporter",
+      "researcher": "Jason O'Neal",
+      "github": "jason-allen-oneal",
+      "publishedAt": "2026-06-30",
+      "cvePublishedAt": "2026-07-13",
+      "fixedVersion": "2026.6.6",
+      "summary": "Browser discovery could reach destinations prohibited by OpenClaw's network policy. Impact depended on configuration and whether lower-trust input could reach the affected feature.",
+      "boundary": "Network restrictions should apply to the destination selected during browser discovery.",
+      "failure": "The public advisory documents acceptance of WebSocket destinations that policy should have blocked.",
+      "contribution": "GitHub and the official CVE record credit Jason O'Neal as the reporter. These records do not establish fix authorship.",
+      "remediation": "The advisory identifies 2026.6.6 as the first stable patched version. The CVE and GHSA describe the same finding.",
+      "sources": [
+        { "label": "GitHub advisory and reporter credit", "url": "https://github.com/openclaw/openclaw/security/advisories/GHSA-3x84-qq85-fj65" },
+        { "label": "Official CVE record and reporter credit", "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/62xxx/CVE-2026-62197.json" }
+      ]
+    },
+    {
+      "id": "ios-diagnostic-credentials",
+      "project": "OpenClaw iOS",
+      "title": "Unattended credentials exposed in iOS diagnostic logs",
+      "ghsa": "GHSA-5j57-84cx-r295",
+      "cve": null,
+      "role": "Reporter",
+      "researcher": "Jason O'Neal",
+      "github": "jason-allen-oneal",
+      "publishedAt": "2026-09-11",
+      "cvePublishedAt": null,
+      "fixedVersion": "2026.8.11",
+      "summary": "Sensitive unattended-agent link data could enter diagnostic logs, exposing credentials to someone with access to those logs.",
+      "boundary": "Diagnostic output should not expose credentials used for unattended agent requests.",
+      "failure": "The public advisory documents logging of complete deep links, including a persistent credential and private request data.",
+      "contribution": "GitHub credits Jason O'Neal as the reporter. Reporter credit is distinct from developing or independently verifying the repair.",
+      "remediation": "The advisory identifies 2026.8.11 as the first stable patched version and advises rotating exposed keys and removing affected diagnostic archives. No CVE is listed in that advisory as of this review.",
+      "sources": [
+        { "label": "GitHub advisory and reporter credit", "url": "https://github.com/openclaw/openclaw/security/advisories/GHSA-5j57-84cx-r295" }
+      ]
+    }
+  ]
+}

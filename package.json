@@ -6,8 +6,8 @@
     "node": ">=20.9.0"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && ./scripts/fix-css.sh",
+    "dev": "python3 site/build.py && next dev",
+    "build": "python3 site/build.py && next build && ./scripts/fix-css.sh",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
@@ -16,7 +16,9 @@
     "audit:prod": "node scripts/audit-prod.mjs",
     "verify:ai-indexing": "node scripts/verify-ai-indexing.mjs",
     "optimize": "tsx scripts/optimize-images.ts",
-    "weekly-blog": "tsx scripts/weekly-blog.ts"
+    "weekly-blog": "tsx scripts/weekly-blog.ts",
+    "build:site": "python3 site/build.py",
+    "check:site": "python3 site/build.py --check"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

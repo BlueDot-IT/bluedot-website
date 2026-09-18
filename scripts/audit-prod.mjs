@@ -2,7 +2,40 @@ import { spawnSync } from "node:child_process";
 
 const severityRank = { info: 0, low: 1, moderate: 2, high: 3, critical: 4 };
 
-const allowedAdvisories = new Map();
+const allowedAdvisories = new Map([
+  [
+    "https://github.com/advisories/GHSA-p293-qw3h-jr36",
+    {
+      reason:
+        "Next.js Windows-only remote code execution advisory; production runs exclusively on Linux.",
+      expires: "2026-11-30",
+    },
+  ],
+  [
+    "https://github.com/advisories/GHSA-2xp9-vwfh-vxw4",
+    {
+      reason:
+        "Next.js AVIF image optimization vulnerability; AVIF processing is not used or exposed.",
+      expires: "2026-11-30",
+    },
+  ],
+  [
+    "https://github.com/advisories/GHSA-rgj7-g3m4-5g8c",
+    {
+      reason:
+        "sharp/libheif vulnerability; libheif decoding is not reachable in public application routes.",
+      expires: "2026-11-30",
+    },
+  ],
+  [
+    "https://github.com/advisories/GHSA-2x7j-588g-ccc2",
+    {
+      reason:
+        "Nodemailer addressparser complexity; mail wrapper validates single recipient email.",
+      expires: "2026-11-30",
+    },
+  ],
+]);
 
 const audit = spawnSync("npm", ["audit", "--omit=dev", "--json"], {
   encoding: "utf8",
