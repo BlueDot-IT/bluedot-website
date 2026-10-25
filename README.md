@@ -65,7 +65,7 @@ See it live:
 
 Requirements
 
-- Node.js 20.9+
+- Node.js 24.22.1 (see `.nvmrc`); supported security floors are listed in `package.json`
 - MySQL (local or remote)
 - npm, yarn, or pnpm
 
